@@ -1,0 +1,577 @@
+// General imports ------------------------------------------------------------
+
+@import 'base/config_global';
+@import 'base/functions';
+@import 'base/config_site';
+
+@import 'module/state';
+@import 'module/normalize';
+
+// Module imports -------------------------------------------------------------
+
+@import 'module/container';
+//@import 'module/font';
+@import 'module/text';
+@import 'module/reporting';
+//@import 'module/form';
+@import 'module/button';
+
+// Vendor imports -------------------------------------------------------------
+
+@import 'vendor/prism';
+
+// Border-box rules! ----------------------------------------------------------
+
+*,
+*:after,
+*:before
+{
+	box-sizing: border-box;
+}
+
+// Document -------------------------------------------------------------------
+//
+// The font-size is calculated as a % from the browser default of 16
+
+html,
+body
+{
+    font-family: $font-stack;
+    font-size: (strip($base-font-size) / 16 * 100) * 1%;
+    line-height: 1.5;
+    background-color: $white;
+    color: $darkest-teal;
+	height: 100%;
+
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+hr
+{
+	border: none;
+	border-top: 2px solid $light-blue;
+	margin: 0;
+}
+
+// Styles ---------------------------------------------------------------------
+
+//
+// GENERAL
+//
+
+header
+{
+	background: $white;
+	@include rem(padding, 15, 0);
+
+	@include media-max(449px)
+	{
+		text-align: center;
+	}
+}
+	.nav__logo
+	{
+		display: inline-block;
+		width: 89px;
+		height: 16px;
+		background: url(../images/headstart-logo-text.png) no-repeat left top;
+
+		@include highres()
+		{
+			background-image: url(../images/headstart-logo-text@2x.png);
+			background-size: 89px 16px;
+		}
+		@include media-max(449px)
+		{
+			display: block;
+			width: 100%;
+			background-position: center top;
+			@include rem(margin-bottom, 20);
+		}
+	}
+	.nav
+	{
+		@extend .is-cf;
+		
+		@include media-min(450px) { @include rem(margin-left, 30); }
+
+		ul, li
+		{
+			padding: 0;
+			margin: 0;
+		}
+		li:not(:last-child)
+		{
+			@include rem(margin-right, 20);
+		}
+		a
+		{
+			text-decoration: none;
+			&:hover, &.is-active { text-decoration: underline; }
+			&.is-active { @extend %is-bold; }
+		}
+	}
+	.nav,
+	.nav__logo
+	{ @include media-min(450px) { float: left; } }
+		.nav li
+		{
+			display: inline-block;
+			line-height: 1;
+
+			@include media-min(450px) { float: left; }
+
+			&:before { display: none; }
+		}
+	.nav__github-link
+	{
+		@include media-max(449px)
+		{
+			display: none;
+		}
+		@include media-min(450px)
+		{
+			float: right;
+			display: block;
+			width: 16px;
+			height: 16px;
+			background: url(../images/github-icon.png) no-repeat left top;
+		}
+		@include highres()
+		{
+			background-image: url(../images/github-icon@2x.png);
+			background-size: 16px 16px;
+		}
+	}
+
+.lead,
+.usp,
+.features,
+.open-source,
+.title-block,
+.getting-started,
+.html-guide,
+.css-guide,
+.js-guide,
+footer
+{ @include rem(padding, 50, 0); }
+	.container--usp > div,
+	.container--features > div
+	{
+		&:not(:last-child)
+		{
+			@include media-max($default-column-breakpoint - 1)
+			{
+				@include rem(margin-bottom, 50);
+			}
+		}
+	}
+.open-source
+{
+	p { text-align: center; }
+	p:first-child
+	{
+		@extend h3;
+		font-weight: bold;
+		@include column(6, false, 900px);
+
+		@include media-min($default-column-breakpoint)
+		{
+			margin-bottom: 0;
+			line-height: 116px; // size of largest icon; gulp in this case
+		}
+	}
+	p:last-child
+	{
+		@include column(6,true, 900px);
+		@include media-min($default-column-breakpoint) { margin-top: 0; }
+	}
+}
+	.open-source__sass,
+	.open-source__node,
+	.open-source__gulp
+	{
+		display: inline-block;
+		background: url(../images/open-source-logos.png) no-repeat;
+		vertical-align: middle;
+
+		&:not(:last-child) { @include rem(margin-right, 20); }
+
+		@include highres()
+		{
+			background-image: url(../images/open-source-logos@2x.png);
+			background-size: 425px 121px;
+		}
+	}
+	.open-source__sass
+	{
+		background-position: 0 0;
+		width: 96px;
+		height: 72px;
+	}
+	.open-source__node
+	{
+		background-position: -178px 0;
+		width: 186px;
+		height: 50px;
+	}
+	.open-source__gulp
+	{
+		background-position: -374px 0;
+		width: 51px;
+		height: 116px;
+	}
+
+footer
+{
+	text-align: center;
+	&, a { color: $black-50; }
+	p:first-child { @include rem(margin-bottom, 5); }
+}
+
+//
+// INDEX
+//
+
+.lead
+{
+	background: $teal url(../images/track-bg.jpg) no-repeat;
+	text-align: center;
+	color: $white;
+
+	@include highres() { background-image: url(../images/track-bg@2x.jpg); }
+	@include media-max(559px)
+	{
+		@include rem(padding, 50, 0);
+	}
+	@include media-min(560px)
+	{
+		@include rem(padding, 100, 0);
+	}
+	@include media-max(1289px)
+	{
+		background-size: auto 100%;
+		background-position: center top;
+	}
+	@include media-min(1290px)
+	{
+		background-size: 100% auto;
+		background-position: center top;
+	}
+
+	h1
+	{
+		color: $white;
+		font-size: em(28);
+		line-height: 1;
+		position: relative;
+
+		@include media-max(559px)
+		{
+			@include rem(padding-top, 117);
+		}
+		@include media-min(560px)
+		{
+			@include rem(padding-top, 235);
+		}
+
+		&:before
+		{
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			@include rem(margin-left, -20);
+			background: url(../images/headstart-logo-graphic.png) no-repeat center top;
+			background-size: 100% 100%;
+
+			@include highres() { background-image: url(../images/headstart-logo-graphic@2x.png); }
+			@include media-max(559px)
+			{
+				width: 115px;
+				height: 101px;
+			}
+			@include media-min(560px)
+			{
+				width: 239px;
+				height: 203px;
+			}
+		}
+	}
+	span
+	{
+		display: inline-block;
+		@include rem(margin, 0, 20);
+	}
+}
+	.lead__download-button,
+	.lead__github-button
+	{
+		@include media-max(559px)
+		{
+			display: block;
+		}
+		@include media-min(560px)
+		{
+			@include rem(min-width, 200);
+		}
+	}
+	.lead__download-button { @extend %button--darkest-teal; }
+	.lead__github-button { @extend %button--dark-teal; }
+
+.usp
+{
+	h2
+	{
+		border-bottom: 2px solid $light-blue;
+		@include rem(padding-bottom, 30);
+		@include rem(margin-bottom, 30);
+		text-align: center;
+	}
+}
+	.usp__up-and-running,
+	.usp__fragments,
+	.usp__optimizations
+	{
+		@include rem(padding-top, 140);
+
+		&:not(:last-child) { @include column(4); }
+		&:last-child { @include column(4,true); }
+
+		p { font-size: em(18); }
+	}
+	.usp__up-and-running
+	{
+		background: url(../images/chronometer-graphic.png) no-repeat center top;
+		@include highres()
+		{
+			background-image: url(../images/chronometer-graphic@2x.png);
+			background-size: 124px 117px;
+		}
+	}
+	.usp__fragments
+	{
+		background: url(../images/fragments-graphic.png) no-repeat center top;
+		@include highres()
+		{
+			background-image: url(../images/fragments-graphic@2x.png);
+			background-size: 124px 117px;
+		}
+	}
+	.usp__optimizations
+	{
+		background: url(../images/optimize-graphic.png) no-repeat center top;
+		@include highres()
+		{
+			background-image: url(../images/optimize-graphic@2x.png);
+			background-size: 94px 118px;
+		}
+	}
+
+.features
+{
+	p
+	{
+		@include media-max($default-column-breakpoint - 1)
+		{
+			font-size: em(18);
+		}
+	}
+}
+	.container--features > div
+	{
+		@include media-max(1049px)
+		{
+			&:nth-child(odd) { @include column(6); }
+			&:nth-child(even) { @include column(6,true); }
+			&:nth-child(-n + 2) { @include rem(margin-bottom, 50); }
+		}
+		@include media-min(1050px)
+		{
+			&:not(:last-child) { @include column(3); }
+			&:last-child { @include column(3,true); }
+		}
+	}
+
+//
+// SUB PAGE COMMON
+//
+
+.title-block
+{
+	background: $teal;
+	h1, h2, p
+	{
+		color: $white;
+		line-height: 1;
+	}
+	p { @extend %is-bold; }
+}
+
+%toc
+{
+	@include column(4);
+
+	@include media-max($default-column-breakpoint - 1)
+	{
+		@include rem(margin-bottom, 50);
+	}
+
+	li
+	{
+		&:before { display: none; }
+	}
+	a
+	{
+		display: block;	
+		text-decoration: none;
+
+		&:hover { text-decoration: underline; }
+	}
+}
+%page__content
+{
+	@include column(8,true);
+
+	hr { @include rem(margin, 50, 0); }
+}
+	.content__introduction
+	{
+		font-size: em(22);
+	}
+
+//
+// GETTING STARTED
+//
+
+.getting-started {}
+	.getting-started__sidebar { @extend %toc; }
+	.getting-started__content { @extend %page__content; }
+		.getting-started__download-wrapper { @extend %is-cf; }
+		.getting-started__download-main
+		{
+			@include column(6);
+			@include media-max($default-column-breakpoint - 1) { @include rem(margin-bottom, 20); }
+		}
+		.getting-started__download-lite
+		{
+			@include column(6, true);
+
+			p
+			{
+				@include media-max(939px)
+				{
+					@include rem(min-height, 72);
+				}
+			}
+		}
+			.getting-started__zip-button,
+			.getting-started__fork-button
+			{
+				display: block;
+				text-align: center;
+			}
+			.getting-started__zip-button
+			{
+				@extend %button--dark-teal;
+
+				& + span
+				{
+					display: block;
+					text-align: center;
+					@include rem(margin, 10, 0);
+				}
+			}
+			.getting-started__fork-button { @extend %button--dark-teal-stroke; }
+
+//
+// HTML GUIDE
+//
+
+.html-guide {}
+	.html-guide__sidebar { @extend %toc; }
+	.html-guide__content { @extend %page__content; }
+
+//
+// CSS GUIDE
+//
+
+.css-guide {}
+	.css-guide__sidebar { @extend %toc; }
+	.css-guide__content { @extend %page__content; }
+	.grid-example
+	{
+		margin-bottom: em(strip($base-font-size)*1.5);
+		
+		.row
+		{
+			@extend.is-cf;
+			
+			&:not(:last-child) { @include rem(margin-bottom, 5); }
+			& > *
+			{
+				text-align: center;
+				border: 1px solid $black-15;
+
+				@include media-max($default-column-breakpoint - 1) { &:not(:last-child) { @include rem(margin-bottom, 5); } }
+			}
+		}
+		.col-12 { @include column(12); }
+		.col-6
+		{
+			&:first-child { @include column(6); }
+			&:last-child { @include column(6, true); }
+		}
+		.col-4
+		{
+			&:not(:last-child) { @include column(4); }
+			&:last-child { @include column(4, true); }
+		}
+		.col-3
+		{
+			&:not(:last-child) { @include column(3); }
+			&:last-child { @include column(3, true); }
+		}
+		.col-2
+		{
+			&:not(:last-child) { @include column(2); }
+			&:last-child { @include column(2, true); }
+		}
+		.col-1
+		{
+			&:not(:last-child) { @include column(1); }
+			&:last-child { @include column(1, true); }
+		}
+	}
+
+//
+// JS GUIDE
+//
+
+.js-guide {}
+	.js-guide__sidebar { @extend %toc; }
+	.js-guide__content { @extend %page__content; }
+
+
+// IE10+ fixes ----------------------------------------------------------------
+
+// viewport fix
+// http://msdn.microsoft.com/en-us/library/ie/hh869615(v=vs.85).aspx
+@-ms-viewport { width: device-width; }
+@viewport { width: device-width; }
+
+// Touch-delay fix
+// http://msdn.microsoft.com/en-us/library/ie/hh772044(v=vs.85).aspx
+a,
+input,
+button { -ms-touch-action: none !important; }
+
+// Print ----------------------------------------------------------------------
+//
+// Inline to avoid the request
+
+@import 'module/print';
