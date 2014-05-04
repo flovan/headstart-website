@@ -29,6 +29,11 @@
 	box-sizing: border-box;
 }
 
+
+.is-hidden { @extend .is-hidden; }
+
+
+
 // Document -------------------------------------------------------------------
 //
 // The font-size is calculated as a % from the browser default of 16
@@ -125,26 +130,6 @@ header
 
 			&:before { display: none; }
 		}
-	.nav__github-link
-	{
-		@include media-max(449px)
-		{
-			display: none;
-		}
-		@include media-min(450px)
-		{
-			float: right;
-			display: block;
-			width: 16px;
-			height: 16px;
-			background: url(../images/github-icon.png) no-repeat left top;
-		}
-		@include highres()
-		{
-			background-image: url(../images/github-icon@2x.png);
-			background-size: 16px 16px;
-		}
-	}
 
 .lead,
 .usp,
@@ -302,26 +287,44 @@ footer
 			}
 		}
 	}
-	span
-	{
-		display: inline-block;
-		@include rem(margin, 0, 20);
-	}
 }
-	.lead__download-button,
-	.lead__github-button
+	.lead__download-button
 	{
+		@extend %button--darkest-teal;
 		@include media-max(559px)
 		{
 			display: block;
+			@include rem(margin-bottom, 15);
 		}
 		@include media-min(560px)
 		{
 			@include rem(min-width, 200);
 		}
 	}
-	.lead__download-button { @extend %button--darkest-teal; }
-	.lead__github-button { @extend %button--dark-teal; }
+	.lead__github-button {
+		// @extend won't work in @includ'ed media queries :(
+		@media screen and (max-width: 559px) {
+			display: block;
+			@extend %button--dark-teal;
+		}
+		@include media-min(560px)
+		{
+			position: absolute;
+			@include rem(top, 15);
+			@include rem(right, 15);
+			display: block;
+			width: 16px;
+			height: 16px;
+			background: url(../images/github-icon.png) no-repeat left top;
+
+			span { display: none; }
+		}
+		@include highres()
+		{
+			background-image: url(../images/github-icon@2x.png);
+			background-size: 16px 16px;
+		}
+	}
 
 .usp
 {

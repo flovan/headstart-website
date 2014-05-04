@@ -1,181 +1,214 @@
-        <!-- CSS will be injected below -->
-        
-        <!-- inject:css -->
-        <!-- endinject -->
+<header>
+    <div class="container--header">
+        <a href="index.html" class="nav__logo"><span class="is-hidden">Headstart</span></a>
+        <nav class="nav">
+            <ul>
+                <li><a class="is-active" href="getting-started.html">Getting started</a></li>
+                <li><a href="html-guide.html">HTML</a></li>
+                <li><a href="css-guide.html">CSS</a></li>
+                <li><a href="js-guide.html">JS</a></li>
+            </ul>
+        </nav>
+        <a href="https://github.com/flovan/headstart/" class="nav__github-link"><span class="is-hidden">View this project on Github</span></a>
+    </div>
+</header>
+<div class="title-block">
+    <div class="container--title-block">
+        <h1>Getting Started</h1>
+    </div>
+</div>
+<div class="getting-started">
+    <div class="container--getting-started">
+        <aside class="getting-started__sidebar">
+            <h3>Headstart Documentation</h3>
+            <h4><a href="getting-started.html">Getting Started</a></h4>
+            <ul>
+                <li><a href="getting-started.html#install">Installing</a></li>
+                <li><a href="getting-started.html#boilerplate">Base files</a></li>
+                <li><a href="getting-started.html#develop">Develop</a></li>
+                <li><a href="getting-started.html#structure">Structure</a></li>
+                <li><a href="getting-started.html#requirements">Requirements</a></li>
+            </ul>
+            <h4><a href="html-guide.html">HTML</a></h4>
+            <h4><a href="css-guide.html">CSS</a></h4>
+            <ul>
+                <li><a href="css-guide.html#structure">Folder structure</a></li>
+                <li><a href="css-guide.html#base">Base files</a></li>
+                <li><a href="css-guide.html#libs">Library files</a></li>
+                <li><a href="css-guide.html#mixin">Mixins</a></li>
+                <li><a href="css-guide.html#module">Modules</a></li>
+                <li><a href="css-guide.html#vendor">Vendor files</a></li>
+                <li><a href="css-guide.html#root">Root files</a></li>
+            </ul>
+            <h4><a href="js-guide.html">JS</a></h4>
+            <ul>
+                <li><a href="js-guide.html#structure">Folder structure</a></li>
+                <li><a href="js-guide.html#root">Root files</a></li>
+                <li><a href="js-guide.html#core">Core files</a></li>
+                <li><a href="js-guide.html#libs">Library files</a></li>
+            </ul>
+        </aside>
+        <div class="getting-started__content">
 
-    </head>  
-    <body>
+
+            <h1 id="install">Installing</h1>
+            <p class="report--info">Headstart runs on NodeJS and uses Sass for compilation. I you haven&#39;t installed those on your system, skip down to <a href="getting-started.html#requirements">the requirements</a>.</p>
+            <p>Open up your Command Line and install Headstart globally. If any errors are displayed, try running the command with <code class="language-none">sudo</code>.</p>
+            <pre class="language-none"><code>npm install -g headstart</code></pre>
 
 
-        <header>
-            <div class="container--header">
-                <a href="index.html" class="nav__logo"><span class="is-hidden">Headstart</span></a>
-                <nav class="nav">
-                    <ul>
-                        <li><a class="is-active" href="getting-started.html">Getting started</a></li>
-                        <li><a href="html-guide.html">HTML</a></li>
-                        <li><a href="css-guide.html">CSS</a></li>
-                        <li><a href="js-guide.html">JS</a></li>
-                    </ul>
-                </nav>
-                <a href="https://github.com/flovan/headstart/" class="nav__github-link"><span class="is-hidden">View this project on Github</span></a>
-            </div>
-        </header>
-        <div class="title-block">
-            <div class="container--title-block">
-                <h1>Getting Started</h1>
-            </div>
+            <hr id="boilerplate">
+            <h1>Base files</h1>
+            <p>Make a new directory somewhere and <code class="language-none">cd</code> into it:</p>
+            <pre class="language-none"><code>cd some/where
+mkdir myproject
+cd myproject</code></pre>
+            <p>Get the boilerplate files:</p>
+            <pre class="language-none"><code>headstart init</code></pre>
+            <p>Running <code class="language-none">init</code> will populate <code class="language-none">myproject</code> with the default boilerplate files. <!-- If you want to make changes to this setup, you can <a href="https://github.com/flovan/headstart-boilerplate">fork the boilerplate repo</a> and point to them with with the following flag and argument:</p>
+            <pre class="language-none"><code>headstart init --base gituser/repo</code></pre>
+            <p>Where <code class="language-none">gituser/repo</code> should be replaced with your username and repo. --></p>
+
+
+            <hr id="develop">
+            <h1>Develop</h1>
+            <p>Run the following command to make a build:</p>
+            <pre class="language-none"><code>headstart build</code></pre>
+            <p>By default, the building system will have made a new folder <code class="language-none">export</code> in your working directory. In here you will find a working set of files. Go ahead, open the <code class="language-none">index.html</code> page.</p>
+            <p>The building process can be further configured through the help of some flags. Lines starting with a <code class="language-none">#</code> are just comments.</p>
+            <pre class="language-none"><code><strong># Build the files continuously and serve them on a static url</strong><br>
+headstart build --serve
+
+<strong># The above, but open up a browser and an editor as well</strong><br>
+headstart build --serve --open --edit<br>
+<strong># Serve files without livereloading</strong>
+<strong># to prevent it from script-blocking</strong>
+<strong># the page while testing through your public IP</strong><br>
+headstart build --serve --nolr<br>
+<strong># Only build the assets, not the templates</strong><br>
+headstart build --onlyassets</code></pre>
+            <p>To make a production ready build, you can use the following flag:</p>
+            <pre class="language-none"><code>headstart build --production</code></pre>
+            <p>This will optimize, uglify, concatenate and minify files for you, and add in the <a href="getting-started.html#misc">miscellaneous files</a>, such as a <code class="language-none">.htaccess</code> file and a <code class="language-none">favicon.ico</code>.</p>
+
+
+            <hr id="structure">
+            <h1>Structure</h1>
+            <p>Headstart employs a clean folder structure, and manages the included bits and pieces for you. Here&#39;s what&#39;s included by default:</p>
+            <ul>
+                <li><code class="language-none">config.json</code> &#126; Settings used by the building engine.</li>
+                <li><code class="language-none">assets</code> &#126; Script, styles, images, etc.</li>
+                <li><code class="language-none">templates</code> &#126; HTML templates.</li>
+                <li><code class="language-none">misc</code> &#126; Loose files that should be public in the root directory.</li>
+                <li><code class="language-none">.jshintrc</code> &#126; Configuration for the syntax checker</li>
+            </ul>
+            <h3>Configuration</h3>
+            <p>The <code class="language-none">config.json</code> file enables you to customize the building engine on a per-project basis. Here is a (obviously invalid, but) commented version of that file:</p>
+            <pre class="language-javascript"><code>{
+    // Which browser to open when the flag --open is set
+    // Depending on your OS, this could also be:
+    // "google-chrome" or "chrome" or "google chrome"
+    "browser": "Google Chrome",
+
+    // Which editor to open when the flag --edit is set
+    // Depending on your OS and version, this could also be:
+    // "Sublime Text 2" or ... (no further tests done)
+    "editor": "Sublime Text",
+
+    // Minify your templates
+    // eg. remove comments, collapse whitespace, ...
+    "minifyHTML": false,
+
+    // Automatically prefix your CSS
+    "autoPrefix": true,
+
+    // Check your javascript syntax
+    "hint": true,
+
+    // Folder where the assets be built to
+    // Handy when the back-end serves them through a "public" folder
+    "export_assets": "export",
+
+    // Folder where the templates should be built to
+    // Handy when the back-end uses templating and a different renderer
+    // (Tested with a Laravell and NodeJS setup)
+    "export_templates": "export",
+
+    // Folder where the miscellaneous assets should be built to
+    // Usually identical to "export_assets"
+    "export_misc": "export",
+
+    // Assemple templates during build
+    // Turn this off when some other engine will do the assembly
+    "assemble_templates": true,
+
+    // Prefix injected script and link tags
+    // eg. "{{public}}/"
+    "template_asset_prefix": "",
+
+    // Settings the static file server uses
+    // to serve your project
+    "host": "localhost",
+    "port": "9000",
+    "lr": "35729"
+}</code></pre>
+            <h3>Assets</h3>
+            <p>The <code class="language-none">assets</code> folder contains your scripts, styles, images, and other files such as fonts, video, etc. By default, the following folders will be present:</p>
+            <ul>
+                <li><code class="language-none">images</code> &#126; Empty, aside from some placeholder icons.</li>
+                <li><code class="language-none">js</code> &#126; A basic setup to get you started. More on that in the <a href="js-guide.html">JS guide</a>.</li>
+                <li><code class="language-none">sass</code> &#126; A basic setup to get you started. More on that in the <a href="css-guide.html">CSS guide</a>.</li>
+            </ul>
+            <h3>Templates</h3>
+            <p>The <code class="language-none">templates</code> directory contains your HTML templates. More on that in the <a href="html-guide.html">HTML chapter</a>.</p>
+            <h3>Miscellaneous</h3>
+            <p>The <code class="language-none">misc</code> directory contains files which will only be added when making a production ready build with the <code class="language-none">--production</code> flag:</p>
+            <ul>
+                <li><code class="language-none">browserconfig.xml</code> &#126; A configuration file for Windows tiles.</li>
+                <li><code class="language-none">crossdomain.xml</code> &#126; A policy file to restrict access to assets.</li>
+                <li><code class="language-none">htaccess.txt</code> &#126; As <code class="language-none">.htaccess</code> files are hidden files, this file will get converted for you automatically. It adds support for webfont filetypes, and enables gzipping and caching for your assets.</li>
+                <li><code class="language-none">humans.txt</code> &#126; <em>We are people, not machines!</em> Read more on this <a href="http://humanstxt.org/">here</a>.</li>
+                <li><code class="language-none">robots.txt</code> &#126; A behaviour sheet for robots and content spiders. Read more <a href="http://www.robotstxt.org/">here</a>.</li>
+            </ul>
+
+
+            <hr id="requirements">
+            <h1>Requirements</h1>
+            <p>Since Headstart is built with open-source software, you are required to install a few things before you can get started. But that&#39;s only small trade-off for all the benefits you get!</p>
+            
+            <h3>Command Line</h3>
+            <p>Headstart can be used through a Command Line Interface (CLI). Depending on your Operating System, you will probably end up using one of following command line applications:</p>
+            <ul>
+                <li>OS X: <strong>Terminal.app</strong> &#126; Applications/Utilities</li>
+                <li>Windows: <strong>Command Prompt</strong> &#126; Start &gt; All Programs &gt; Accessories &gt; Command Prompt</li>
+                <li>Linux: <strong>Shell Prompt</strong> &#126; You&#39;re using Linux, so you know where it&#39;s at!</li>
+            </ul>
+            
+            <h3>Ruby</h3>
+            <p>Check if you have Ruby installed by running:</p>
+            <pre class="language-none"><code>ruby -v</code></pre>
+            <p>If any version of Ruby is printed out, you are good to go. If you see <code class="language-none">command not found</code> appear, you can <a href="https://www.ruby-lang.org/en/installation/" target="_blank">follow the instructions on this page</a> to install Ruby.</p>
+            
+            <h3>Sass</h3>
+            <p>If you already had Ruby installed, you can check if Sass has been installed by running:</p>
+            <pre class="language-none"><code>sass -v</code></pre>
+            <p>If any version of Sass is printed out, you are good to go. If you see <code class="language-none">command not found</code> appear, you can install Sass by running:</p>
+            <pre class="language-none"><code>gem install sass</code></pre>
+            
+            <h3>NodeJS and NPM</h3>
+            <p>NodeJS is what ties together the modules that make up Headstart. NPM (Node Packaged Modules) is the package manager that comes with Node.</p>
+            <p>You can <a href="http://nodejs.org/download/">download the appropriate installer through the website</a>.</p>
         </div>
-        <div class="getting-started">
-            <div class="container--getting-started">
-                <aside class="getting-started__sidebar">
-                    <h3>Headstart Documentation</h3>
-                    <h4><a href="getting-started.html">Getting Started</a></h4>
-                    <ul>
-                        <li><a href="getting-started.html#get">Get the files</a></li>
-                        <li><a href="getting-started.html#onetime">First-time setup</a></li>
-                        <li><a href="getting-started.html#everytime">Every-time setup</a></li>
-                        <li><a href="getting-started.html#config">Configuration</a></li>
-                        <li><a href="getting-started.html#structure">Structure</a></li>
-                        <li><a href="getting-started.html#use">Usage</a></li>
-                    </ul>
-                    <h4><a href="html-guide.html">HTML</a></h4>
-                    <h4><a href="css-guide.html">CSS</a></h4>
-                    <ul>
-                        <li><a href="css-guide.html#structure">Folder structure</a></li>
-                        <li><a href="css-guide.html#base">Base files</a></li>
-                        <li><a href="css-guide.html#libs">Library files</a></li>
-                        <li><a href="css-guide.html#mixin">Mixins</a></li>
-                        <li><a href="css-guide.html#module">Modules</a></li>
-                        <li><a href="css-guide.html#vendor">Vendor files</a></li>
-                        <li><a href="css-guide.html#root">Root files</a></li>
-                    </ul>
-                    <h4><a href="js-guide.html">JS</a></h4>
-                    <ul>
-                        <li><a href="js-guide.html#structure">Folder structure</a></li>
-                        <li><a href="js-guide.html#root">Root files</a></li>
-                        <li><a href="js-guide.html#core">Core files</a></li>
-                        <li><a href="js-guide.html#libs">Library files</a></li>
-                    </ul>
-                </aside>
-                <div class="getting-started__content">
-                    <p class="content__introduction">Setting up Headstart for your next project is easy as can be. If you&#39;re not familiar with a Command Line Interface (CLI), don&#39;t fear&mdash;just follow this easy guide and enjoy the ride!</p>
-                    <hr id="get">
-                    <h1>Get the files</h1>
-                    <p>To get started with your project, you need a fresh copy of the source files. First you need to decide if you want the Main or the Lite version of Headstart.</p>
-                    <div class="getting-started__download-wrapper">
-                        <div class="getting-started__download-main">
-                            <h3>Main version</h3>
-                            <p>Includes page-specific scripts and styles files, with a more advanced JS setup.</p>
-                            <a href="https://github.com/flovan/headstart/archive/master.zip" class="getting-started__zip-button">Download .zip</a>
-                            <span>or</span>
-                            <a href="https://github.com/flovan/headstart/" class="getting-started__fork-button">Fork Headstart at Github</a>
-                        </div>
-                        <div class="getting-started__download-lite">
-                            <h3>Lite version</h3>
-                            <p>Includes one main scripts and styles file, with a basic JS setup.</p>
-                            <a href="https://github.com/flovan/headstart-lite/archive/master.zip" class="getting-started__zip-button">Download .zip</a>
-                            <span>or</span>
-                            <a href="https://github.com/flovan/headstart-lite/" class="getting-started__fork-button">Fork Headstart Lite at Github</a>
-                        </div>
-                    </div>
-                    <hr id="onetime">
-                    <h1>First-time setup</h1>
-                    <p class="report--info">If this isn&#39;t the first time you&#39;re using Headstart on your machine, you can <a href="getting-started.html#everytime">skip to the next step</a>!</p>
-                    <p>Since this framework is built on open-source software, you are required to install a few things before you can get started. A small trade-off for not having to pay a dime, right?</p>
-                    <p>It might seem like a lot of work at first, but remember, you&#39; be saving time later on, and <strong>this setup only needs to be done once</strong>!</p>
-                    <h3>Command Line Interface (CLI)</h3>
-                    <p>You&#39;ll be using a CLI quite a lot since there is no GUI to use Headstart. Depending on your Operating System, you will probably end up with one of following:</p>
-                    <ul>
-                        <li>OS X: <strong>Terminal.app</strong> &#126; Applications/Utilities</li>
-                        <li>Windows: <strong>Command Prompt</strong> &#126; Start &gt; All Programs &gt; Accessories &gt; Command Prompt</li>
-                        <li>Linux: <strong>Shell Prompt</strong> &#126; Hell, you&#39;re using Linux, you tell me where it&#39;s at!</li>
-                    </ul>
-                    <p>So open that bad boy up and onwards we go!</p>
-                    <h3>Installing Ruby</h3>
-                    <p>Untill <a href="https://github.com/hcatlin/libsass">the C/C++ port of the Sass compiler</a> is fully featured, we have to rely on the original Ruby implementation to take care of the Scss compilation.</p>
-                    <p>OS X usually comes with Ruby installed, but you make sure by running <code class="language-none">ruby -v</code> in your CLI. If the result is any version of Ruby, you can continue to the next step!</p>
-                    <p>If you are presented with <code class="language-none">command not found</code>, you can <a href="https://www.ruby-lang.org/en/installation/" target="_blank">follow instructions on this page</a> to set it up.</p>
-                    <h3>Installing Sass</h3>
-                    <p>After confirming Ruby is installed, the next step is installing Sass. This is rather straightforward, and can be done by running <code class="language-none">gem install sass</code></p>
-                    <h3>Installing NodeJS and NPM</h3>
-                    <p>NodeJS is what ties together the modules that make up Headstart. NPM (Node Packaged Modules) is the package manager that comes with Node.</p>
-                    <p>You can <a href="http://nodejs.org/download/">download the appropriate installer through the website</a>.</p>
-                    <h3>Installing Gulp</h3>
-                    <p>Next up is Gulp. Gulp is a streaming build system, that makes it easy to hook up files to modules and back into files. It is a Node module itself, so installing it is a piece of cake.</p>
-                    <p>Run <code class="language-none">sudo npm install -g gulp</code> to install Gulp globally (that&#39;s what the <code class="language-none">-g</code> is for).</p>
-                    <p class="report--info">Running the commando in administrator mode by using <code class="language-none">sudo</code> will suppress possible errors. Don&#39;t forget to confirm with your user password when asked.</p>
-                    <h3>That&#39;s all folks!</h3>
-                    <p>Congrats on getting through that lengthy setup. Never again! Unless you&#39;ll be working on a different machine of course ;)</p>
-                    <hr id="everytime">
-                    <h1>Every-time setup</h1>
-                    <p>What? Another setup? Every time?</p>
-                    <p>Fear not, brave front-end developer, the routinely setup requires nothing but a quick NPM command.<br>Run <code class="language-none">sudo npm install</code> and watch the modules roll in.</p>
-                    <p>That&#39;s it? Yes! Just open up the files in your favourite editor and <a href="getting-started.html#use">start up the engine</a>.</p>
-                    <hr id="config">
-                    <h1>Configuration</h1>
-                    <p>There&#39;s room for a little configuration throughout the framework, though usually the only bits you&#39;d have to change on a per-project basis will be <a href="html-guide.html">HTML</a> or <a href="css-guide.html">CSS</a> related.</p>
-                    <h3>Global settings</h3>
-                    <p>Open up <code class="language-none">gulpfile.js</code> in the root directory. This file contains the code that does all the heavy lifting for you. It is commented throughout, though the only part you should bother touching would be the config, just below the required modules, at the top.</p>
-                    <hr id="structure">
-                    <h1>Structure</h1>
-                    <p>Headstart makes file management pretty dang easy, leaving you with a clean folder structure to get you thinking in fragments. <em>Did I include that js library in the HTML yet?</em> Is the file present in your libs folder? Then that&#39; all you have to do.</p>
-                    <p>Time to get acquainted some of the root files, and of course the <code class="language-none">assets</code> folder!</p>
-                    <h3>Root files</h3>
-                    <p>The root of the project contains a bunch of files, of which the following should be of your interest:</p>
-                    <ul>
-                        <li><code class="language-none">gulpfile.js</code> &#126; The code file that does the heavy lifting for you.</li>
-                        <li><code class="language-none">.htmlhintrc</code> &#126; Validation rules for the HTML.</li>
-                        <li><code class="language-none">.jshintrc</code> &#126; Validation rules for the JS.</li>
-                    </ul>
-                    <h3>HTML</h3>
-                    <p>The first subfolder of the <code class="language-none">app</code> directory is where the HTML lives. Read all about what is packaged by default in the <a href="html-guide.html">HTML chapter</a>.</p>
-                    <h3>Images</h3>
-                    <p>The <code class="language-none">images</code> folder is empty by default, with the exception of the <code class="language-none">icons</code> subfolder. In here you will see placeholder icon images that you can override with your own assets. They are only provided so you can easily remember what sizes you need.</p>
-                    <p class="report--info">Don&#39;t forget to remove the comments that surround the link and meta tags in the HTML. Otherwise updating the images with your assets will not yield any results.</p>
-                    <h3>Javascript</h3>
-                    <p>Read all about what is and isn&#39;t provided out of the box in the <a href="html-guide.html">JS chapter</a>.</p>
-                    <h3>Miscellaneous</h3>
-                    <p>Headstart comes with some default files (of which some will only be added at production runtime):</p>
-                    <ul>
-                        <li><code class="language-none">crossdomain.xml</code> &#126; By default other domains are not allowed to access any (nested) files that are hosted next to this file. A less restrictive policy is provided in comments as well.</li>
-                        <li><code class="language-none">favicon.ico</code> &#126; Not very straight forward to have an icon in this location, but IE doesn&#39;t understand PNG favicons. This is&mdash;unfortunately&mdash;the only way to support all IE versions.</li>
-                        <li><code class="language-none">htaccess.txt</code> &#126; Regular <code class="language-none">.htaccess</code> files are hidden files by default. During development and in production mode, this file is transformed into its working state. By default it adds support for webfont filetypes, and enables gzipping for HTML files and assets. There is also a part that will enable caching of files, though it is commented out for obvious reasons.</li>
-                        <li><code class="language-none">humans.txt</code> &#126; <em>We are people, not machines!</em> Read more on this <a href="http://humanstxt.org/">here</a>.</li>
-                        <li><code class="language-none">robots.txt</code> &#126; Tell robots if they can crawl through your content or not. Read more <a href="http://www.robotstxt.org/">here</a>.</li>
-                    </ul>
-                    <h3>Sass</h3>
-                    <p>If you aren&#39;t using <a href="http://sass-lang.com" title="Visit the Sass homepage">Sass or Scss</a> yet, you are really missing out! Read up on it if you haven&#39;t already! Read all about what Headstart offers (and what not!) in the <a href="html-guide.html">CSS chapter</a>.</p>
-                    <hr id="use">
-                    <h1>Usage</h1>
-                    <p>Can you feel the excitement in the air?</p>
-                    <p>Starting Headstart only takes one command. Remember Gulp, the streaming build system?<br>Kickstart the engine by running the following command in your CLI:</p>
-                    <p><code class="language-none">gulp</code></p>
-                    <p>Now watch as each task meticulously passes through the files. Then&mdash;a page opens. And you&#39;re off!<br/>Start adding in the HTML structure and watch the page refresh on each save. Add in your CSS and Javascript and wonder how you have ever managed to program without it.</p>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="open-source">
-            <div class="container--open-source">
-                <p>Headstart is built with open-source software:</p>
-                <p>
-                    <a class="open-source__sass" href="http://sass-lang.com" title="Visit the Sass homepage"><span class="is-hidden">Sass</span></a>
-                    <a class="open-source__node" href="http://nodejs.org" title="Visit the NodeJS homepage"><span class="is-hidden">NodeJS</span></a>
-                    <a class="open-source__gulp" href="http://gulpjs.com" title="Visit the Gulp homepage"><span class="is-hidden">Gulp</span></a>
-                </p>
-            </div>
-        </div>
-        <hr>
-        <footer>
-            <div class="container--footer">
-                <p>Hand-gardened code by <a href="http://flovan.me" title="Visit my website">Florian Vanthuyne</a>. Contribute to this project through the <a href="https://github.com/flovan/headstart/issues" title="Go check out the issues page">Github issues page</a>.</p>
-                <p>Endorsed and used by <a href="http://www.adagioagency.com" title="Visit the website of Adagio Agency">Adagio Agency</a>. Licensed under <a href="https://github.com/flovan/headstart/blob/master/LICENSE" title="Read the MIT license">MIT</a>. Check the <a href="https://github.com/flovan/headstart/commits/master" title="Take a look at the changelog">changelog</a>.</p>
-            </div>
-        </footer>
-
-
-        <!-- JS will be injected below -->
-
-        <!-- inject:js -->
-        <!-- endinject -->
+    </div>
+</div>
+<hr>
+<div class="open-source">
+    <div class="container--open-source">
+        <p>Headstart is built with open-source software:</p>
+        <p>
+            <a class="open-source__sass" href="http://sass-lang.com" title="Visit the Sass homepage"><span class="is-hidden">Sass</span></a>
+            <a class="open-source__node" href="http://nodejs.org" title="Visit the NodeJS homepage"><span class="is-hidden">NodeJS</span></a>
+            <a class="open-source__gulp" href="http://gulpjs.com" title="Visit the Gulp homepage"><span class="is-hidden">Gulp</span></a>
+        </p>
+    </div>
+</div>

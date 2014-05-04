@@ -1,372 +1,350 @@
-        <!-- CSS will be injected below -->
-        
-        <!-- inject:css -->
-        <!-- endinject -->
-
-    </head>  
-    <body>
-
-
-        <header>
-            <div class="container--header">
-                <a href="index.html" class="nav__logo"><span class="is-hidden">Headstart</span></a>
-                <nav class="nav">
-                    <ul>
-                        <li><a href="getting-started.html">Getting started</a></li>
-                        <li><a href="html-guide.html">HTML</a></li>
-                        <li><a class="is-active" href="css-guide.html">CSS</a></li>
-                        <li><a href="js-guide.html">JS</a></li>
-                    </ul>
-                </nav>
-                <a href="https://github.com/flovan/headstart/" class="nav__github-link"><span class="is-hidden">View this project on Github</span></a>
-            </div>
-        </header>
-        <div class="title-block">
-            <div class="container--title-block">
-                <h1>Cascading Style Sheets Guide</h1>
-            </div>
-        </div>
-        <div class="css-guide">
-            <div class="container--css-guide">
-                <aside class="css-guide__sidebar">
-                    <h3>Headstart Documentation</h3>
-                    <h4><a href="getting-started.html">Getting Started</a></h4>
-                    <ul>
-                        <li><a href="getting-started.html#get">Get the files</a></li>
-                        <li><a href="getting-started.html#onetime">First-time setup</a></li>
-                        <li><a href="getting-started.html#everytime">Every-time setup</a></li>
-                        <li><a href="getting-started.html#config">Configuration</a></li>
-                        <li><a href="getting-started.html#structure">Structure</a></li>
-                        <li><a href="getting-started.html#use">Usage</a></li>
-                    </ul>
-                    <h4><a href="html-guide.html">HTML</a></h4>
-                    <h4><a href="css-guide.html">CSS</a></h4>
-                    <ul>
-                        <li><a href="css-guide.html#structure">Folder structure</a></li>
-                        <li><a href="css-guide.html#base">Base files</a></li>
-                        <li><a href="css-guide.html#libs">Library files</a></li>
-                        <li><a href="css-guide.html#mixin">Mixins</a></li>
-                        <li><a href="css-guide.html#module">Modules</a></li>
-                        <li><a href="css-guide.html#vendor">Vendor files</a></li>
-                        <li><a href="css-guide.html#root">Root files</a></li>
-                    </ul>
-                    <h4><a href="js-guide.html">JS</a></h4>
-                    <ul>
-                        <li><a href="js-guide.html#structure">Folder structure</a></li>
-                        <li><a href="js-guide.html#root">Root files</a></li>
-                        <li><a href="js-guide.html#core">Core files</a></li>
-                        <li><a href="js-guide.html#libs">Library files</a></li>
-                    </ul>
-                </aside>
-                <div class="css-guide__content language-css">
-                    <p class="content__introduction">The CSS included in Headstart is powered by <a href="http://sass-lang.com/">Sass</a>, and forces next to no default styles into your workflow. With just a few easy to use mixins and functions you can make any kind of layout happen!</p>
-                    <hr id="structure">
-                    <h1>Folder structure</h1>
-                    <p>Inside of the <code class="language-none">app</code> folder you will find the <code class="language-none">sass</code> folder. This framework uses the <strong>SCSS</strong> syntax by default, as it resembles good ol&#39; CSS and makes it easier to include regular css files (albeit with a different extension). Feel free however to put in your own Sass files, if you&#39;re already satisfied with your setup. Headstart supports both <code class="language-none">.scss</code> and <code class="language-none">.sass</code> files, as long as they are placed inside of the <code class="language-none">sass</code> folder.</p>
-                    <p>Great Sass comes with great responsibility. By separating the responsibility of your styles into named chunks, finding out where a certain style might be getting applied becomes a lot easier. This is the setup that you are presented with by default:</p>
-                    <ul>
-                        <li><a href="css-guide.html#base">./base</a> &#126; Files that do not generate CSS on their own.</li>
-                        <li><a href="css-guide.html#mixin">./mixin</a> &#126; CSS generating modules.</li>
-                        <li><a href="css-guide.html#module">./module</a> &#126; Chunks of styles that are separated because of their specific purposes.</li>
-                        <li><a href="css-guide.html#vendor">./vendor</a> &#126; All third-party CSS that comes with eg. plugins.</li>
-                        <li><a href="css-guide.html#root">./</a> &#126; The root files combine the different chunks and contain other, loose styles.</li>
-                    </ul>
-                    <hr id="base">
-                    <h1>Base files</h1>
-                    <p>All files in these folder don&#39; actually generate CSS on their own.</p>
-                    <h3>_config_global.scss</h3>
-                    <p>The global config file is something you usually won&#39;t have to change a lot. If you are used to using a <a href="css-guide.html#libs">library</a>, you can import those here.</p>
-                    <p>This is also where a bunch of high-level variables can be configured to your likings:</p>
-                    <ul>
-                        <li><code>$base-font-size</code> &#126; Defaults to <code>16px</code>, the <em>de facto</em> browser font size.</li>
-                        <li><code>$total-columns</code> &#126; Defaults to 12, which devides easily for 2-, 3- and 4-column layouts.</li>
-                        <li><code>$default-gutter-width</code> &#126; Defaults to 5% and adds fluid spacing in between columns.</li>
-                        <li><code>$default-column-breakpoint</code> &#126; Defaults to <code>650px</code> and indicates which space will make columns start floating.</li>
-                        <li><code>$max-container-width</code> &#126; The maximum width a container can be.</li>
-                        <li><code>$min-page-padding</code> &#126; When the available space is less wide than the <code class="language-none">$max-container-width</code>, this is the amount of side-padding that will be added.</li>
-                    </ul>
-                    <p>At the end of this file, all mixins and functions are being imported to make them available for all files that import this config later on.</p>
-                    <p class="report--info">Don&#39;t forget that your files will be getting auto-prefixed. If you have been using Compass for vendor-prefix purposes, consider switching to regular CSS3. Otherwise, turn of this feature in the <code class="languag-none">gulpfile.js</code>&#39;s config.</p>
-                    <h3>_config_site.scss</h3>
-                    <p>This file defines variables that pertain to project specific settings, such as <strong>accent colors</strong>, <strong>shades of black/white</strong> and the <strong>font-stack</strong>. The latter defaulting to a solid, cross-browser sans-serif setup:</p>
-                    <pre><code>$font-stack: Helvetica Neue, Helvetica, Verdana, Roboto, sans-serif;</code></pre>
-                    <h3>_functions.scss</h3>
-                    <p>Some bare-bones functions that will really come in handy:</p>
-                    <ul>
-                        <li><code>strip($number)</code> &#126; Will string the unit from a passed value.</li>
-                        <li><code>em($target, $context: $base-font-size)</code> &#126; Generates <code>em</code> values from a number. Supports negatives as well. The <code>$context</code> variable is used as base value during calculations.</li>
-                        <li><code>rem($target)</code> &#126; Generates <code>rem</code> values with <code>px</code> fallbacks from a number. Also supports negatives.</li>
-                        <li><code>tint($color, $percent)</code> &#126; Will lighten a color with a percentage of white.</li>
-                        <li><code>darken($color, $percent)</code> &#126; Will darken a color with a percentage of black.</li>
-                    </ul>
-                    <hr id="libs">
-                    <h1>Library files</h1>
-                    <p>If you want to use a library, put the files in here, then import them through the <code class="language-none">_config_global.scss</code> file as mentioned in the <a href="css-guide.html#base">base files</a> section.</p>
-                    <p>A few examples:</p>
-                    <ul>
-                        <li><a href="http://bourbon.io">Bourbon</a> &#126; Library files over <a href="https://github.com/thoughtbot/bourbon/tree/master/dist">here</a>.</li>
-                        <li><a href="http://compass-style.org">Compass</a> &#126; Library files over <a href="https://github.com/chriseppstein/compass/tree/stable/frameworks/compass/stylesheets">here</a>.</li>
-                        <li><a href="http://www.bookcasey.com/harsh/">Harsh</a> &#126; Requires Compass. Library files over <a href="https://github.com/bookcasey/harsh/tree/master/stylesheets">here</a>.</li>
-                        <li><a href="http://davidtheclark.github.io/scut/">SCUT</a> &#126; Library files over <a href="https://github.com/davidtheclark/scut/tree/master/dist">here</a>.</li>
-                        <li><a href="http://susy.oddbird.net">Susy</a> &#126; Library files over <a href="https://github.com/ericam/susy/tree/master/sass">here</a>.</li>
-                        <li><a href="http://bootflat.github.io">Bootflat</a> &#126; Library files over <a href="https://github.com/bootflat/bootflat.github.io/tree/master/bootflat/scss">here</a>.</li>
-                    </ul>
-                    <p class="report--info">You can find even more libraries on <a href="http://cssdb.co">this page</a>. Note that not all libraries can be used, as some require being imported by the Compass framework, which depends on the Ruby implementation of Sass, which will be replaced by the <a href="https://github.com/hcatlin/libsass">Libsass</a> C++ implementation once it is fully-featured.</p>
-                    <hr id="mixin">
-                    <h1>Mixins</h1>
-                    <p>Mixins will generate pieces of code so they can be reused easily.</p>
-                    <h3>_all.scss</h3>
-                    <p>A wrapper for easily importing all available mixin modules at once. This file gets imported into <code class="language-none">_config_global.scss</code> by default.</p>
-                    <h3>_grid.scss</h3>
-                    <p>The grid module allows you to easily make auto-collapsing columns.</p>
-                    <pre><code>/* column($columns, $end: false, $break: $default-column-breakpoint, $context: $total-columns) */
+<header>
+    <div class="container--header">
+        <a href="index.html" class="nav__logo"><span class="is-hidden">Headstart</span></a>
+        <nav class="nav">
+            <ul>
+                <li><a href="getting-started.html">Getting started</a></li>
+                <li><a href="html-guide.html">HTML</a></li>
+                <li><a class="is-active" href="css-guide.html">CSS</a></li>
+                <li><a href="js-guide.html">JS</a></li>
+            </ul>
+        </nav>
+        <a href="https://github.com/flovan/headstart/" class="nav__github-link"><span class="is-hidden">View this project on Github</span></a>
+    </div>
+</header>
+<div class="title-block">
+    <div class="container--title-block">
+        <h1>Cascading Style Sheets Guide</h1>
+    </div>
+</div>
+<div class="css-guide">
+    <div class="container--css-guide">
+        <aside class="css-guide__sidebar">
+            <h3>Headstart Documentation</h3>
+            <h4><a href="getting-started.html">Getting Started</a></h4>
+            <ul>
+                <li><a href="getting-started.html#install">Installing</a></li>
+                <li><a href="getting-started.html#boilerplate">Base files</a></li>
+                <li><a href="getting-started.html#develop">Develop</a></li>
+                <li><a href="getting-started.html#structure">Structure</a></li>
+                <li><a href="getting-started.html#requirements">Requirements</a></li>
+            </ul>
+            <h4><a href="html-guide.html">HTML</a></h4>
+            <h4><a href="css-guide.html">CSS</a></h4>
+            <ul>
+                <li><a href="css-guide.html#structure">Folder structure</a></li>
+                <li><a href="css-guide.html#base">Base files</a></li>
+                <li><a href="css-guide.html#libs">Library files</a></li>
+                <li><a href="css-guide.html#mixin">Mixins</a></li>
+                <li><a href="css-guide.html#module">Modules</a></li>
+                <li><a href="css-guide.html#vendor">Vendor files</a></li>
+                <li><a href="css-guide.html#root">Root files</a></li>
+            </ul>
+            <h4><a href="js-guide.html">JS</a></h4>
+            <ul>
+                <li><a href="js-guide.html#structure">Folder structure</a></li>
+                <li><a href="js-guide.html#root">Root files</a></li>
+                <li><a href="js-guide.html#core">Core files</a></li>
+                <li><a href="js-guide.html#libs">Library files</a></li>
+            </ul>
+        </aside>
+        <div class="css-guide__content language-css">
+            <p class="report--warning">This page will be updated soon-ish. Most of it is still applicable though.</p>
+            <p class="content__introduction">The CSS included in Headstart is powered by <a href="http://sass-lang.com/">Sass</a>, and forces next to no default styles into your workflow. With just a few easy to use mixins and functions you can make any kind of layout happen!</p>
+            <hr id="structure">
+            <h1>Folder structure</h1>
+            <p>Inside of the <code class="language-none">app</code> folder you will find the <code class="language-none">sass</code> folder. This framework uses the <strong>SCSS</strong> syntax by default, as it resembles good ol&#39; CSS and makes it easier to include regular css files (albeit with a different extension). Feel free however to put in your own Sass files, if you&#39;re already satisfied with your setup. Headstart supports both <code class="language-none">.scss</code> and <code class="language-none">.sass</code> files, as long as they are placed inside of the <code class="language-none">sass</code> folder.</p>
+            <p>Great Sass comes with great responsibility. By separating the responsibility of your styles into named chunks, finding out where a certain style might be getting applied becomes a lot easier. This is the setup that you are presented with by default:</p>
+            <ul>
+                <li><a href="css-guide.html#base">./base</a> &#126; Files that do not generate CSS on their own.</li>
+                <li><a href="css-guide.html#mixin">./mixin</a> &#126; CSS generating modules.</li>
+                <li><a href="css-guide.html#module">./module</a> &#126; Chunks of styles that are separated because of their specific purposes.</li>
+                <li><a href="css-guide.html#vendor">./vendor</a> &#126; All third-party CSS that comes with eg. plugins.</li>
+                <li><a href="css-guide.html#root">./</a> &#126; The root files combine the different chunks and contain other, loose styles.</li>
+            </ul>
+            <hr id="base">
+            <h1>Base files</h1>
+            <p>All files in these folder don&#39; actually generate CSS on their own.</p>
+            <h3>_config_global.scss</h3>
+            <p>The global config file is something you usually won&#39;t have to change a lot. If you are used to using a <a href="css-guide.html#libs">library</a>, you can import those here.</p>
+            <p>This is also where a bunch of high-level variables can be configured to your likings:</p>
+            <ul>
+                <li><code>$base-font-size</code> &#126; Defaults to <code>16px</code>, the <em>de facto</em> browser font size.</li>
+                <li><code>$total-columns</code> &#126; Defaults to 12, which devides easily for 2-, 3- and 4-column layouts.</li>
+                <li><code>$default-gutter-width</code> &#126; Defaults to 5% and adds fluid spacing in between columns.</li>
+                <li><code>$default-column-breakpoint</code> &#126; Defaults to <code>650px</code> and indicates which space will make columns start floating.</li>
+                <li><code>$max-container-width</code> &#126; The maximum width a container can be.</li>
+                <li><code>$min-page-padding</code> &#126; When the available space is less wide than the <code class="language-none">$max-container-width</code>, this is the amount of side-padding that will be added.</li>
+            </ul>
+            <p>At the end of this file, all mixins and functions are being imported to make them available for all files that import this config later on.</p>
+            <p class="report--info">Don&#39;t forget that your files will be getting auto-prefixed. If you have been using Compass for vendor-prefix purposes, consider switching to regular CSS3. Otherwise, turn of this feature in the <code class="languag-none">gulpfile.js</code>&#39;s config.</p>
+            <h3>_config_site.scss</h3>
+            <p>This file defines variables that pertain to project specific settings, such as <strong>accent colors</strong>, <strong>shades of black/white</strong> and the <strong>font-stack</strong>. The latter defaulting to a solid, cross-browser sans-serif setup:</p>
+            <pre><code>$font-stack: Helvetica Neue, Helvetica, Verdana, Roboto, sans-serif;</code></pre>
+            <h3>_functions.scss</h3>
+            <p>Some bare-bones functions that will really come in handy:</p>
+            <ul>
+                <li><code>strip($number)</code> &#126; Will string the unit from a passed value.</li>
+                <li><code>em($target, $context: $base-font-size)</code> &#126; Generates <code>em</code> values from a number. Supports negatives as well. The <code>$context</code> variable is used as base value during calculations.</li>
+                <li><code>rem($target)</code> &#126; Generates <code>rem</code> values with <code>px</code> fallbacks from a number. Also supports negatives.</li>
+                <li><code>tint($color, $percent)</code> &#126; Will lighten a color with a percentage of white.</li>
+                <li><code>darken($color, $percent)</code> &#126; Will darken a color with a percentage of black.</li>
+            </ul>
+            <hr id="libs">
+            <h1>Library files</h1>
+            <p>If you want to use a library, put the files in here, then import them through the <code class="language-none">_config_global.scss</code> file as mentioned in the <a href="css-guide.html#base">base files</a> section.</p>
+            <p>A few examples:</p>
+            <ul>
+                <li><a href="http://bourbon.io">Bourbon</a> &#126; Library files over <a href="https://github.com/thoughtbot/bourbon/tree/master/dist">here</a>.</li>
+                <li><a href="http://compass-style.org">Compass</a> &#126; Library files over <a href="https://github.com/chriseppstein/compass/tree/stable/frameworks/compass/stylesheets">here</a>.</li>
+                <li><a href="http://www.bookcasey.com/harsh/">Harsh</a> &#126; Requires Compass. Library files over <a href="https://github.com/bookcasey/harsh/tree/master/stylesheets">here</a>.</li>
+                <li><a href="http://davidtheclark.github.io/scut/">SCUT</a> &#126; Library files over <a href="https://github.com/davidtheclark/scut/tree/master/dist">here</a>.</li>
+                <li><a href="http://susy.oddbird.net">Susy</a> &#126; Library files over <a href="https://github.com/ericam/susy/tree/master/sass">here</a>.</li>
+                <li><a href="http://bootflat.github.io">Bootflat</a> &#126; Library files over <a href="https://github.com/bootflat/bootflat.github.io/tree/master/bootflat/scss">here</a>.</li>
+            </ul>
+            <p class="report--info">You can find even more libraries on <a href="http://cssdb.co">this page</a>. Note that not all libraries can be used, as some require being imported by the Compass framework, which depends on the Ruby implementation of Sass, which will be replaced by the <a href="https://github.com/hcatlin/libsass">Libsass</a> C++ implementation once it is fully-featured.</p>
+            <hr id="mixin">
+            <h1>Mixins</h1>
+            <p>Mixins will generate pieces of code so they can be reused easily.</p>
+            <h3>_all.scss</h3>
+            <p>A wrapper for easily importing all available mixin modules at once. This file gets imported into <code class="language-none">_config_global.scss</code> by default.</p>
+            <h3>_grid.scss</h3>
+            <p>The grid module allows you to easily make auto-collapsing columns.</p>
+            <pre><code>/* column($columns, $end: false, $break: $default-column-breakpoint, $context: $total-columns) */
 
 aside {
-    /* Make it float left and take up 4 of 12 columns */
-    @include column(4);
+/* Make it float left and take up 4 of 12 columns */
+@include column(4);
 }
 article {
-    /* Make it close the row by floating right and taking up 8 columns */
-    @include column(8, true);
+/* Make it close the row by floating right and taking up 8 columns */
+@include column(8, true);
 }</code></pre>
-                    <p>By default, a column will start being a column when the available width is at least <code>$default-column-breakpoint</code> or <code>650px</code>, which gets defined in the <a href="css-guide.html#base">base files</a>.</p>
-                    <div class="grid-example">
-                        <div class="row">
-                            <div class="col-12">12 columns</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">6 columns</div>
-                            <div class="col-6">6 columns</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-4">4 columns</div>
-                            <div class="col-4">4 columns</div>
-                            <div class="col-4">4 columns</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">3 columns</div>
-                            <div class="col-3">3 columns</div>
-                            <div class="col-3">3 columns</div>
-                            <div class="col-3">3 columns</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">2</div>
-                            <div class="col-2">2</div>
-                            <div class="col-2">2</div>
-                            <div class="col-2">2</div>
-                            <div class="col-2">2</div>
-                            <div class="col-2">2</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-1">1</div>
-                            <div class="col-1">1</div>
-                            <div class="col-1">1</div>
-                            <div class="col-1">1</div>
-                            <div class="col-1">1</div>
-                            <div class="col-1">1</div>
-                            <div class="col-1">1</div>
-                            <div class="col-1">1</div>
-                            <div class="col-1">1</div>
-                            <div class="col-1">1</div>
-                            <div class="col-1">1</div>
-                            <div class="col-1">1</div>
-                        </div>
-                    </div>
-                    <p>You can also have multiple column settings by wrapping the styles in media queries (more on those in the next chapter):</p>
-                    <pre><code>/* Suppose you have 4 divs with content */
+            <p>By default, a column will start being a column when the available width is at least <code>$default-column-breakpoint</code> or <code>650px</code>, which gets defined in the <a href="css-guide.html#base">base files</a>.</p>
+            <div class="grid-example">
+                <div class="row">
+                    <div class="col-12">12 columns</div>
+                </div>
+                <div class="row">
+                    <div class="col-6">6 columns</div>
+                    <div class="col-6">6 columns</div>
+                </div>
+                <div class="row">
+                    <div class="col-4">4 columns</div>
+                    <div class="col-4">4 columns</div>
+                    <div class="col-4">4 columns</div>
+                </div>
+                <div class="row">
+                    <div class="col-3">3 columns</div>
+                    <div class="col-3">3 columns</div>
+                    <div class="col-3">3 columns</div>
+                    <div class="col-3">3 columns</div>
+                </div>
+                <div class="row">
+                    <div class="col-2">2</div>
+                    <div class="col-2">2</div>
+                    <div class="col-2">2</div>
+                    <div class="col-2">2</div>
+                    <div class="col-2">2</div>
+                    <div class="col-2">2</div>
+                </div>
+                <div class="row">
+                    <div class="col-1">1</div>
+                    <div class="col-1">1</div>
+                    <div class="col-1">1</div>
+                    <div class="col-1">1</div>
+                    <div class="col-1">1</div>
+                    <div class="col-1">1</div>
+                    <div class="col-1">1</div>
+                    <div class="col-1">1</div>
+                    <div class="col-1">1</div>
+                    <div class="col-1">1</div>
+                    <div class="col-1">1</div>
+                    <div class="col-1">1</div>
+                </div>
+            </div>
+            <p>You can also have multiple column settings by wrapping the styles in media queries (more on those in the next chapter):</p>
+            <pre><code>/* Suppose you have 4 divs with content */
 /* Example code that is actually used on the homepage */
 
 div {
-    /* Setup a 2 column layout */
-    /* Starting at 650px (default) up to 1049px */
-    @include media-max(1049px)
-    {
-        /* Odd columns (1,3,5,...) will float left */
-        &:nth-child(odd) { @include column(6); }
-        /* Even columns (2,4,6,...) will float right */
-        &:nth-child(even) { @include column(6,true); }
-        /* First two blocks push down */
-        &:nth-child(-n + 2) { margin-bottom: rem(50); }
-    }
+/* Setup a 2 column layout */
+/* Starting at 650px (default) up to 1049px */
+@include media-max(1049px)
+{
+/* Odd columns (1,3,5,...) will float left */
+&:nth-child(odd) { @include column(6); }
+/* Even columns (2,4,6,...) will float right */
+&:nth-child(even) { @include column(6,true); }
+/* First two blocks push down */
+&:nth-child(-n + 2) { margin-bottom: rem(50); }
+}
 
-    /* Set up a 4 column layout */
-    /* Starting at 1050px */
-    @include media-min(1050px)
-    {
-        /* All but the last column float left */
-        &:not(:last-child) { @include column(3); }
-        /* Last column floats right */
-        &:last-child { @include column(3,true); }
-    }
+/* Set up a 4 column layout */
+/* Starting at 1050px */
+@include media-min(1050px)
+{
+/* All but the last column float left */
+&:not(:last-child) { @include column(3); }
+/* Last column floats right */
+&:last-child { @include column(3,true); }
+}
 }</code></pre>
-                    <p>If the default breakpoint is good for most of your site, but you want one block to have a later entry point, you can add a custom breakpoint as well:</p>
-                    <pre><code>/* The default value of 650px will be dropped in favour of 800px */
+            <p>If the default breakpoint is good for most of your site, but you want one block to have a later entry point, you can add a custom breakpoint as well:</p>
+            <pre><code>/* The default value of 650px will be dropped in favour of 800px */
 div { @include column(6, false, 800px); }</code></pre>
-                    <p><em>But won&#39;t nesting and repeating media queries at element level generate a lot of extra code? Isn&#39;t combining media queries better for performance?</em><br/><a href="http://benfrain.com/inline-or-combined-media-queries-in-sass-fight/">Turns out it doesn&#39;t</a>. But the choice is yours! If you feel like combining them at the bottom or in a separate module, go ahead!</p>
-                    <h3>_media.scss</h3>
-                    <p>Headstart comes with 4 media query mixins that make it a painless process to tie styles to certain dimensions.</p>
-                    <pre><code>/* Un until given value */
+            <p><em>But won&#39;t nesting and repeating media queries at element level generate a lot of extra code? Isn&#39;t combining media queries better for performance?</em><br/><a href="http://benfrain.com/inline-or-combined-media-queries-in-sass-fight/">Turns out it doesn&#39;t</a>. But the choice is yours! If you feel like combining them at the bottom or in a separate module, go ahead!</p>
+            <h3>_media.scss</h3>
+            <p>Headstart comes with 4 media query mixins that make it a painless process to tie styles to certain dimensions.</p>
+            <pre><code>/* Un until given value */
 @include media-max($value) {
-    ...
+...
 }
 
 /* Starting from given value */
 @include media-min($value) {
-    ...
+...
 }
 
 /* Between given min and max */
 @include media-min-max($valueMin, $valueMax) {
-    ...
+...
 }
 
 /* On retina screens */
 @include highres() {
-    ...
+...
 }</code></pre>
-                    <ul class="report--info">
-                        <li>Passed in values will be stripped of their unit.</li>
-                        <li>All media-* functions have an optional <code class="language-none">$query</code> parameter that defaults to <code class="language-none">'screen'</code>.</li>
-                    </ul>
-                    <h3>_prop.scss</h3>
-                    <p>The property related module only contains one mixin, <code>rem()</code>. It generates <code>rem</code> values with pixel fallbacks for a certain property. Great for paddings and margins!</p>
-                    <pre><code>/* For example, using: */
+            <ul class="report--info">
+                <li>Passed in values will be stripped of their unit.</li>
+                <li>All media-* functions have an optional <code class="language-none">$query</code> parameter that defaults to <code class="language-none">'screen'</code>.</li>
+            </ul>
+            <h3>_prop.scss</h3>
+            <p>The property related module only contains one mixin, <code>rem()</code>. It generates <code>rem</code> values with pixel fallbacks for a certain property. Great for paddings and margins!</p>
+            <pre><code>/* For example, using: */
 
 div {
-    @include rem(margin-top, 20);
-    @include rem(padding, 10, 20, 10, 30);
+@include rem(margin-top, 20);
+@include rem(padding, 10, 20, 10, 30);
 }
 
 /* Will result in */
 
 div {
-    margin-top: 20px;
-    margin-top: 1.25rem;
-    padding: 10px 20px 10px 30px;
-    padding: 0.625rem 1.25rem 0.625rem 1.875rem;
+margin-top: 20px;
+margin-top: 1.25rem;
+padding: 10px 20px 10px 30px;
+padding: 0.625rem 1.25rem 0.625rem 1.875rem;
 }</code></pre>
-                    <p class="report--warning">Not to be confused with the likewise named function, which doesn&#39;t provide fallback values.</p>
-                    <h3>_triangle.scss</h3>
-                    <p>CSS triangles, we all love them, but loathe setting them up. This mixin makes it easy to construct a triangle in a split-second.</p>
-                    <pre><code>/* triangle($width: 10px, $height: 10px, $direction: up, $color: red) */
+            <p class="report--warning">Not to be confused with the likewise named function, which doesn&#39;t provide fallback values.</p>
+            <h3>_triangle.scss</h3>
+            <p>CSS triangles, we all love them, but loathe setting them up. This mixin makes it easy to construct a triangle in a split-second.</p>
+            <pre><code>/* triangle($width: 10px, $height: 10px, $direction: up, $color: red) */
 
 .tooltip:before {
-    content: '';
-    display: block;
-    @include triangle(15px, 10px, down, #fff);
-    ...
+content: '';
+display: block;
+@include triangle(15px, 10px, down, #fff);
+...
 }</code></pre>
-                    <hr id="module">
-                    <h1>Modules</h1>
-                    <p>Modules are specialized chunks of styles that are separated to lighten your main files. Especially useful when combining Sass placeholder classes with <code>@extend</code>. Placeholder classes also don&#39;t output any CSS on their own, which is nice!</p>
-                    <h3>_button.scss</h3>
-                    <p>Define all your button styles in here. The placeholder class <code>%button</code> normalizes some properties that are set on the most common <em>button-elements</em>, whereas modifier placeholders&mdash;eg. <code>%button--stroke</code>&mdash; target specifically styled buttons.<br>The latter ones extend the main placeholder, and can be extend from again by your own buttons, which make the total very readable and <a href="http://csswizardry.com/2013/07/writing-dryer-vanilla-css/">DRY</a>:</p>
-                    <pre><code>/* Main placeholder */
+            <hr id="module">
+            <h1>Modules</h1>
+            <p>Modules are specialized chunks of styles that are separated to lighten your main files. Especially useful when combining Sass placeholder classes with <code>@extend</code>. Placeholder classes also don&#39;t output any CSS on their own, which is nice!</p>
+            <h3>_button.scss</h3>
+            <p>Define all your button styles in here. The placeholder class <code>%button</code> normalizes some properties that are set on the most common <em>button-elements</em>, whereas modifier placeholders&mdash;eg. <code>%button--stroke</code>&mdash; target specifically styled buttons.<br>The latter ones extend the main placeholder, and can be extend from again by your own buttons, which make the total very readable and <a href="http://csswizardry.com/2013/07/writing-dryer-vanilla-css/">DRY</a>:</p>
+            <pre><code>/* Main placeholder */
 %button {
-    /* Resets here */
-    ...
+/* Resets here */
+...
 }
 
 /* Modifier placeholder */
 %button--stroked {
-    @extend %button;
-    border: 1px solid #000;
+@extend %button;
+border: 1px solid #000;
 }
 
 /* Somewhere in your main code */
 .contact-submit-button {
-    @extend %button--stroked;
+@extend %button--stroked;
 }</code></pre>
-                    <p>Above setup would require only one&mdash;readable and understandable&mdash;class in your HTML, and through the power of Sass, selectors will be combined to the absolute minimum.</p>
-                    <h3>_container.scss</h3>
-                    <p>Containers are <strong>centered</strong> blocks with a <strong>maximum width</strong>. When the available width is less than their defined maximum, they get <strong>padded</strong> on both sides. Images inside of these type of blocks are made fluid by default so they scale along beautifully.</p>
-                    <pre><code>/* Main class */
+            <p>Above setup would require only one&mdash;readable and understandable&mdash;class in your HTML, and through the power of Sass, selectors will be combined to the absolute minimum.</p>
+            <h3>_container.scss</h3>
+            <p>Containers are <strong>centered</strong> blocks with a <strong>maximum width</strong>. When the available width is less than their defined maximum, they get <strong>padded</strong> on both sides. Images inside of these type of blocks are made fluid by default so they scale along beautifully.</p>
+            <pre><code>/* Main class */
 .container {
-    ...
-    img { ... }
+...
+img { ... }
 }
 
 /* Some semantically named container */
 .container--header {
-    @extend .container;
-    background: #000;
+@extend .container;
+background: #000;
 }</code></pre>
-                    <h3>_font.scss</h3>
-                    <p>A place to put your <code>@font-face</code> configuration. Contains a commented-out dummy so you don&#39;t forget to include any fallbacks.</p>
-                    <h3>_form.scss</h3>
-                    <p>Includes some default, normalized styles for forms elements</p>
-                    <h3>_normalize.scss</h3>
-                    <p>Resetting elements is something of the past. Making elements render more consistently across browsers. This is basically just the <a href="http://necolas.github.io/normalize.css/">Normalize.css</a> library.</p>
-                    <h3>_print.scss</h3>
-                    <p>The print module is limited to just a few styles that will improve the printing &quot;experience&quot; of your website, eg. making all the text black, removing background-images and shadows, etc. This file is imported into the main stylesheet to prevent an extra GET request.</p>
-                    <h3>_reporting.scss</h3>
-                    <p>This module makes it easy to add reporting paragraphs and lists. It is also used by the <a href="js-guide.html#utils">Utils class</a> for usage through script.</p>
-                    <p class="report--info">Add a info-block with the class <code>.report--info</code>.</p>
-                    <p class="report--warning">Add a warning-block with the class <code>.report--warning</code>.</p>
-                    <p class="report--success">Add a success-block with the class <code>.report--success</code>.</p>
-                    <ul class="report--error">
-                        <li>Lists are also supported.</li>
-                        <li>Display errors with the <code>.report--error</code> class.</li>
-                    </ul>
-                    <h3>_state.scss</h3>
-                    <p>This files contains a bunch of handy (silent) classes that make it easy to keep your stylesheets <a href="http://csswizardry.com/2013/07/writing-dryer-vanilla-css/">DRY</a>:</p>
-                    <ul>
-                        <li><code>%is-hidden</code> &#126; Visually hide an element. Handy for image replacements.</li>
-                        <li><code>%is-bold</code></li>
-                        <li><code>%is-underlined</code></li>
-                        <li><code>%is-italic</code></li>
-                        <li><code>%is-uppercase</code></li>
-                        <li><code>%is-smallcaps</code></li>
-                        <li><code>%is-cf</code> &#126; Clears floats. Can also be used as stand-alone class by default.</li>
-                        <li><code>%is-vertical-aligned</code> &#126; Alignes stuff vertically in its parent.</li>
-                    </ul>
-                    <h3>_text.scss</h3>
-                    <p>Everything text-related is contained in this module:</p>
-                    <ul>
-                        <li>Text-selection color</li>
-                        <li>Headings</li>
-                        <li>Lists</li>
-                        <li>Paragraphs</li>
-                        <li>Links</li>
-                    </ul>
-                    <hr id="vendor">
-                    <h1>Vendor files</h1>
-                    <p>The vendor folder is where you can put the files that come with the plugins you use. Since Headstart uses SCSS, just change the <code class="language-none">.css</code> extension to <code class="language-none">.scss</code> and you&#39;re good to go.</p>
-                    <hr id="root">
-                    <h1>Root files</h1>
-                    <h3>Common styles</h3>
-                    <p>This stylesheet contains the main styles that are used on each and every page. For example the styles of your <code class="language-html">&lt;header&gt;</code>, <code class="language-html">&lt;menu&gt;</code> or <code class="language-html">&lt;footer&gt;</code> elements.</p>
-                    <p class="report--info">In the Lite version of Headstart this stylesheet is called <code class="language-none">styles.scss</code>.</p>
-                    <h3>View specific styles</h3>
-                    <p>When working on a large scale project, somes styles will be limited to individual pages. This is when the view-specific files come in handy, as they will lighten up the main stylesheet and thus speed up the individual pages of your website.</p>
-                    <ul class="report--info">
-                        <li>View-specific sheets are only used in the <strong>Main</strong> version of Headstart.</li>
-                        <li>These files should be prefixed with <code class="language-none">view-</code>, followed by the name of the target HTML file. For example <code class="language-none">view-index.scss</code>, <code class="language-none">view-about.scss</code> or <code class="language-none">view-portfolio.scss</code></li>
-                    </ul>
-                </div>
-            </div>
+            <h3>_font.scss</h3>
+            <p>A place to put your <code>@font-face</code> configuration. Contains a commented-out dummy so you don&#39;t forget to include any fallbacks.</p>
+            <h3>_form.scss</h3>
+            <p>Includes some default, normalized styles for forms elements</p>
+            <h3>_normalize.scss</h3>
+            <p>Resetting elements is something of the past. Making elements render more consistently across browsers. This is basically just the <a href="http://necolas.github.io/normalize.css/">Normalize.css</a> library.</p>
+            <h3>_print.scss</h3>
+            <p>The print module is limited to just a few styles that will improve the printing &quot;experience&quot; of your website, eg. making all the text black, removing background-images and shadows, etc. This file is imported into the main stylesheet to prevent an extra GET request.</p>
+            <h3>_reporting.scss</h3>
+            <p>This module makes it easy to add reporting paragraphs and lists. It is also used by the <a href="js-guide.html#utils">Utils class</a> for usage through script.</p>
+            <p class="report--info">Add a info-block with the class <code>.report--info</code>.</p>
+            <p class="report--warning">Add a warning-block with the class <code>.report--warning</code>.</p>
+            <p class="report--success">Add a success-block with the class <code>.report--success</code>.</p>
+            <ul class="report--error">
+                <li>Lists are also supported.</li>
+                <li>Display errors with the <code>.report--error</code> class.</li>
+            </ul>
+            <h3>_state.scss</h3>
+            <p>This files contains a bunch of handy (silent) classes that make it easy to keep your stylesheets <a href="http://csswizardry.com/2013/07/writing-dryer-vanilla-css/">DRY</a>:</p>
+            <ul>
+                <li><code>%is-hidden</code> &#126; Visually hide an element. Handy for image replacements.</li>
+                <li><code>%is-bold</code></li>
+                <li><code>%is-underlined</code></li>
+                <li><code>%is-italic</code></li>
+                <li><code>%is-uppercase</code></li>
+                <li><code>%is-smallcaps</code></li>
+                <li><code>%is-cf</code> &#126; Clears floats. Can also be used as stand-alone class by default.</li>
+                <li><code>%is-vertical-aligned</code> &#126; Alignes stuff vertically in its parent.</li>
+            </ul>
+            <h3>_text.scss</h3>
+            <p>Everything text-related is contained in this module:</p>
+            <ul>
+                <li>Text-selection color</li>
+                <li>Headings</li>
+                <li>Lists</li>
+                <li>Paragraphs</li>
+                <li>Links</li>
+            </ul>
+            <hr id="vendor">
+            <h1>Vendor files</h1>
+            <p>The vendor folder is where you can put the files that come with the plugins you use. Since Headstart uses SCSS, just change the <code class="language-none">.css</code> extension to <code class="language-none">.scss</code> and you&#39;re good to go.</p>
+            <hr id="root">
+            <h1>Root files</h1>
+            <h3>Common styles</h3>
+            <p>This stylesheet contains the main styles that are used on each and every page. For example the styles of your <code class="language-html">&lt;header&gt;</code>, <code class="language-html">&lt;menu&gt;</code> or <code class="language-html">&lt;footer&gt;</code> elements.</p>
+            <p class="report--info">In the Lite version of Headstart this stylesheet is called <code class="language-none">styles.scss</code>.</p>
+            <h3>View specific styles</h3>
+            <p>When working on a large scale project, somes styles will be limited to individual pages. This is when the view-specific files come in handy, as they will lighten up the main stylesheet and thus speed up the individual pages of your website.</p>
+            <ul class="report--info">
+                <li>View-specific sheets are only used in the <strong>Main</strong> version of Headstart.</li>
+                <li>These files should be prefixed with <code class="language-none">view-</code>, followed by the name of the target HTML file. For example <code class="language-none">view-index.scss</code>, <code class="language-none">view-about.scss</code> or <code class="language-none">view-portfolio.scss</code></li>
+            </ul>
         </div>
-        <hr>
-        <div class="open-source">
-            <div class="container--open-source">
-                <p>Headstart is built with open-source software:</p>
-                <p>
-                    <a class="open-source__sass" href="http://sass-lang.com" title="Visit the Sass homepage"><span class="is-hidden">Sass</span></a>
-                    <a class="open-source__node" href="http://nodejs.org" title="Visit the NodeJS homepage"><span class="is-hidden">NodeJS</span></a>
-                    <a class="open-source__gulp" href="http://gulpjs.com" title="Visit the Gulp homepage"><span class="is-hidden">Gulp</span></a>
-                </p>
-            </div>
-        </div>
-        <hr>
-        <footer>
-            <div class="container--footer">
-                <p>Hand-gardened code by <a href="http://flovan.me" title="Visit my website">Florian Vanthuyne</a>. Contribute to this project through the <a href="https://github.com/flovan/headstart/issues" title="Go check out the issues page">Github issues page</a>.</p>
-                <p>Endorsed and used by <a href="http://www.adagioagency.com" title="Visit the website of Adagio Agency">Adagio Agency</a>. Licensed under <a href="https://github.com/flovan/headstart/blob/master/LICENSE" title="Read the MIT license">MIT</a>. Check the <a href="https://github.com/flovan/headstart/commits/master" title="Take a look at the changelog">changelog</a>.</p>
-            </div>
-        </footer>
-
-
-        <!-- JS will be injected below -->
-
-        <!-- inject:js -->
-        <!-- endinject -->
+    </div>
+</div>
+<hr>
+<div class="open-source">
+    <div class="container--open-source">
+        <p>Headstart is built with open-source software:</p>
+        <p>
+            <a class="open-source__sass" href="http://sass-lang.com" title="Visit the Sass homepage"><span class="is-hidden">Sass</span></a>
+            <a class="open-source__node" href="http://nodejs.org" title="Visit the NodeJS homepage"><span class="is-hidden">NodeJS</span></a>
+            <a class="open-source__gulp" href="http://gulpjs.com" title="Visit the Gulp homepage"><span class="is-hidden">Gulp</span></a>
+        </p>
+    </div>
+</div>
