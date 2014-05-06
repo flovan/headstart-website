@@ -1,18 +1,4 @@
 {{> layout/header}}
-<header>
-    <div class="container--header">
-        <a href="index.html" class="nav__logo"><span class="is-hidden">Headstart</span></a>
-        <nav class="nav">
-            <ul>
-                <li><a href="getting-started.html">Getting started</a></li>
-                <li><a href="html-guide.html">HTML</a></li>
-                <li><a class="is-active" href="css-guide.html">CSS</a></li>
-                <li><a href="js-guide.html">JS</a></li>
-            </ul>
-        </nav>
-        <a href="https://github.com/flovan/headstart/" class="nav__github-link"><span class="is-hidden">View this project on Github</span></a>
-    </div>
-</header>
 <div class="title-block">
     <div class="container--title-block">
         <h1>Cascading Style Sheets Guide</h1>
@@ -21,33 +7,7 @@
 <div class="css-guide">
     <div class="container--css-guide">
         <aside class="css-guide__sidebar">
-            <h3>Headstart Documentation</h3>
-            <h4><a href="getting-started.html">Getting Started</a></h4>
-            <ul>
-                <li><a href="getting-started.html#install">Installing</a></li>
-                <li><a href="getting-started.html#boilerplate">Base files</a></li>
-                <li><a href="getting-started.html#develop">Develop</a></li>
-                <li><a href="getting-started.html#structure">Structure</a></li>
-                <li><a href="getting-started.html#requirements">Requirements</a></li>
-            </ul>
-            <h4><a href="html-guide.html">HTML</a></h4>
-            <h4><a href="css-guide.html">CSS</a></h4>
-            <ul>
-                <li><a href="css-guide.html#structure">Folder structure</a></li>
-                <li><a href="css-guide.html#base">Base files</a></li>
-                <li><a href="css-guide.html#libs">Library files</a></li>
-                <li><a href="css-guide.html#mixin">Mixins</a></li>
-                <li><a href="css-guide.html#module">Modules</a></li>
-                <li><a href="css-guide.html#vendor">Vendor files</a></li>
-                <li><a href="css-guide.html#root">Root files</a></li>
-            </ul>
-            <h4><a href="js-guide.html">JS</a></h4>
-            <ul>
-                <li><a href="js-guide.html#structure">Folder structure</a></li>
-                <li><a href="js-guide.html#root">Root files</a></li>
-                <li><a href="js-guide.html#core">Core files</a></li>
-                <li><a href="js-guide.html#libs">Library files</a></li>
-            </ul>
+            {{> partials/sidebar_menu}}
         </aside>
         <div class="css-guide__content language-css">
             <p class="report--warning">This page will be updated soon-ish. Most of it is still applicable though.</p>
@@ -350,5 +310,4 @@ background: #000;
     </div>
 </div>
 {{> partials/footer_menu}}
-<!-- inject:js --><!-- endinject -->
 {{> layout/footer}}

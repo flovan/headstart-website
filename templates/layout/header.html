@@ -41,4 +41,16 @@
 
     </head>  
     <body>
-    
+        <header>
+            <div class="container--header">
+                <a href="index.html" class="nav__logo"><span class="is-hidden">Headstart</span></a>
+                <nav class="nav">
+                    <ul>
+                        <li><a {{#equal templateName 'getting-started.html'}}class="is-active"{{/equal}} href="getting-started.html">Getting started</a></li>
+                        <li><a {{#equal templateName 'html-guide.html'}}class="is-active"{{/equal}} href="html-guide.html">HTML</a></li>
+                        <li><a {{#equal templateName 'css-guide.html'}}class="is-active"{{/equal}} href="css-guide.html">CSS</a></li>
+                        <li><a {{#equal templateName 'js-guide.html'}}class="is-active"{{/equal}} href="js-guide.html">JS</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
