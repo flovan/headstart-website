@@ -1,18 +1,4 @@
 {{> layout/header}}
-<header>
-    <div class="container--header">
-        <a href="index.html" class="nav__logo"><span class="is-hidden">Headstart</span></a>
-        <nav class="nav">
-            <ul>
-                <li><a href="getting-started.html">Getting started</a></li>
-                <li><a class="is-active" href="html-guide.html">HTML</a></li>
-                <li><a href="css-guide.html">CSS</a></li>
-                <li><a href="js-guide.html">JS</a></li>
-            </ul>
-        </nav>
-        <a href="https://github.com/flovan/headstart/" class="nav__github-link"><span class="is-hidden">View this project on Github</span></a>
-    </div>
-</header>
 <div class="title-block">
     <div class="container--title-block">
         <h1>HyperText Markup Language Guide</h1>
@@ -21,83 +7,65 @@
 <div class="html-guide">
     <div class="container--html-guide">
         <aside class="html-guide__sidebar">
-            <h3>Headstart Documentation</h3>
-            <h4><a href="getting-started.html">Getting Started</a></h4>
-            <ul>
-                <li><a href="getting-started.html#install">Installing</a></li>
-                <li><a href="getting-started.html#boilerplate">Base files</a></li>
-                <li><a href="getting-started.html#develop">Develop</a></li>
-                <li><a href="getting-started.html#structure">Structure</a></li>
-                <li><a href="getting-started.html#requirements">Requirements</a></li>
-            </ul>
-            <h4><a href="html-guide.html">HTML</a></h4>
-            <h4><a href="css-guide.html">CSS</a></h4>
-            <ul>
-                <li><a href="css-guide.html#structure">Folder structure</a></li>
-                <li><a href="css-guide.html#base">Base files</a></li>
-                <li><a href="css-guide.html#libs">Library files</a></li>
-                <li><a href="css-guide.html#mixin">Mixins</a></li>
-                <li><a href="css-guide.html#module">Modules</a></li>
-                <li><a href="css-guide.html#vendor">Vendor files</a></li>
-                <li><a href="css-guide.html#root">Root files</a></li>
-            </ul>
-            <h4><a href="js-guide.html">JS</a></h4>
-            <ul>
-                <li><a href="js-guide.html#structure">Folder structure</a></li>
-                <li><a href="js-guide.html#root">Root files</a></li>
-                <li><a href="js-guide.html#core">Core files</a></li>
-                <li><a href="js-guide.html#libs">Library files</a></li>
-            </ul>
+            {{> partials/sidebar_menu}}
         </aside>
         <div class="html-guide__content language-markup">
-            <p class="report--warning">This page will be updated soon-ish. Most of it is still applicable though.</p>
-            <p class="content__introduction">Headstart provides you with a solid HTML foundation, based on the <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>, but extended with <em>those things you always end up needing</em>.</p>
-            <hr>
-            <p>The default HTML is pretty light-weight and well commented. Nonetheless, here is a top-to-bottom overview to get you acquainted.</p>
-            <p class="report--info">Note: If you are working with the Main version of Headstart, the names of your HTML files will each be tied to a &quot;view&quot;. The build script uses those names to inject the correct assets.</p>
-            <p>First off, we set the document character set to be utf-8. Then we tell IE browsers to render as the latest version available, or to use the Google Chrome Frame (when available). You can read more on that <a href="http://stackoverflow.com/a/6771584">here</a>.</p>
-            <pre><code>&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;</code></pre>
-            <p>Next up is the SEO part. Filling this in is a small effort on your part, but it makes sure bots and spiders know what your page is all about.</p>
-            <pre><code>&lt;title&gt;__PAGE_TITLE__&lt;/title&gt;
-&lt;meta name=&quot;description&quot; content=&quot;__PAGE_DESCRIPTION__&quot;&gt;
-&lt;meta name=&quot;keywords&quot; content=&quot;__PAGE_KEYWORDS__&quot;&gt;
-&lt;meta name=&quot;author&quot; content=&quot;__PAGE_AUTHOR__&quot;&gt;</code></pre>
-            <p>In the following bit, we tell bots and spiders to use our custom SEO meta tags, rather then the content they find on the page. We also tell Google not to try and translate our website, as the toolbar they use is just plain silly.</p>
-            <pre><code>&lt;!-- By default the robots tag will also be set to &quot;follow,index&quot;. --&gt;
-&lt;!-- More on that on http://www.robotstxt.org/meta.html --&gt;
-&lt;meta name=&quot;robots&quot; content=&quot;noodp, noydir&quot;&gt;
-&lt;meta name=&quot;google&quot; content=&quot;notranslate&quot;&gt;</code></pre>
-            <p>Up next is the mobile and viewport part. The first tag will make sure viewports play nicely with your beatifully crafted responsive site. If you want your users to be able to scale your website by pinching, you can remove <code class="language-none">user-scalable=no</code>, <code class="language-none">maximum-scale=1.0</code> and <code class="language-none">minimum-scale=1.0</code> from the content attribute. The other meta tags target a grey area of devices.</p>
-            <p>Read all about the viewport and mobile meta tags <a href="http://davidbcalhoun.com/2010/viewport-metatag/">over here</a>.</p>
-            <pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;
-&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;true&quot;&gt;
-&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot;&gt;
-&lt;meta http-equiv=&quot;cleartype&quot; content=&quot;on&quot;&gt;</code></pre>
-            <p>Ah, mobile web apps. Or how iOS adds a sh*tload of meta tags to customize how your website is displayed and handled. By default, a few of them have been included in comments, though <a href="https://gist.github.com/tfausak/2222823">this gist</a> does a better job showing you what is possible.</p>
-            <pre><code>&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
-&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;__PAGE_TITLE__&quot;&gt;
-&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;&gt;</code></pre>
-            <p>The last bit of default code contains the icon tags. One icon to rule all touch icons, a favicon for the smarter browsers, and settings for the Windows Phone tile. Handy dandy, right? If you want to learn more about these kinds of icons, you should read <a href="http://mathiasbynens.be/notes/touch-icons">this page</a>.</p>
-            <p class="report--warning">When using a favicon, don&#39;t forget to update the .ico file in the <code class="language-none">meta</code> folder! Otherwise IE browsers won't display the favicon at all.</p>
-            <pre><code>&lt;link rel=&quot;apple-touch-iconprecomposed&quot; sizes=&quot;152x152&quot; href=&quot;images/icons/apple-touch-icon-152x152.png&quot;&gt;
-&lt;link rel=&quot;icon&quot; href=&quot;images/icons/favicon.png&quot;&gt;
-&lt;meta name=&quot;msapplication-TileImage&quot; content=&quot;images/icons/wp-tile-icon-144x144.png&quot;&gt;
-&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#FFFFFF&quot;&gt;</code></pre>
-            <p>As a final note, it is worth mentioning that all scripts and styles will be injected for you at runtime. So please don&#39; remove the following comment markers:</p>
-            <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-...
-&lt;!-- inject:css --&gt;
-&lt;!-- endinject --&gt;
-&lt;/head&gt;  
-&lt;body&gt;
-...
-&lt;!-- inject:js --&gt;
-&lt;!-- endinject --&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+            <p class="content__introduction">Headstart combines a solid HTML foundation, based on the <a href="http://html5boilerplate.com/" title="Visit the HTML5 Boilerplate website">HTML5 Boilerplate</a>, with light templating support through <a href="http://handlebarsjs.com" title="Visit the Handlebars website">Handlebars</a>.</p>
+            <hr id="templating">
+            <h1>Templating</h1>
+            <p>Simple layouting and importable partials are yours to use, making the tedious task of managing menu structures, sidebars or footers across multiple pages easy as can be.</p>
+            <h3>Layout</h3>
+            <p>By default you are provided with <code class="language-none">header</code> and <code class="language-none">footer</code> layout parts, which can (and should!) both be included into the main content files. The header contains the start of your document, including a bunch of <code>&lt;meta&gt;</code> tags, while the footer closes your document.</p>
+            <h3>Partials</h3>
+            <p>You can easily extract pieces of your body HTML, and put them into a partial, for example <code class="language-none">templates/partials/page_footer.html</code>:</p>
+            <pre><code>&lt;footer&gt;
+    &lt;a href=&quot;thebestpage.html&quot;&gt;This is a great link to click on&lt;/a&gt;
+&lt;/footer&gt;</code></pre>
+            <h3>Putting it all together</h3>
+            <p>This is how the default page would look like when using the <code class="language-none">page_footer</code> partial that was mentioned above:</p>
+            <pre><code>&#123;&#123;&gt; layout/header&#125;&#125;
+
+&lt;!-- Your HTML here --&gt;
+&lt;p&gt;Welcome to Headstart, off you go!&lt;/p&gt;
+
+&#123;&#123;&gt; partials/page_footer&#125;&#125;
+&#123;&#123;&gt; layout/footer&#125;&#125;</code></pre>
+            <h3>Page-targeted content</h3>
+            <p>It is possible to tell the building engine to make small changes to the HTML for each page by using this equal statement:</p>
+            <pre><code>&#123;&#123;#equal templateName 'your-page.html'&#125;&#125;&#123;&#123;/equal&#125;&#125;</code></pre>
+            <p>Noticed how the top menu items on this website get a bold style applied when their respective page is active?</p>
+            <pre><code>&lt;nav class=&quot;nav&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a &#123;&#123;#equal templateName 'getting-started.html'&#125;&#125;class=&quot;is-active&quot;&#123;&#123;/equal&#125;&#125; href=&quot;getting-started.html&quot;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a &#123;&#123;#equal templateName 'html-guide.html'&#125;&#125;class=&quot;is-active&quot;&#123;&#123;/equal&#125;&#125; href=&quot;html-guide.html&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a &#123;&#123;#equal templateName 'css-guide.html'&#125;&#125;class=&quot;is-active&quot;&#123;&#123;/equal&#125;&#125; href=&quot;css-guide.html&quot;&gt;CSS&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a &#123;&#123;#equal templateName 'js-guide.html'&#125;&#125;class=&quot;is-active&quot;&#123;&#123;/equal&#125;&#125; href=&quot;js-guide.html&quot;&gt;JS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            <hr id="assets">
+            <h1>Asset management</h1>
+            <p>Stylesheets and scripts get injected dynamically by the building engine. Configuration is possible, but the folder setup and naming conventions should cover most cases for you by default.</p>
+            <p class="report--info">Note: always use unminified libraries! Headstart will take care of that for you.</p>
+            <h3>View-specific files</h3>
+            <p>Assets can be linked to a specific page by prefixing with <code class="language-none">view-</code>, followed by the page name. Eg. <code class="language-none">view-index.scss</code>.</p>
+            <p class="report--info">Note: this will only work for <code class="language-none">.scss</code> and <code class="language-none">.js</code> files nested directly in their respective asset folder.</p>
+            <h3>Excluding scripts</h3>
+            <p>Exclude script files by prefixing with an <strong>underscore</strong>, eg. <code class="language-none">_jquery-1.11.0.js</code></p>
+            <h3>Script dependencies</h3>
+            <p>By default, scripts get injected in the following order:</p>
+            <ol>
+                <li>The library, i.e. any <code class="language-none">ender</code> or <code class="language-none">jquery</code> prefixed file from the <code class="language-none">assets/js/libs</code> folder.</li>
+                <li>When not building <code class="language-none">--production</code>, all files from the <code class="language-none">assets/js/libs/dev</code> folder.</li>
+                <li>All other libs from the <code class="language-none">assets/js/libs</code> folder.</li>
+                <li>All core files from the <code class="language-none">assets/js/core</code> folder.</li>
+                <li>The mains script, <code class="language-none">assets/js/main.js</code>.</li>
+                <li>The view-specific script, if provided.</li>
+            </ol>
+            <p>It is possible to define specific dependencies within this order by prepending a simple comment inside of your files. Say you are working with <code class="language-none">libA.js</code> which needs <code class="language-none">libZ.js</code> to work correcly. To make sure the latter is inject first, simply prepend the following to <code class="language-none">libA.js</code>:</p>
+            <pre class="language-javascript"><code>// requires: libZ.js
+/* 
+    Other script code here ...
+*/</code></pre>
         </div>
     </div>
 </div>
@@ -113,5 +81,4 @@
     </div>
 </div>
 {{> partials/footer_menu}}
-<!-- inject:js --><!-- endinject -->
 {{> layout/footer}}
