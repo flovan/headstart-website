@@ -294,40 +294,22 @@ footer
 		@include media-max(559px)
 		{
 			display: block;
-			@include rem(margin-bottom, 15);
+
+			& + span { @include rem(margin, 15, 0); }
 		}
 		@include media-min(560px)
 		{
 			@include rem(min-width, 200);
+
+			& + span { @include rem(margin, 0, 15); }
 		}
+
+		& + span { display: inline-block; }
 	}
 	.lead__github-button {
-		// @extend won't work in @media blocks :(
 		@extend %button--dark-teal;
 		@media screen and (max-width: 559px) {
 			display: block;
-		}
-		@include media-min(560px)
-		{
-			position: absolute;
-			@include rem(top, 15);
-			@include rem(right, 15);
-			display: block;
-			width: 16px;
-			height: 16px;
-			background: url(../images/github-icon.png) no-repeat left top;
-			font-weight: inherit;
-			padding: inherit;
-			border-radius: inherit;
-			color: inherit;
-			&:hover, &:active { color: inherit; background: inherit }
-
-			span { display: none; }
-		}
-		@include highres()
-		{
-			background-image: url(../images/github-icon@2x.png);
-			background-size: 16px 16px;
 		}
 	}
 
@@ -435,7 +417,7 @@ footer
 	}
 	a
 	{
-		display: block;	
+		display: inline-block;	
 		text-decoration: none;
 
 		&:hover { text-decoration: underline; }
