@@ -3,6 +3,7 @@
 	"editor": "Sublime Text",
 	"minifyHTML": true,
 	"autoPrefix": true,
+	"devMinify": false,
 	"hint": true,
 	"export_assets": "export",
 	"export_templates": "export",

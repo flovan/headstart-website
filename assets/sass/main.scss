@@ -160,7 +160,7 @@ footer
 	{
 		@extend h3;
 		font-weight: bold;
-		@include column(6, false, 900px);
+		@include column(5, false, 1125px);
 
 		@include media-min($default-column-breakpoint)
 		{
@@ -170,13 +170,14 @@ footer
 	}
 	p:last-child
 	{
-		@include column(6,true, 900px);
+		@include column(7,true, 1125px);
 		@include media-min($default-column-breakpoint) { margin-top: 0; }
 	}
 }
 	.open-source__sass,
 	.open-source__node,
-	.open-source__gulp
+	.open-source__gulp,
+	.open-source__handlebars
 	{
 		display: inline-block;
 		background: url(../images/open-source-logos.png) no-repeat;
@@ -198,15 +199,21 @@ footer
 	}
 	.open-source__node
 	{
-		background-position: -178px 0;
+		background-position: -100px 0;
 		width: 186px;
 		height: 50px;
 	}
 	.open-source__gulp
 	{
-		background-position: -374px 0;
+		background-position: -291px 0;
 		width: 51px;
 		height: 116px;
+	}
+	.open-source__handlebars
+	{
+		background-position: -100px -54px;
+		width: 169px;
+		height: 67px;
 	}
 
 footer

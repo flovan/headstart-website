@@ -44,11 +44,10 @@
 &lt;/nav&gt;</code></pre>
             <hr id="assets">
             <h1>Asset management</h1>
-            <p>Stylesheets and scripts get injected dynamically by the building engine. Configuration is possible, but the folder setup and naming conventions should cover most cases for you by default.</p>
-            <p class="report--info">Note: always use unminified libraries! Headstart will take care of that for you.</p>
+            <p>Stylesheets and scripts get injected dynamically by the building engine. Configuration is possible, but the folder setup and naming conventions should cover most cases for you.</p>
+            <p>All default libraries are unminified. This not only enables you to read through the code, it also makes it easier to debug possible errors. Concatenation and uglyfying is done on the fly!</p>
             <h3>View-specific files</h3>
-            <p>Assets can be linked to a specific page by prefixing with <code class="language-none">view-</code>, followed by the page name. Eg. <code class="language-none">view-index.scss</code>.</p>
-            <p class="report--info">Note: this will only work for <code class="language-none">.scss</code> and <code class="language-none">.js</code> files nested directly in their respective asset folder.</p>
+            <p>Assets can be linked to a specific page by prefixing their filenames with <code class="language-none">view-</code>, followed by the page name. Eg. <code class="language-none">view-index.scss</code> or <code class="language-none">view-profile.js</code>.</p>
             <h3>Excluding scripts</h3>
             <p>Exclude script files by prefixing with an <strong>underscore</strong>, eg. <code class="language-none">_jquery-1.11.0.js</code></p>
             <h3>Script dependencies</h3>
@@ -66,19 +65,44 @@
 /* 
     Other script code here ...
 */</code></pre>
+            
+
+            <hr id="integration">
+            <h1>Integration</h1>
+            <p>Headstart is a front-end tool, and it was was never built to be used with a back-end setup. There are some provisions to make it possible, though some changes have to be made to make it work.</p>
+            <h3>Example</h3>
+            <p>The changes below were made for integrating with a Laravel project. The gist remains the same for any kind of setup though. First, all files were moved to a <code class="language-none">private</code> folder, and the <code class="language-none">.html</code> extensions were changed to <code class="language-none">.blade.php</code>.</p>
+            <p>Then <code class="language-none">config.json</code> was edited (read up on the options in the <a href="http://localhost:9000/getting-started.html#structure">Structure section</a>):</p>
+            <pre class="language-javascript"><code>{
+    ...
+    "export_assets": "../public",
+    "export_templates": "../app/views",
+    "export_misc": "../public",
+    "assemble_templates": false,
+    "template_asset_prefix": "&#123;&#123;public&#125;&#125;/",
+    ...
+}</code></pre>
+            <p>Since references to scripts and stylesheets get injected, the location markers have to be put inside of the main content files. So this part from <code class="language-none">header.blade.php</code>:</p>
+            <pre class="language-markup"><code>&lt;!-- inject:css --&gt;&lt;!-- endinject --&gt;
+
+&lt;/head&gt;  
+&lt;body&gt;</code></pre>
+            <p>And this part from<code class="language-none">footer.blade.php</code>:</p>
+            <pre class="language-markup"><code>&lt;!-- inject:js --&gt;&lt;!-- endinject --&gt;</code></pre>
+            <p>Need to be moved to all your indiviual pages. It isn&#39;t pretty, but it works:</p>
+            <pre class="language-markup"><code>@include(&quot;common/header&quot;)
+&lt;!-- inject:js --&gt;&lt;!-- endinject --&gt;
+&lt;/head&gt;  
+&lt;body&gt;
+
+Your page content ...
+
+&lt;!-- inject:js --&gt;&lt;!-- endinject --&gt;
+@include(&quot;common/footer&quot;)</code></pre>
         </div>
     </div>
 </div>
 <hr>
-<div class="open-source">
-    <div class="container--open-source">
-        <p>Headstart is built with open-source software:</p>
-        <p>
-            <a class="open-source__sass" href="http://sass-lang.com" title="Visit the Sass homepage"><span class="is-hidden">Sass</span></a>
-            <a class="open-source__node" href="http://nodejs.org" title="Visit the NodeJS homepage"><span class="is-hidden">NodeJS</span></a>
-            <a class="open-source__gulp" href="http://gulpjs.com" title="Visit the Gulp homepage"><span class="is-hidden">Gulp</span></a>
-        </p>
-    </div>
-</div>
+{{> partials/open_source}}
 {{> partials/footer_menu}}
 {{> layout/footer}}
