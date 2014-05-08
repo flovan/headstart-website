@@ -88,18 +88,27 @@ header
 			background-image: url(../images/headstart-logo-text@2x.png);
 			background-size: 89px 16px;
 		}
-		@include media-max(449px)
-		{
-			display: block;
-			width: 100%;
-			background-position: center top;
-			@include rem(margin-bottom, 20);
-		}
+	}
+	.nav__version {
+		position: relative;
+		@include rem(top, -2);
+		@include rem(padding, 2, 5);
+		@include rem(margin-left, 10);
+		@include rem(border-radius, 5);
+		display: inline-block;
+		background: $teal;
+		color: $white;
+		font-size: em(12);
+		@extend %is-bold;
 	}
 	.nav
 	{
 		@extend .is-cf;
 		
+		@include media-max(449px)
+		{
+			@include rem(margin-top, 20);
+		}
 		@include media-min(450px) { @include rem(margin-left, 30); }
 
 		ul, li
@@ -119,7 +128,8 @@ header
 		}
 	}
 	.nav,
-	.nav__logo
+	.nav__logo,
+	.nav__version
 	{ @include media-min(450px) { float: left; } }
 		.nav li
 		{
