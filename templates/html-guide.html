@@ -15,7 +15,7 @@
             <h1>Templating</h1>
             <p>Simple layouting and importable partials are yours to use, making the tedious task of managing menu structures, sidebars or footers across multiple pages easy as can be.</p>
             <h3>Layout</h3>
-            <p>By default you are provided with <code class="language-none">header</code> and <code class="language-none">footer</code> layout parts, which can (and should!) both be included into the main content files. The header contains the start of your document, including a bunch of <code>&lt;meta&gt;</code> tags, while the footer closes your document.</p>
+            <p>By default you are provided with <code class="language-none">header</code> and <code class="language-none">footer</code> layout parts, which can (and should!) both be included into the main content files. The header starts your document, while the footer closes it.</p>
             <h3>Partials</h3>
             <p>You can easily extract pieces of your body HTML, and put them into a partial, for example <code class="language-none">templates/partials/page_footer.html</code>:</p>
             <pre><code>&lt;footer&gt;
@@ -44,12 +44,11 @@
 &lt;/nav&gt;</code></pre>
             <hr id="assets">
             <h1>Asset management</h1>
-            <p>Stylesheets and scripts get injected dynamically by the building engine. Configuration is possible, but the folder setup and naming conventions should cover most cases for you.</p>
-            <p>All default libraries are unminified. This not only enables you to read through the code, it also makes it easier to debug possible errors. Concatenation and uglyfying is done on the fly!</p>
+            <p>Stylesheets and scripts get optimized and injected on the fly by the building engine. Working with development libraries instead of minified and production-ready code not only enables you to read through the code, it also makes it easier to debug possible errors.</p>
             <h3>View-specific files</h3>
             <p>Assets can be linked to a specific page by prefixing their filenames with <code class="language-none">view-</code>, followed by the page name. Eg. <code class="language-none">view-index.scss</code> or <code class="language-none">view-profile.js</code>.</p>
-            <h3>Excluding scripts</h3>
-            <p>Exclude script files by prefixing with an <strong>underscore</strong>, eg. <code class="language-none">_jquery-1.11.0.js</code></p>
+            <h3>Excluding files</h3>
+            <p>Exclude files by prefixing with an <strong>underscore</strong>, eg. <code class="language-none">_jquery-1.11.0.js</code>.</p>
             <h3>Script dependencies</h3>
             <p>By default, scripts get injected in the following order:</p>
             <ol>
@@ -60,18 +59,19 @@
                 <li>The mains script, <code class="language-none">assets/js/main.js</code>.</li>
                 <li>The view-specific script, if provided.</li>
             </ol>
-            <p>It is possible to define specific dependencies within this order by prepending a simple comment inside of your files. Say you are working with <code class="language-none">libA.js</code> which needs <code class="language-none">libZ.js</code> to work correcly. To make sure the latter is inject first, simply prepend the following to <code class="language-none">libA.js</code>:</p>
+            <p>It is possible to define specific dependencies within this order <strong>by prepending a simple comment inside of your files</strong>. Say you are working with <code class="language-none">libA.js</code> which needs <code class="language-none">libZ.js</code> to work correcly. To make sure the latter is inject first, simply prepend the following to <code class="language-none">libA.js</code>:</p>
             <pre class="language-javascript"><code>// requires: libZ.js
+
 /* 
-    Other script code here ...
+    Other code from libZ here ...
 */</code></pre>
             
 
             <hr id="integration">
             <h1>Integration</h1>
-            <p>Headstart is a front-end tool, and it was was never built to be used with a back-end setup. There are some provisions to make it possible, though some changes have to be made to make it work.</p>
+            <p>Headstart is a front-end development tool, and was not built with a back-end integration in mind. There are some provisions to make it possible, though some changes have to be made to make it work.</p>
             <h3>Example</h3>
-            <p>The changes below were made for integrating with a Laravel project. The gist remains the same for any kind of setup though. First, all files were moved to a <code class="language-none">private</code> folder, and the <code class="language-none">.html</code> extensions were changed to <code class="language-none">.blade.php</code>.</p>
+            <p>The changes below were made for integrating with a Laravel project. The gist remains the same for any kind of setup though. First, all the project files were moved to a <code class="language-none">private</code> folder within the back-end framework, and the <code class="language-none">.html</code> extensions were changed to <code class="language-none">.blade.php</code>.</p>
             <p>Then <code class="language-none">config.json</code> was edited (read up on the options in the <a href="http://localhost:9000/getting-started.html#structure">Structure section</a>):</p>
             <pre class="language-javascript"><code>{
     ...
@@ -79,7 +79,7 @@
     "export_templates": "../app/views",
     "export_misc": "../public",
     "assemble_templates": false,
-    "template_asset_prefix": "&#123;&#123;public&#125;&#125;/",
+    "template_asset_prefix": "&#123;&#123;public&#125;&#125;",
     ...
 }</code></pre>
             <p>Since references to scripts and stylesheets get injected, the location markers have to be put inside of the main content files. So this part from <code class="language-none">header.blade.php</code>:</p>
@@ -89,7 +89,7 @@
 &lt;body&gt;</code></pre>
             <p>And this part from<code class="language-none">footer.blade.php</code>:</p>
             <pre class="language-markup"><code>&lt;!-- inject:js --&gt;&lt;!-- endinject --&gt;</code></pre>
-            <p>Need to be moved to all your indiviual pages. It isn&#39;t pretty, but it works:</p>
+            <p>Need to be moved to all your indiviual pages. It isn&#39;t pretty, but it works. Example <code class="language-none">index.blade.php</code>:</p>
             <pre class="language-markup"><code>@include(&quot;common/header&quot;)
 &lt;!-- inject:js --&gt;&lt;!-- endinject --&gt;
 &lt;/head&gt;  
