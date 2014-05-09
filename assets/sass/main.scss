@@ -1,7 +1,6 @@
 // General imports ------------------------------------------------------------
 
 @import 'base/config_global';
-@import 'base/functions';
 @import 'base/config_site';
 
 @import 'module/state';
@@ -339,6 +338,10 @@ footer
 		@include rem(margin-bottom, 30);
 		text-align: center;
 	}
+
+	@include media-min-max($default-column-breakpoint, 949) {
+		h2 { @include rem(min-height, 98); }
+	}
 }
 	.usp__up-and-running,
 	.usp__fragments,
@@ -387,6 +390,10 @@ footer
 		{
 			font-size: em(18);
 		}
+	}
+
+	@include media-min-max(1050, 1068) {
+		h3 { @include rem(min-height, 60); }
 	}
 }
 	.container--features > div

@@ -25,6 +25,7 @@ $default-column-breakpoint: 650px; // Change this to whatever seems best
 $max-container-width: 1140px; // 1140 and 960 divide easily in 2, 3 and 4
 $min-page-padding: 4%; // Side padding when beneath $max-container-width
 
-// Mixin import -------------------------------------------------------------
+// Imports --------------------------------------------------------------------
 
 @import '../mixin/all';
+@import 'base/functions';

@@ -35,12 +35,11 @@ cd myproject</code></pre>
             <h1>Develop</h1>
             <p>Run the following command to make a build:</p>
             <pre class="language-none"><code>headstart build</code></pre>
+            <p>Build continuously with:</p>
+            <pre class="language-none"><code>headstart build --serve</code></pre>
             <p>By default, the building system will have made a new folder <code class="language-none">export</code> in your working directory. In here you will find a working set of files. Go ahead, open the <code class="language-none">index.html</code> page.</p>
             <p>The building process can be further configured through the help of some flags. Lines starting with a <code class="language-none">#</code> are just comments.</p>
-            <pre class="language-none"><code><strong># Build the files continuously and serve them on a static url</strong><br>
-headstart build --serve
-
-<strong># The above, but open up a browser and an editor as well</strong><br>
+            <pre class="language-none"><code><strong># The above, but open up a browser and an editor as well</strong><br>
 headstart build --serve --open --edit<br>
 <strong># Serve files without livereloading</strong>
 <strong># to prevent it from script-blocking</strong>
