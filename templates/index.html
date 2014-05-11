@@ -1,92 +1,53 @@
-        <!-- CSS will be injected below -->
-        
-        <!-- inject:css -->
-        <!-- endinject -->
-
-    </head>  
-    <body>
-        <header>
-            <div class="container--header">
-                <a href="index.html" class="nav__logo"><span class="is-hidden">Headstart</span></a>
-                <nav class="nav">
-                    <ul>
-                        <li><a href="getting-started.html">Getting started</a></li>
-                        <li><a href="html-guide.html">HTML</a></li>
-                        <li><a href="css-guide.html">CSS</a></li>
-                        <li><a href="js-guide.html">JS</a></li>
-                    </ul>
-                </nav>
-                <a href="https://github.com/flovan/headstart/" class="nav__github-link"><span class="is-hidden">View this project on Github</span></a>
-            </div>
-        </header>
-        <div class="lead">
-            <div class="container--lead">
-                <h1>An easy to use, worry-free front-end framework.</h1>
-                <p>
-                    <a href="getting-started.html" class="lead__download-button">Download Headstart</a>
-                    <span>or</span>
-                    <a href="https://github.com/flovan/headstart/" class="lead__github-button">View the project on Github</a>
-                </p>
-            </div>
+{{> layout/header}}
+<div class="lead">
+    <div class="container--lead">
+        <h1>An easy-to-use automated front-end setup.</h1>
+        <p>
+            <a href="getting-started.html" title="Read the getting started guide" class="lead__download-button">Start using Headstart</a>
+            <span>or</span>
+            <a href="https://github.com/flovan/headstart/" title="Visit the project on Github" class="lead__github-button"><span>View this project on Github</span></a>
+        </p>
+    </div>
+</div>
+<div class="usp">
+    <div class="container--usp">
+        <div class="usp__up-and-running">
+            <h2>Up and running in seconds</h2>
+            <p>Headstart comes with a custom Command Line Interface (CLI) to get you going. Scaffold your projects in an instance, and see changes in the browser instantly thanks to the <strong>live-reload</strong> server. <a href="#" title="Go read the getting started guide">Get started now!</a></p>
         </div>
-        <div class="usp">
-            <div class="container--usp">
-                <div class="usp__up-and-running">
-                    <h2>Up and running in seconds</h2>
-                    <p>Headstart is built with open-source technologies and runs in your Command Line Interface (CLI). Just install the required libraries and start developing. You will be provided with a <strong>live-reload</strong> server during development to see your changes upon saving your files. <a href="#" title="Go read the getting started guide">Get started now!</a></p>
-                </div>
-                <div class="usp__fragments">
-                    <h2>Think fragments</h2>
-                    <p>Stop thinking about whether or not you included &quot;that library you found&quot; into your HTML. The building system keeps your styles and scripts separated untill it&#39;s finished optimizing. It also makes sure to inject everything in the right order. Just drag files into the right folders and you’re off! </p>
-                </div>
-                <div class="usp__optimizations">
-                    <h2>No brainer optimizations</h2>
-                    <p>Tired of having  to wield a plethora of web- and desktop applications to optimize your production files? Those days are over.
-The build system will take care of your code with <strong>hinting</strong>, <strong>minification</strong>, <strong>uglyfication</strong> and <strong>concatenation</strong>. Don’t forget about image and SVG <strong>optimization</strong>. Revelation? Yes!</p>
-                </div>
-            </div>
+        <div class="usp__fragments">
+            <h2>Think fragments</h2>
+            <p>Forget about fitting together your assets and learn how to love the <strong>folder structure</strong>. Headstart takes care of dependencies and makes sure everything ends up where it needs to be.</p>
         </div>
-        <hr>
-        <div class="features">
-            <div class="container--features">
-                <div>
-                    <h3>Responsibly responsive </h3>
-                    <p>With the <strong>no-class grid system</strong> it becomes child&#39;s play to construct a responsive website. Keeping your media queries and grid declarations close to your selectors keeps both your HTML and CSS lean and clean.</p>
-                </div>
-                <div>
-                    <h3>Be the better coder</h3>
-                    <p>Headstart can kindly force you to follow coding conducts by hinting all of your code. Cleaner files result in better code and happier colleagues. Configurable to your heart’s content!</p>
-                </div>
-                <div>
-                    <h3>(Single) Page specific </h3>
-                    <p>By employing &quot;view-&quot; prefixed file names, each page will be provided with the needed assets. Nothing more, nothing less. There is even a &quot;lite&quot; version targeted at single page websites.</p>
-                </div>
-                <div>
-                    <h3>Forget about refreshing</h3>
-                    <p>Livereload has been around for quite a while, but you have probably been using a third party app or even a browser plugin. Headstart will automatically open a browser by choice and set you up.</p>
-                </div>
-            </div>
+        <div class="usp__optimizations">
+            <h2>No brainer optimizations</h2>
+            <p>Give your visitors a fast experience without even having to think about it. It all happens while you work!
+<strong>Hinting</strong>, <strong>Uglyfication</strong> and <strong>Concatenation</strong>. Don’t forget about image and SVG <strong>optimization</strong>. Revelation? Yes!</p>
         </div>
-        <hr>
-        <div class="open-source">
-            <div class="container--open-source">
-                <p>Headstart is built with open-source software:</p>
-                <p>
-                    <a class="open-source__sass" href="http://sass-lang.com" title="Visit the Sass homepage"><span class="is-hidden">Sass</span></a>
-                    <a class="open-source__node" href="http://nodejs.org" title="Visit the NodeJS homepage"><span class="is-hidden">NodeJS</span></a>
-                    <a class="open-source__gulp" href="http://gulpjs.com" title="Visit the Gulp homepage"><span class="is-hidden">Gulp</span></a>
-                </p>
-            </div>
+    </div>
+</div>
+<hr>
+<div class="features">
+    <div class="container--features">
+        <div>
+            <h3>Responsibly responsive </h3>
+            <p>The <strong>no-class grid system</strong> takes care of building responsive layouts. It also puts media queries and grid declarations close to your selectors, making maintainance a breeze.</p>
         </div>
-        <hr>
-        <footer>
-            <div class="container--footer">
-                <p>Hand-gardened code by <a href="http://flovan.me" title="Visit my website">Florian Vanthuyne</a>. Contribute to this project through the <a href="https://github.com/flovan/headstart/issues" title="Go check out the issues page">Github issues page</a>.</p>
-                <p>Endorsed and used by <a href="http://www.adagioagency.com" title="Visit the website of Adagio Agency">Adagio Agency</a>. Licensed under <a href="https://github.com/flovan/headstart/blob/master/LICENSE" title="Read the MIT license">MIT</a>. Check the <a href="https://github.com/flovan/headstart/commits/master" title="Take a look at the changelog">changelog</a>.</p>
-            </div>
-        </footer>
-
-        <!-- JS will be injected below -->
-
-        <!-- inject:js -->
-        <!-- endinject -->
+        <div>
+            <h3>Be the better coder</h3>
+            <p>Headstart can be configured to <strong>hint and validate</strong> your code. Following conducts make you write cleaner and better, which results in less bugs and happy colleagues.</p>
+        </div>
+        <div>
+            <h3>(Single) Page specific</h3>
+            <p>Scripts and styles can be assigned to a specific page if needed. Aside from that, Headstart supports <strong>rudimentary templating</strong> to keep your HTML lean and clean.</p>
+        </div>
+        <div>
+            <h3>Forget about refreshing</h3>
+            <p>No more manually refreshing the browser. Saving will <strong>auto-refresh the browser</strong> for you, making developing faster and easier on the fingers.</p>
+        </div>
+    </div>
+</div>
+<hr>
+{{> partials/open_source}}
+{{> partials/footer_menu}}
+{{> layout/footer}}

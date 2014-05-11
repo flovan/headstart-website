@@ -1,187 +1,100 @@
-        <!-- CSS will be injected below -->
-        
-        <!-- inject:css -->
-        <!-- endinject -->
+{{> layout/header}}
+<div class="title-block">
+    <div class="container--title-block">
+        <h1>Javascript Guide</h1>
+    </div>
+</div>
+<div class="js-guide language-javascript">
+    <div class="container--js-guide">
+        <aside class="js-guide__sidebar">
+            {{> partials/sidebar_menu}}
+        </aside>
+        <div class="js-guide__content">
+            <p class="content__introduction">The default boilerplate files comes bundled with a few libraries and patches, and a basic setup to get you started right away.</p>
+            
 
-    </head>  
-    <body>
+
+            <hr id="structure">
+            <h1>Folder structure</h1>
+            <ul>
+                <li><a href="js-guide.html#core">./core</a> &#126; Custom class that are provided for your convenience.</li>
+                <li><a href="js-guide.html#libs">./libs</a> &#126; Plugins, third-party libraries and patches.</li>
+                <li><a href="js-guide.html#root">./</a> &#126; Main and page-specific code.</li>
+            </ul>
+            <p class="report--info">Note: Files prefixed with an underscore will be excluded from the build process.</p>
+            
 
 
-        <header>
-            <div class="container--header">
-                <a href="index.html" class="nav__logo"><span class="is-hidden">Headstart</span></a>
-                <nav class="nav">
-                    <ul>
-                        <li><a href="getting-started.html">Getting started</a></li>
-                        <li><a href="html-guide.html">HTML</a></li>
-                        <li><a href="css-guide.html">CSS</a></li>
-                        <li><a class="is-active" href="js-guide.html">JS</a></li>
-                    </ul>
-                </nav>
-                <a href="https://github.com/flovan/headstart/" class="nav__github-link"><span class="is-hidden">View this project on Github</span></a>
+            <hr id="core">
+            <h1>Core files</h1>
+            <p>This folder contains personal libraries which are excluded from the build by default.</p>
+            <h3>Utils</h3>
+            <p>A globally-accessible wrapper for your utilities. By default the class comes with some (commented-out) functionality to:</p>
+            <ul>
+                <li>Check if the client device is touch-enabled is available.</li>
+                <li>Detect oldy (IE 9-) browsers. This is used by the default to inject IE assets into the page.</li>
+                <li>Easily share content on Facebook, Twitter, Linkedin, Pinterest or Google+ through a pop-up window.</li>
+            </ul>
+            
+
+
+            <hr id="libs">
+            <h1>Library files</h1>
+            <h2>$</h2>
+            <p>Headstart comes with <a href="http://enderjs.com/#the-jeesh">a Jeesh build of Ender</a> to replace the much heavier <a href="http://jquery.com/">jQuery</a> 1.11.x, which is also bundled, but excluded from the build. <strong>Feel free to revert back to jQuery if you want.</strong> Remember that you can use <a href="getting-started.html#boilerplate">a custom fork of the boilerplate files</a> to manage your own defaults. The Jeesh comes with the following libraries and replaces almost every commonly used aspect of jQuery, but at half the weight.:</p>
+            <ul>
+                <li><a href="https://github.com/ded/domready">domReady</a> &#126; A cross-browser domReady.</li>
+                <li><a href="https://github.com/ded/qwery">Qwery</a> &#126; A fast light-weight selector engine.</li>
+                <li><a href="https://github.com/ded/bonzo">Bonzo</a> &#126; A bullet-proof DOM utility.</li>
+                <li><a href="https://github.com/fat/bean">Bean</a> &#126; A multi-platform event manager</li>
+                <li><a href="http://underscorejs.org/">Underscore</a> &#126; A functional programming toolbelt.</li>
+            </ul>
+            <p>Also bundled, but excluded from the build, is an extended version of this Jeesh build, which contains extra libraries:</p>
+            <ul>
+                <li><a href="https://github.com/ded/reqwest">Reqwest</a> &#126; Browser asynchronous http requests aka AJAX.</li>
+                <li><a href="https://github.com/ded/morpheus">Morpheus</a> &#126; A brilliant animation library.</li>
+            </ul>
+            <p>Prefix the unused libraries with an underscore to prevent abuse of the <code>$</code>.</p>
+            <h2>Loose libs</h2>
+            <ul>
+                <li><a href="http://ftlabs.github.io/fastclick/">Fastclick</a> &#126; Getting rid of touch-delays.</li>
+                <li><a href="http://underscorejs.org/">Underscore</a> &#126; A functional programming toolbelt. Excluded by default.</li>
+            </ul>
+            <h3>Dev libs</h3>
+            <ul>
+                <li>
+                    <li><a href="http://adamschwartz.co/log/">Log</a> &#126; Fancy logging with a shorter <code>log()</code>.</li>
+                </li>
+            </ul>
+            <div class="report--info">
+                <p>Note: When running <code class="language-none">--production</code>:</p>
+                <ul>
+                    <li>Dev libraries will get excluded when building</li>
+                    <li>All <code>log()</code> and <code>console.log()</code> statements will get stripped automatically.</li>
+                </ul>
             </div>
-        </header>
-        <div class="title-block">
-            <div class="container--title-block">
-                <h1>Javascript Guide</h1>
-            </div>
+            <h3>Patches</h3>
+            <ul>
+                <li><a href="https://github.com/scottjehl/Respond">Respond</a> (+ polyfills) &#126; Patch media queries.</li>
+                <li><a href="https://github.com/UmbraEngineering/Placeholder">ie-behavior-span.js</a> &#126; Fix <code class="language-html">&lt;input&gt;</code> placeholders.</li>
+            </ul>
+            <p>These patches get concatenated into <code class="language-none">ie.min.js</code>, and can be included through the <code class="language-none">Utils</code> core class:</p>
+            <pre><code>if(Utils.isOldie()) Utils.patchOldie();</code></pre>
+            <p>Don&#39;t forget to unprefix the utils file, and uncomment the needed functions if you want to use this.</p>
+            
+
+
+            <hr id="root">
+            <h1>Root files</h1>
+            <p></p>
+            <h3>Main script</h3>
+            <p>The <code class="language-none">main.js</code> file contains a very basic <code>.ready()</code> setup wrapped in an <a href="http://gregfranko.com/blog/i-love-my-iife/">IIFE</a>.</p>
+            <h3>View specific scripts</h3>
+            <p>View-specific files make it easy to produce script files for individual pages. They are content-wise the same as the <code class="language-none">main.js</code>.</p>
         </div>
-        <div class="js-guide language-javascript">
-            <div class="container--js-guide">
-                <aside class="js-guide__sidebar">
-                    <h3>Headstart Documentation</h3>
-                    <h4><a href="getting-started.html">Getting Started</a></h4>
-                    <ul>
-                        <li><a href="getting-started.html#get">Get the files</a></li>
-                        <li><a href="getting-started.html#onetime">First-time setup</a></li>
-                        <li><a href="getting-started.html#everytime">Every-time setup</a></li>
-                        <li><a href="getting-started.html#config">Configuration</a></li>
-                        <li><a href="getting-started.html#structure">Structure</a></li>
-                        <li><a href="getting-started.html#use">Usage</a></li>
-                    </ul>
-                    <h4><a href="html-guide.html">HTML</a></h4>
-                    <h4><a href="css-guide.html">CSS</a></h4>
-                    <ul>
-                        <li><a href="css-guide.html#structure">Folder structure</a></li>
-                        <li><a href="css-guide.html#base">Base files</a></li>
-                        <li><a href="css-guide.html#libs">Library files</a></li>
-                        <li><a href="css-guide.html#mixin">Mixins</a></li>
-                        <li><a href="css-guide.html#module">Modules</a></li>
-                        <li><a href="css-guide.html#vendor">Vendor files</a></li>
-                        <li><a href="css-guide.html#root">Root files</a></li>
-                    </ul>
-                    <h4><a href="js-guide.html">JS</a></h4>
-                    <ul>
-                        <li><a href="js-guide.html#structure">Folder structure</a></li>
-                        <li><a href="js-guide.html#root">Root files</a></li>
-                        <li><a href="js-guide.html#core">Core files</a></li>
-                        <li><a href="js-guide.html#libs">Library files</a></li>
-                    </ul>
-                </aside>
-                <div class="js-guide__content">
-                    <p class="content__introduction">Headstart doesn&#39;t offer much Javascript out of the box to let you have at it in your own way. What is included won&#39;t get in your way&mdash;that&#39;s a promise!</p>
-                    <hr>
-                    <p>The included libraries are plug-and-play. If you remove or add a file, the HTML files will be automatically updated with the correct links.</p>
-                    <p>The classes are using the <a href="http://carldanley.com/js-revealing-module-pattern/">revealing module pattern</a> to provide you with public/private functionality. All code is written (more or less) as defined in <a href="https://github.com/rwaldron/idiomatic.js/">idiomatic.js</a>.</p>
-                    <hr id="structure">
-                    <h1>Folder structure</h1>
-                    <ul>
-                        <li><a href="js-guide.html#root">./</a> &#126; Common and page-specific classes.</li>
-                        <li><a href="js-guide.html#core">./core</a> &#126; Custom class that are provided for your convenience.</li>
-                        <li><a href="js-guide.html#libs">./libs</a> &#126; Plugins, third-party libraries and patches.</li>
-                    </ul>
-                    <p class="report--info">Note: <strong>Files prefixed with an underscore will be excluded from the build process.</strong></p>
-                    <hr id="root">
-                    <h1>Root files</h1>
-                    <p></p>
-                    <h3>App</h3>
-                    <p>The <code class="language-none">app.js</code> file contains a self-instantiating top-level class that will rarely need any editing. Its purpose exists of the following tasks:</p>
-                    <ul>
-                        <li>Instantiate the core and view classes, after the latter one finished loading.</li>
-                        <li>Provide globally accessible getters for the aforementioned classes.</li>
-                        <li>Check if the browser is an older version of Internet Explorer (IE 9-) and append the JS and CSS patches to the page.</li>
-                    </ul>
-                    <p>The App class also provides you with a dispatcher that you can use for global communication:</p>
-                    <pre><code>// Dispatch from anywhere
-App.dispatcher.trigger('foo', { bar: 'foobar' });
-
-// Receive elsewhere
-App.dispatcher.on('foo', function(e, data){
-    log(data); // {bar: 'foobar'}
-});</code></pre>
-                    <p class="report--info">This class is only included in the <strong>Main</strong> version of Headstart.</p>
-                    <h3>View</h3>
-                    <p>View-specific files make it easy to limit your scripts to each individual page. These kind of files will always be injected last, in order to make sure that all libraries, core files and the app have been loaded (thanks to <a href="http://www.html5rocks.com/en/tutorials/speed/script-loading/">the default page blocking principle</a>). At the end, the App is initiated with a reference to the View itself.</p>
-                    <ul class="report--info">
-                        <li>These classes are only included in the <strong>Main</strong> version of Headstart.</li>
-                        <li>These files should be prefixed with <code class="language-none">view-</code>, followed by the name of the target HTML file. For example <code class="language-none">view-index.js</code>, <code class="language-none">view-about.js</code> or <code class="language-none">view-portfolio.js</code></li>
-                    </ul>
-                    <h3>Script</h3>
-                    <p>The <code class="language-none">script.js</code> file contains a very basic <code>.ready()</code> setup with jQuery. It also checks if the browser is an older version of Internet Explorer (IE 9-) and appends the JS and CSS patches to the page.</p>
-                    <p class="report--info">This class is only included in the <strong>Lite</strong> version of Headstart.</p>
-                    <hr id="core">
-                    <h1>Core files</h1>
-                    <p class="report--info">Even though these files are included in the <strong>Lite</strong> version, they are excluded from the build by default. You can include them by removing the prefixed underscore from the file name.</p>
-                    <h3>Api</h3>
-                    <p>A class for making Ajax calls. It is built atop of jQuery's own <code>$.ajax()</code> functionality, but with a easier, more compact syntax and added options.</p>
-                    <p>The only function you'll ever need is <code>call()</code>:</p>
-                    <pre><code>Api.call(Api.routes.someRoute, {
-    // The values to pass to the route
-    values: { something: 'this', isCool: true },
-
-    // The "done" callback 
-    done: function(data){
-        log('Returned data from route', data);
-    },
-
-    // The "fail" callback
-    fail: function(err){
-        log('Route call failed', err);
-    }
-    
-    // Method of the call, defaults to "POST"
-    // method: 'POST',
-
-    // Intercept hanging calls and enfore a maximum duration
-    // timed: false,
-    // hang: 5000,
-    // cancel: 10000
-});</code></pre>
-                    <p>This class also stores the routes to your API in the public <code>api.routes</code> object.</p>
-                    <h3>Utils</h3>
-                    <p>A globally-accessible wrapper for your utilities. By default the class comes with some (commented-out) functionality to:</p>
-                    <ul>
-                        <li>Check if touch-functionlity is available.</li>
-                        <li>Detect oldy (IE 9-) browsers. This is used by the default to inject IE assets into the page.</li>
-                        <li>Easily share content on Facebook, Twitter, Linkedin, Pinterest or Google+ through a pop-up window.</li>
-                        <li>Extend forms with a <code>serializeObject()</code> function that turns form data into a object. Great for your Ajax calls.</li>
-                    </ul>
-                    <hr id="libs">
-                    <h1>Library files</h1>
-                    <ul>
-                        <li><a href="http://ftlabs.github.io/fastclick/">Fastclick</a> &#126; Getting rid of touch-delays.</li>
-                        <li><a href="http://jquery.com/">jQuery</a> &#126; Using the latest 1.11.x release for IE support, but feel free to replace with 2.x if this suits your project better.</li>
-                        <li><a href="http://underscorejs.org/">Underscore</a> &#126; Providing you with a whole bunch of handy helper functions.</li>
-                        <li>
-                            <code class="language-none">/dev</code> &#126; Files to be included during development.
-                            <ul>
-                                <li><a href="http://adamschwartz.co/log/">Log</a> &#126; Fancy logging with a shorter <code>log()</code>.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <code class="language-none">/patches</code> &#126; Various patches for older browsers.
-                            <ul>
-                                <li><a href="https://github.com/scottjehl/Respond">Respond</a> (+ polyfills) &#126; Patch media queries.</li>
-                                <li><a href="https://github.com/vote539/placeholdr">Placeholdr</a> &#126; Fix <code class="language-html">&lt;input&gt;</code> placeholders.</li>
-                                <li>Fixes &#126; A file for your custom patches.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p></p>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="open-source">
-            <div class="container--open-source">
-                <p>Headstart is built with open-source software:</p>
-                <p>
-                    <a class="open-source__sass" href="http://sass-lang.com" title="Visit the Sass homepage"><span class="is-hidden">Sass</span></a>
-                    <a class="open-source__node" href="http://nodejs.org" title="Visit the NodeJS homepage"><span class="is-hidden">NodeJS</span></a>
-                    <a class="open-source__gulp" href="http://gulpjs.com" title="Visit the Gulp homepage"><span class="is-hidden">Gulp</span></a>
-                </p>
-            </div>
-        </div>
-        <hr>
-        <footer>
-            <div class="container--footer">
-                <p>Hand-gardened code by <a href="http://flovan.me" title="Visit my website">Florian Vanthuyne</a>. Contribute to this project through the <a href="https://github.com/flovan/headstart/issues" title="Go check out the issues page">Github issues page</a>.</p>
-                <p>Endorsed and used by <a href="http://www.adagioagency.com" title="Visit the website of Adagio Agency">Adagio Agency</a>. Licensed under <a href="https://github.com/flovan/headstart/blob/master/LICENSE" title="Read the MIT license">MIT</a>. Check the <a href="https://github.com/flovan/headstart/commits/master" title="Take a look at the changelog">changelog</a>.</p>
-            </div>
-        </footer>
-
-
-        <!-- JS will be injected below -->
-
-        <!-- inject:js -->
-        <!-- endinject -->
+    </div>
+</div>
+<hr>
+{{> partials/open_source}}
+{{> partials/footer_menu}}
+{{> layout/footer}}

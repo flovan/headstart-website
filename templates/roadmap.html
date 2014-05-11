@@ -1,0 +1,36 @@
+{{> layout/header}}
+<div class="title-block">
+    <div class="container--title-block">
+        <h1>Roadmap</h1>
+    </div>
+</div>
+<div class="changelog language-none">
+    <div class="container--changelog">
+        <aside class="changelog__sidebar">
+            {{> partials/sidebar_menu}}
+        </aside>
+        <div class="changelog__content">
+            <h1>Planned changes</h1>
+            <hr>
+            <ul>
+                <li>Make things faster!</li>
+                <li>Use the C/C++ port of Sass when it has matured enough.</li>
+                <li>Use a cache manifest and revision filenames.</li>
+                <li>Make it possible to validate HTML through W3C.</li>
+                <li>Notify of new updates when using the CLI.</li>
+            </ul>
+            <hr>
+            <h1>Known bugs</h1>
+            <ul>
+                <li>Some unicode characters will crash the building process. Known characters: <code class="language-none">&lt;</code>.</li>
+                <li>Adding a new folder into any watched directory (such as <code class="language-none">sass</code> or <code class="language-none">js</code>) crashes the building process.</li>
+                <li>The sass processor won&#39;t usually crash after an error, but refreshing will stop occuring.</li>
+            </ul>
+            <p>Any bugs can be added through the <a href="https://github.com/flovan/headstart/issues" title="Go check out the issues page">Github issues page</a>.</p>
+        </div>
+    </div>
+</div>
+<hr>
+{{> partials/open_source}}
+{{> partials/footer_menu}}
+{{> layout/footer}}

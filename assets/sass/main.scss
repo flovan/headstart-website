@@ -1,7 +1,6 @@
 // General imports ------------------------------------------------------------
 
 @import 'base/config_global';
-@import 'base/functions';
 @import 'base/config_site';
 
 @import 'module/state';
@@ -28,6 +27,11 @@
 {
 	box-sizing: border-box;
 }
+
+
+.is-hidden { @extend .is-hidden; }
+
+
 
 // Document -------------------------------------------------------------------
 //
@@ -83,18 +87,31 @@ header
 			background-image: url(../images/headstart-logo-text@2x.png);
 			background-size: 89px 16px;
 		}
-		@include media-max(449px)
-		{
-			display: block;
-			width: 100%;
-			background-position: center top;
-			@include rem(margin-bottom, 20);
-		}
+	}
+	.nav__version, .nav__version:visited {
+		position: relative;
+		@include rem(top, -2);
+		@include rem(padding, 2, 5);
+		@include rem(margin-left, 10);
+		@include rem(border-radius, 5);
+		display: inline-block;
+		background: $teal;
+		color: $white;
+		font-size: em(12);
+		text-decoration: none;
+		@extend %is-bold;
+
+		&:hover { background: tint($teal, 10); }
+		&:active { background: shade($teal, 10); }
 	}
 	.nav
 	{
 		@extend .is-cf;
 		
+		@include media-max(449px)
+		{
+			@include rem(margin-top, 20);
+		}
 		@include media-min(450px) { @include rem(margin-left, 30); }
 
 		ul, li
@@ -114,7 +131,8 @@ header
 		}
 	}
 	.nav,
-	.nav__logo
+	.nav__logo,
+	.nav__version
 	{ @include media-min(450px) { float: left; } }
 		.nav li
 		{
@@ -125,26 +143,6 @@ header
 
 			&:before { display: none; }
 		}
-	.nav__github-link
-	{
-		@include media-max(449px)
-		{
-			display: none;
-		}
-		@include media-min(450px)
-		{
-			float: right;
-			display: block;
-			width: 16px;
-			height: 16px;
-			background: url(../images/github-icon.png) no-repeat left top;
-		}
-		@include highres()
-		{
-			background-image: url(../images/github-icon@2x.png);
-			background-size: 16px 16px;
-		}
-	}
 
 .lead,
 .usp,
@@ -155,6 +153,7 @@ header
 .html-guide,
 .css-guide,
 .js-guide,
+.changelog,
 footer
 { @include rem(padding, 50, 0); }
 	.container--usp > div,
@@ -175,7 +174,7 @@ footer
 	{
 		@extend h3;
 		font-weight: bold;
-		@include column(6, false, 900px);
+		@include column(5, false, 1125px);
 
 		@include media-min($default-column-breakpoint)
 		{
@@ -185,13 +184,14 @@ footer
 	}
 	p:last-child
 	{
-		@include column(6,true, 900px);
+		@include column(7,true, 1125px);
 		@include media-min($default-column-breakpoint) { margin-top: 0; }
 	}
 }
 	.open-source__sass,
 	.open-source__node,
-	.open-source__gulp
+	.open-source__gulp,
+	.open-source__handlebars
 	{
 		display: inline-block;
 		background: url(../images/open-source-logos.png) no-repeat;
@@ -213,15 +213,21 @@ footer
 	}
 	.open-source__node
 	{
-		background-position: -178px 0;
+		background-position: -100px 0;
 		width: 186px;
 		height: 50px;
 	}
 	.open-source__gulp
 	{
-		background-position: -374px 0;
+		background-position: -291px 0;
 		width: 51px;
 		height: 116px;
+	}
+	.open-source__handlebars
+	{
+		background-position: -100px -54px;
+		width: 170px;
+		height: 68px;
 	}
 
 footer
@@ -302,26 +308,31 @@ footer
 			}
 		}
 	}
-	span
-	{
-		display: inline-block;
-		@include rem(margin, 0, 20);
-	}
 }
-	.lead__download-button,
-	.lead__github-button
+	.lead__download-button
 	{
+		@extend %button--darkest-teal;
 		@include media-max(559px)
 		{
 			display: block;
+
+			& + span { @include rem(margin, 15, 0); }
 		}
 		@include media-min(560px)
 		{
 			@include rem(min-width, 200);
+
+			& + span { @include rem(margin, 0, 15); }
+		}
+
+		& + span { display: inline-block; }
+	}
+	.lead__github-button {
+		@extend %button--dark-teal;
+		@media screen and (max-width: 559px) {
+			display: block;
 		}
 	}
-	.lead__download-button { @extend %button--darkest-teal; }
-	.lead__github-button { @extend %button--dark-teal; }
 
 .usp
 {
@@ -331,6 +342,10 @@ footer
 		@include rem(padding-bottom, 30);
 		@include rem(margin-bottom, 30);
 		text-align: center;
+	}
+
+	@include media-min-max($default-column-breakpoint, 949) {
+		h2 { @include rem(min-height, 98); }
 	}
 }
 	.usp__up-and-running,
@@ -381,6 +396,10 @@ footer
 			font-size: em(18);
 		}
 	}
+
+	@include media-min-max(1050, 1068) {
+		h3 { @include rem(min-height, 60); }
+	}
 }
 	.container--features > div
 	{
@@ -427,7 +446,7 @@ footer
 	}
 	a
 	{
-		display: block;	
+		display: inline-block;	
 		text-decoration: none;
 
 		&:hover { text-decoration: underline; }
@@ -442,6 +461,7 @@ footer
 	.content__introduction
 	{
 		font-size: em(22);
+		margin-top: 0;
 	}
 
 //
@@ -555,6 +575,13 @@ footer
 .js-guide {}
 	.js-guide__sidebar { @extend %toc; }
 	.js-guide__content { @extend %page__content; }
+
+// CHANGELOG
+//
+
+.changelog {}
+	.changelog__sidebar { @extend %toc; }
+	.changelog__content { @extend %page__content; }
 
 
 // IE10+ fixes ----------------------------------------------------------------
