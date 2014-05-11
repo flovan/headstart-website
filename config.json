@@ -4,6 +4,7 @@
 	"minifyHTML": true,
 	"autoPrefix": true,
 	"combineMediaQueries": false,
+	"useUncss": false,
 	"uncssIgnore": [],
 	"devMinify": false,
 	"hint": true,
