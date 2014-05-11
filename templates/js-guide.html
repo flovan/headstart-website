@@ -10,7 +10,7 @@
             {{> partials/sidebar_menu}}
         </aside>
         <div class="js-guide__content">
-            <p class="content__introduction">The default boilerplate files combe bundled with a few libraries and patches, and a basic setup to get you started right away.</p>
+            <p class="content__introduction">The default boilerplate files comes bundled with a few libraries and patches, and a basic setup to get you started right away.</p>
             
 
 
@@ -41,7 +41,7 @@
             <hr id="libs">
             <h1>Library files</h1>
             <h2>$</h2>
-            <p>Headstart comes with <a href="http://enderjs.com/#the-jeesh">a Jeesh build of Ender</a> to replace the much heavier <a href="http://jquery.com/">jQuery</a> 1.11.x, which is also bundled, but excluded from the build. The Jeesh comes with the following libraries and replaces almost every commonly used aspect of jQuery, but at half the weight.:</p>
+            <p>Headstart comes with <a href="http://enderjs.com/#the-jeesh">a Jeesh build of Ender</a> to replace the much heavier <a href="http://jquery.com/">jQuery</a> 1.11.x, which is also bundled, but excluded from the build. <strong>Feel free to revert back to jQuery if you want.</strong> Remember that you can use <a href="getting-started.html#boilerplate">a custom fork of the boilerplate files</a> to manage your own defaults. The Jeesh comes with the following libraries and replaces almost every commonly used aspect of jQuery, but at half the weight.:</p>
             <ul>
                 <li><a href="https://github.com/ded/domready">domReady</a> &#126; A cross-browser domReady.</li>
                 <li><a href="https://github.com/ded/qwery">Qwery</a> &#126; A fast light-weight selector engine.</li>
@@ -49,7 +49,7 @@
                 <li><a href="https://github.com/fat/bean">Bean</a> &#126; A multi-platform event manager</li>
                 <li><a href="http://underscorejs.org/">Underscore</a> &#126; A functional programming toolbelt.</li>
             </ul>
-            <p>Also bundled, but excluded from the build, is an extended version of this Ender build, which contains:</p>
+            <p>Also bundled, but excluded from the build, is an extended version of this Jeesh build, which contains extra libraries:</p>
             <ul>
                 <li><a href="https://github.com/ded/reqwest">Reqwest</a> &#126; Browser asynchronous http requests aka AJAX.</li>
                 <li><a href="https://github.com/ded/morpheus">Morpheus</a> &#126; A brilliant animation library.</li>
@@ -66,10 +66,13 @@
                     <li><a href="http://adamschwartz.co/log/">Log</a> &#126; Fancy logging with a shorter <code>log()</code>.</li>
                 </li>
             </ul>
-            <ul class="report--info">
-                <li>Dev libraries will get excluded when building with <code class="language-none">--production</code>.</li>
-                <li>All <code>log()</code> and <code>console.log()</code> statements will get stripped automatically with <code class="language-none">--production</code></li>
-            </ul>
+            <div class="report--info">
+                <p>Note: When running <code class="language-none">--production</code>:</p>
+                <ul>
+                    <li>Dev libraries will get excluded when building</li>
+                    <li>All <code>log()</code> and <code>console.log()</code> statements will get stripped automatically.</li>
+                </ul>
+            </div>
             <h3>Patches</h3>
             <ul>
                 <li><a href="https://github.com/scottjehl/Respond">Respond</a> (+ polyfills) &#126; Patch media queries.</li>

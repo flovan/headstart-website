@@ -37,9 +37,8 @@ cd myproject</code></pre>
             <pre class="language-none"><code>headstart build</code></pre>
             <p>Build continuously with:</p>
             <pre class="language-none"><code>headstart build --serve</code></pre>
-            <p>By default, the building system will have made a new folder <code class="language-none">export</code> in your working directory. In here you will find a working set of files. Go ahead, open the <code class="language-none">index.html</code> page.</p>
             <p>The building process can be further configured through the help of some flags. Lines starting with a <code class="language-none">#</code> are just comments.</p>
-            <pre class="language-none"><code><strong># The above, but open up a browser and an editor as well</strong><br>
+            <pre class="language-none"><code><strong># Build continuously, but open up a browser and an editor as well</strong><br>
 headstart build --serve --open --edit<br>
 <strong># Serve files without livereloading</strong>
 <strong># to prevent it from script-blocking</strong>
@@ -47,9 +46,23 @@ headstart build --serve --open --edit<br>
 headstart build --serve --nolr<br>
 <strong># Only build the assets, not the templates</strong><br>
 headstart build --onlyassets</code></pre>
+            <p>This will optimize, uglify, concatenate and minify files for you, and add in the <a href="getting-started.html#misc">miscellaneous files</a>, such as a <code class="language-none">.htaccess</code> file and a <code class="language-none">favicon.ico</code>.</p>
+
+
+            <hr id="production">
+            <h1>Production</h1>
             <p>To make a production ready build, you can use the following flag:</p>
             <pre class="language-none"><code>headstart build --production</code></pre>
-            <p>This will optimize, uglify, concatenate and minify files for you, and add in the <a href="getting-started.html#misc">miscellaneous files</a>, such as a <code class="language-none">.htaccess</code> file and a <code class="language-none">favicon.ico</code>.</p>
+            <p>Doing this makes the build engine do the following things (taking into account the settings from <code class="language-none">config.json</code> (see next chapter):</p>
+            <ul>
+                <li>Optimize image and SVG files.</li>
+                <li>Make a <code class="language-none">.ico</code> version of the <code class="language-none">favicon.png</code> from the icons folder, and put it in the root directory.</li>
+                <li>Convert <code class="language-none">htaccess.txt</code> into a working <code class="language-none">.htaccess</code></li>
+                <li>Copy the other items from the <code class="language-none">misc</code> folder to the root directory.</li>
+                <li>Concatenate and uglify javascript files.</li>
+                <li>Minify CSS and optimize with <a href="https://github.com/giakki/uncss" title="Visit the Github page of Uncss">Uncss</a>.</li>
+                <li>Minify template HTML.</li>
+            </ul>
 
 
             <hr id="structure">
@@ -85,6 +98,17 @@ headstart build --onlyassets</code></pre>
     // Minify assets during development
     // By default this is only done when running --production
     "devMinify": false,
+
+    // Combine media queries where possible
+    // Gzipping takes care of repeating strings, so this isn&#39;t
+    // really necessairy to keep down filesize
+    "combineMediaQueries": false,
+
+    // Uncss compares your CSS with the template pages and strips
+    // out unused bits. If you use javascript to dynamically add
+    // classes, you can prevent it from stripping those styles
+    // by listing selectors here
+    "uncssIgnore": [],
 
     // Check your javascript syntax
     "hint": true,

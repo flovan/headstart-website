@@ -1,0 +1,31 @@
+{{> layout/header}}
+<div class="title-block">
+    <div class="container--title-block">
+        <h1>Changelog</h1>
+    </div>
+</div>
+<div class="changelog language-none">
+    <div class="container--changelog">
+        <aside class="changelog__sidebar">
+            {{> partials/sidebar_menu}}
+        </aside>
+        <div class="changelog__content">
+            <p class="content__introduction">Below you&#39;ll find the changes each version brings. Feel free to <a href="https://github.com/flovan/headstart/issues" title="Go check out the issues page">report bugs</a> or suggest changes <a href="https://github.com/flovan/headstart/" title="Visit the project on Github">through a Pull request</a>. If you are already using Headstart but plan on upgrading, check out the <a href="upgrading.html" title="Take a look at the Upgrading guide">Upgrading page</a>. If you want to know where this project is heading, visit the <a href="roadmap.html" title="Take a look at the Roadmap page">Roadmap page</a>.</p>
+            <hr>
+            <h3>1.1</h3>
+            <ul>
+                <li><a href="https://github.com/giakki/uncss" title="Visit the Github page of Uncss">Uncss</a> was added to the production mode</li>
+                <li>Image optimization was moved to production mode</li>
+                <li>New documentation</li>
+                <li>Better templating through Handlebars</li>
+            </ul>
+            <hr>
+            <h3>1.0</h3>
+            <p>Initial release.</p>
+        </div>
+    </div>
+</div>
+<hr>
+{{> partials/open_source}}
+{{> partials/footer_menu}}
+{{> layout/footer}}

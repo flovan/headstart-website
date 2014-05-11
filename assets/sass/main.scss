@@ -88,7 +88,7 @@ header
 			background-size: 89px 16px;
 		}
 	}
-	.nav__version {
+	.nav__version, .nav__version:visited {
 		position: relative;
 		@include rem(top, -2);
 		@include rem(padding, 2, 5);
@@ -98,7 +98,11 @@ header
 		background: $teal;
 		color: $white;
 		font-size: em(12);
+		text-decoration: none;
 		@extend %is-bold;
+
+		&:hover { background: tint($teal, 10); }
+		&:active { background: shade($teal, 10); }
 	}
 	.nav
 	{
@@ -149,6 +153,7 @@ header
 .html-guide,
 .css-guide,
 .js-guide,
+.changelog,
 footer
 { @include rem(padding, 50, 0); }
 	.container--usp > div,
@@ -221,8 +226,8 @@ footer
 	.open-source__handlebars
 	{
 		background-position: -100px -54px;
-		width: 169px;
-		height: 67px;
+		width: 170px;
+		height: 68px;
 	}
 
 footer
@@ -456,6 +461,7 @@ footer
 	.content__introduction
 	{
 		font-size: em(22);
+		margin-top: 0;
 	}
 
 //
@@ -569,6 +575,13 @@ footer
 .js-guide {}
 	.js-guide__sidebar { @extend %toc; }
 	.js-guide__content { @extend %page__content; }
+
+// CHANGELOG
+//
+
+.changelog {}
+	.changelog__sidebar { @extend %toc; }
+	.changelog__content { @extend %page__content; }
 
 
 // IE10+ fixes ----------------------------------------------------------------
