@@ -1,10 +1,15 @@
-// General imports ------------------------------------------------------------
+//
+// These imports don't generate CSS, but make defined variables, functions,
+// and mixins available for further usage
 
 @import 'base/config_global';
 @import 'base/config_site';
+@import 'base/state';
 
-@import 'module/state';
+// Normalize and document imports ---------------------------------------------
+
 @import 'module/normalize';
+@import 'module/doc';
 
 // Module imports -------------------------------------------------------------
 
@@ -18,39 +23,6 @@
 // Vendor imports -------------------------------------------------------------
 
 @import 'vendor/prism';
-
-// Border-box rules! ----------------------------------------------------------
-
-*,
-*:after,
-*:before
-{
-	box-sizing: border-box;
-}
-
-
-.is-hidden { @extend .is-hidden; }
-
-
-
-// Document -------------------------------------------------------------------
-//
-// The font-size is calculated as a % from the browser default of 16
-
-html,
-body
-{
-    font-family: $font-stack;
-    font-size: (strip($base-font-size) / 16 * 100) * 1%;
-    line-height: 1.5;
-    background-color: $white;
-    color: $darkest-teal;
-	height: 100%;
-
-	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
 
 hr
 {
@@ -582,20 +554,6 @@ footer
 .changelog {}
 	.changelog__sidebar { @extend %toc; }
 	.changelog__content { @extend %page__content; }
-
-
-// IE10+ fixes ----------------------------------------------------------------
-
-// viewport fix
-// http://msdn.microsoft.com/en-us/library/ie/hh869615(v=vs.85).aspx
-@-ms-viewport { width: device-width; }
-@viewport { width: device-width; }
-
-// Touch-delay fix
-// http://msdn.microsoft.com/en-us/library/ie/hh772044(v=vs.85).aspx
-a,
-input,
-button { -ms-touch-action: none !important; }
 
 // Print ----------------------------------------------------------------------
 //
