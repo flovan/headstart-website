@@ -17,30 +17,30 @@
             <hr id="structure">
             <h1>Folder structure</h1>
             <ul>
-                <li><a href="js-guide.html#core">./core</a> &#126; Custom class that are provided for your convenience.</li>
-                <li><a href="js-guide.html#libs">./libs</a> &#126; Plugins, third-party libraries and patches.</li>
+                <li><a href="js-guide.html#ie">./ie</a> &#126; Patches for IE&lt;9.</li>
+                <li><a href="js-guide.html#libs">./libs</a> &#126; Plugins and third-party libraries.</li>
                 <li><a href="js-guide.html#root">./</a> &#126; Main and page-specific code.</li>
             </ul>
             <p class="report--info">Note: Files prefixed with an underscore will be excluded from the build process.</p>
             
 
 
-            <hr id="core">
-            <h1>Core files</h1>
-            <p>This folder contains personal libraries which are excluded from the build by default.</p>
-            <h3>Utils</h3>
-            <p>A globally-accessible wrapper for your utilities. By default the class comes with some (commented-out) functionality to:</p>
-            <ul>
-                <li>Check if the client device is touch-enabled is available.</li>
-                <li>Detect oldy (IE 9-) browsers. This is used by the default to inject IE assets into the page.</li>
-                <li>Easily share content on Facebook, Twitter, Linkedin, Pinterest or Google+ through a pop-up window.</li>
-            </ul>
-            
+            <hr id="ie">
+            <h1>IE files</h1>
+            <p>This folder contains patches and polyfills for IE&lt;9, ordered in the <code class="language-none">body</code> and <code class="language-none">head</code> folders. Each folder will produce a concatenated file which you can use through the conditional comments in the layout templates:</p>
+            <p><code class="language-none">templates/layout/header.html</code>:</p>
+            <pre><code class="language-html">&lt;!--[if lt IE 9]&gt;--&gt;
+&lt;script src="assets/js/ie.head.min.js"&gt;&lt;/script&gt;
+&lt;!--&lt;![endif]--&gt;</code></pre>
+            <p><code class="language-none">templates/layout/footer.html</code>:</p>
+            <pre><code class="language-html">&lt;!--[if lt IE 9]&gt;--&gt;
+&lt;script src="assets/js/ie.body.min.js"&gt;&lt;/script&gt;
+&lt;!--&lt;![endif]--&gt;</code></pre>
 
 
             <hr id="libs">
             <h1>Library files</h1>
-            <h2>$</h2>
+            <h3>$</h3>
             <p>Headstart comes with <a href="http://enderjs.com/#the-jeesh">a Jeesh build of Ender</a> to replace the much heavier <a href="http://jquery.com/">jQuery</a> 1.11.x, which is also bundled, but excluded from the build. <strong>Feel free to revert back to jQuery if you want.</strong> Remember that you can use <a href="getting-started.html#boilerplate">a custom fork of the boilerplate files</a> to manage your own defaults. The Jeesh comes with the following libraries and replaces almost every commonly used aspect of jQuery, but at half the weight.:</p>
             <ul>
                 <li><a href="https://github.com/ded/domready">domReady</a> &#126; A cross-browser domReady.</li>
@@ -55,7 +55,13 @@
                 <li><a href="https://github.com/ded/morpheus">Morpheus</a> &#126; A brilliant animation library.</li>
             </ul>
             <p>Prefix the unused libraries with an underscore to prevent abuse of the <code>$</code>.</p>
-            <h2>Loose libs</h2>
+            <h3>Utils</h3>
+            <p>A globally-accessible wrapper for your utilities. By default the class can:</p>
+            <ul>
+                <li>Check if the client device is touch-enabled is available.</li>
+                <li>Detect oldy (IE 9-) browsers.</li>
+            </ul>
+            <h3>Loose libs</h3>
             <ul>
                 <li><a href="http://ftlabs.github.io/fastclick/">Fastclick</a> &#126; Getting rid of touch-delays.</li>
                 <li><a href="http://underscorejs.org/">Underscore</a> &#126; A functional programming toolbelt. Excluded by default.</li>
@@ -63,7 +69,7 @@
             <h3>Dev libs</h3>
             <ul>
                 <li>
-                    <li><a href="http://adamschwartz.co/log/">Log</a> &#126; Fancy logging with a shorter <code>log()</code>.</li>
+                    <li><a href="https://github.com/patik/console.log-wrapper/">Log</a> &#126; Cross-browser logging with both <code>log()</code> and <code>console.log()</code>.</li>
                 </li>
             </ul>
             <div class="report--info">
@@ -73,14 +79,6 @@
                     <li>All <code>log()</code> and <code>console.log()</code> statements will get stripped automatically.</li>
                 </ul>
             </div>
-            <h3>Patches</h3>
-            <ul>
-                <li><a href="https://github.com/scottjehl/Respond">Respond</a> (+ polyfills) &#126; Patch media queries.</li>
-                <li><a href="https://github.com/UmbraEngineering/Placeholder">ie-behavior-span.js</a> &#126; Fix <code class="language-html">&lt;input&gt;</code> placeholders.</li>
-            </ul>
-            <p>These patches get concatenated into <code class="language-none">ie.min.js</code>, and can be included through the <code class="language-none">Utils</code> core class:</p>
-            <pre><code>if(Utils.isOldie()) Utils.patchOldie();</code></pre>
-            <p>Don&#39;t forget to unprefix the utils file, and uncomment the needed functions if you want to use this.</p>
             
 
 
@@ -90,7 +88,7 @@
             <h3>Main script</h3>
             <p>The <code class="language-none">main.js</code> file contains a very basic <code>.ready()</code> setup wrapped in an <a href="http://gregfranko.com/blog/i-love-my-iife/">IIFE</a>.</p>
             <h3>View specific scripts</h3>
-            <p>View-specific files make it easy to produce script files for individual pages. They are content-wise the same as the <code class="language-none">main.js</code>.</p>
+            <p>View-specific files make it easy to produce script files for individual pages. They are content-wise the same as the <code class="language-none">main.js</code>. There is an example file included for the index page. To use it, remove the leading underscore from its filename.</p>
         </div>
     </div>
 </div>

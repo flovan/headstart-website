@@ -3,8 +3,7 @@
 // Not as much a module, but separated as one to group all form styles
 
 fieldset,
-label
-{
+label {
 	@include rem(margin, 0, 0, strip($base-font-size));
 	padding: 0;
 
