@@ -56,7 +56,7 @@
             </ul>
             <p>Prefix the unused libraries with an underscore to prevent abuse of the <code>$</code>.</p>
             <h3>Utils</h3>
-            <p>A globally-accessible wrapper for your utilities. By default the class can:</p>
+            <p>A globally-accessible wrapper for your utilities. By default the class is exluded from the build, and it can:</p>
             <ul>
                 <li>Check if the client device is touch-enabled is available.</li>
                 <li>Detect oldy (IE 9-) browsers.</li>
@@ -69,16 +69,10 @@
             <h3>Dev libs</h3>
             <ul>
                 <li>
-                    <li><a href="https://github.com/patik/console.log-wrapper/">Log</a> &#126; Cross-browser logging with both <code>log()</code> and <code>console.log()</code>.</li>
+                    <li><a href="https://github.com/kayahr/console-shim">Console shim</a> &#126; providing console compatibility for legacy browsers.</li>
                 </li>
             </ul>
-            <div class="report--info">
-                <p>Note: When running <code class="language-none">--production</code>:</p>
-                <ul>
-                    <li>Dev libraries will get excluded when building</li>
-                    <li>All <code>log()</code> and <code>console.log()</code> statements will get stripped automatically.</li>
-                </ul>
-            </div>
+            <p class="report--info">Note: Dev libraries will get excluded when building in <code class="language-none">--production</code>.</p>
             
 
 
