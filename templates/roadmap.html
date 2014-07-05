@@ -17,7 +17,6 @@
                 <li>Use the C/C++ port of Sass when it has matured enough.</li>
                 <li>Use a cache manifest and revision filenames.</li>
                 <li>Make it possible to validate HTML through W3C.</li>
-                <li>Notify of new updates when using the CLI.</li>
             </ul>
             <hr>
             <h1>Known bugs</h1>
@@ -25,6 +24,7 @@
                 <li>When using <code class="language-none">&lt;code&gt;</code> blocks, some characters (such as <code class="language-none">&lt;</code>) will crash the building process.</li>
                 <li>Adding a new folder into any watched directory (such as <code class="language-none">sass</code> or <code class="language-none">js</code>) crashes the building process.</li>
                 <li>Newly added files sometimes escape the watch, thus requiring you to quit and restart the process.</li>
+                <li>When importing a <code class="language-none">scss</code> module into your main stylesheet, livereloading won&#39;t occur through saves in the imported module until the Headstart build is restarted. Workaround: save the main stylesheet where you imported the module.</li>
             </ul>
             <p>Any bugs can be added through the <a href="https://github.com/flovan/headstart/issues" title="Go check out the issues page">Github issues page</a>.</p>
         </div>
