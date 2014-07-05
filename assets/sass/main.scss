@@ -78,7 +78,7 @@ header
 	}
 	.nav
 	{
-		@extend .is-cf;
+		@extend %is-cf;
 		
 		@include media-max(449px)
 		{
@@ -501,7 +501,7 @@ footer
 		
 		.row
 		{
-			@extend.is-cf;
+			@extend%is-cf;
 			
 			&:not(:last-child) { @include rem(margin-bottom, 5); }
 			& > *
