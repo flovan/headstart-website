@@ -13,7 +13,7 @@
 
 
             <h1 id="install">Installing</h1>
-            <p class="report--info">Headstart runs on NodeJS and uses Sass for compilation. I you haven&#39;t installed those on your system, skip down to <a href="getting-started.html#requirements">the requirements</a>.</p>
+            <p class="report--info">Headstart runs on NodeJS and uses Sass for compilation. If you haven&#39;t installed those on your system, skip down to <a href="getting-started.html#requirements">the requirements</a>.</p>
             <p>Open up your Command Line and install Headstart globally. If any errors are displayed, try running the command with <code class="language-none">sudo</code>.</p>
             <pre class="language-none"><code>npm install -g headstart</code></pre>
 
@@ -35,18 +35,10 @@ cd myproject</code></pre>
             <h1>Develop</h1>
             <p>Run the following command to make a build:</p>
             <pre class="language-none"><code>headstart build</code></pre>
-            <p>Build continuously with:</p>
+            <p>Build continuously with auto-refresh enabled by running:</p>
             <pre class="language-none"><code>headstart build --serve</code></pre>
-            <p>The building process can be further configured through the help of some flags. Lines starting with a <code class="language-none">#</code> are just comments.</p>
-            <pre class="language-none"><code><strong># Build continuously, but open up a browser and an editor as well</strong><br>
-headstart build --serve --open --edit<br>
-<strong># Serve files without livereloading</strong>
-<strong># to prevent it from script-blocking</strong>
-<strong># the page while testing through your public IP</strong><br>
-headstart build --serve --nolr<br>
-<strong># Only build the assets, not the templates</strong><br>
-headstart build --onlyassets</code></pre>
-            <p>This will optimize, uglify, concatenate and minify files for you, and add in the <a href="getting-started.html#misc">miscellaneous files</a>, such as a <code class="language-none">.htaccess</code> file and a <code class="language-none">favicon.ico</code>.</p>
+            <p>Build continuously, but open up a browser and an editor as well:</p>
+            <pre class="language-none"><code>headstart build --serve --open --edit</code></pre>
 
 
             <hr id="production">
@@ -57,12 +49,13 @@ headstart build --onlyassets</code></pre>
             <ul>
                 <li>Optimize image and SVG files.</li>
                 <li>Make a <code class="language-none">.ico</code> version of the <code class="language-none">favicon.png</code> from the icons folder, and put it in the root directory.</li>
-                <li>Convert <code class="language-none">htaccess.txt</code> into a working <code class="language-none">.htaccess</code></li>
+                <li>Convert <code class="language-none">htaccess.txt</code> into a working <code class="language-none">.htaccess</code> file.</li>
                 <li>Copy the other items from the <code class="language-none">misc</code> folder to the root directory.</li>
-                <li>Concatenate and uglify javascript files.</li>
-                <!-- <li>Minify CSS and optimize with <a href="https://github.com/giakki/uncss" title="Visit the Github page of Uncss">Uncss</a>.</li> -->
+                <li>Concatenate and uglify javascript files, and take out <code class="language-javascipt">console.log()</code>s and other development code.</li>
+                <li>Minify CSS and optimize with <a href="https://github.com/giakki/uncss" title="Visit the Github page of Uncss">Uncss</a>.</li>
                 <li>Minify template HTML.</li>
             </ul>
+            <p>Note that you can also use the <code class="language-none">--serve</code> flag here if you want or need to.</p>
 
 
             <hr id="structure">
@@ -92,21 +85,17 @@ headstart build --onlyassets</code></pre>
     // eg. remove comments, collapse whitespace, ...
     "minifyHTML": false,
 
-    // Automatically prefix your CSS
-    "autoPrefix": true,
-
-    // Minify assets during development
-    // By default this is only done when running --production
-    "devMinify": false,
-
     // Combine media queries where possible
     // Gzipping takes care of repeating strings, so this isn&#39;t
     // really necessairy to keep down filesize
     "combineMediaQueries": false,
 
     // Uncss compares your CSS with the template pages and strips
-    // out unused bits. If you use javascript to dynamically add
-    // classes, you can prevent it from stripping those styles
+    // out unused bits. Use together with the next option.
+    "useUncss": false,
+
+    // If you use javascript to dynamically add
+    // classes, you can prevent Uncss from stripping their styles
     // by listing selectors here
     "uncssIgnore": [],
 
@@ -132,13 +121,7 @@ headstart build --onlyassets</code></pre>
 
     // Prefix injected script and link tags
     // eg. "{{public}}/"
-    "template_asset_prefix": "",
-
-    // Settings the static file server uses
-    // to serve your project
-    "host": "localhost",
-    "port": "9000",
-    "lr": "35729"
+    "template_asset_prefix": ""
 }</code></pre>
             <h3>Assets</h3>
             <p>The <code class="language-none">assets</code> folder contains your scripts, styles, images, and other files such as fonts, video, etc. By default, the following folders will be present:</p>
@@ -178,7 +161,7 @@ headstart build --onlyassets</code></pre>
             <p>If any version of Ruby is printed out, you are good to go. If you see <code class="language-none">command not found</code> appear, you can <a href="https://www.ruby-lang.org/en/installation/" target="_blank" title="Read the Ruby installation guide">follow the instructions on this page</a> to install Ruby.</p>
             
             <h3>Sass</h3>
-            <p>If you already had Ruby installed, you can check if Sass has been installed by running:</p>
+            <p>When you have Ruby installed, you can check if Sass has been installed by running:</p>
             <pre class="language-none"><code>sass -v</code></pre>
             <p>If any version of Sass is printed out, you are good to go. If you see <code class="language-none">command not found</code> appear, you can install Sass by running:</p>
             <pre class="language-none"><code>gem install sass</code></pre>
@@ -187,6 +170,15 @@ headstart build --onlyassets</code></pre>
             <p>NodeJS is what ties together the modules that make up Headstart. NPM (Node Packaged Modules) is the package manager that comes with Node.</p>
             <p>You can <a href="http://nodejs.org/download/" title="Go to the NodeJS download page">download the appropriate installer through the website</a>.</p>
 
+            <h3>Git</h3>
+            <p>Some NodeJS module authors aren&#39;t as responsive as others, so some Headstart updates might retrieve modules directly from Github, rather than through NPM. For this reason, it is advised to install Git. You can check if you have it installed by running:</p>
+            <pre class="language-none"><code>git --version</code></pre>
+            <p>If any version of Git is printed out, you are good to go. If you see <code class="language-none">command not found</code> appear, you can <a href="http://git-scm.com" target="_blank" title="Read the Ruby installation guide">download the installer through the Git website</a>.</p>
+
+            <h3>Command Line Tools</h3>
+            <p>Not as much a requirement, but included here just in case. If you work with a Mac, it is possible that you&#39;ll be asked to install the Command Line tools through Xcode. Don&#39; worry though, there is a way to install them without the getting your hands on the full application:</p>
+            <pre class="language-none"><code>xcode-select --install</code></pre>
+            <p>This will open up a Software Update pop-up that will do the searching and installing for you. Just hit install and let it do its job.</p>
 
             <hr id="contribute">
             <h1>Contribute</h1>

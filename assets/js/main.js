@@ -21,8 +21,6 @@ $(document).ready(function() {
 	//
 
 	$localLink.on('click', localLinkClickHandler);
-	
-	if(Utils.isOldie()) Utils.patchOldie();
 
 	//
 	// FUNCTIONS --------------------------------------------------------------

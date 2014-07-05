@@ -52,7 +52,7 @@
             <p>This file defines project specific variables, such as colors, and the default font-stack:</p>
             <pre><code>$font-stack: Helvetica Neue, Helvetica, Verdana, Roboto, sans-serif;</code></pre>
             <h3>_functions.scss</h3>
-            <p>Some functions that are also used by included mixins:</p>
+            <p>Some handy functions that are also being used by the default mixins:</p>
             <ul>
                 <li><code>strip($number)</code> &#126; Will string the unit from a passed value.</li>
                 <li><code>em($target, $context: $base-font-size)</code> &#126; Generates <code>em</code> values from a number. Supports negatives as well. The <code>$context</code> variable is used as base value during calculations.</li>
@@ -89,7 +89,7 @@
                 <li><a href="http://susy.oddbird.net">Susy</a> &#126; Library files over <a href="https://github.com/ericam/susy/tree/master/sass">here</a>.</li>
                 <li><a href="http://bootflat.github.io">Bootflat</a> &#126; Library files over <a href="https://github.com/bootflat/bootflat.github.io/tree/master/bootflat/scss">here</a>.</li>
             </ul>
-            <p class="report--warning">Note: These haven&#39;t been tested yet. Please <a href="https://github.com/flovan/headstart/issues?state=open" title="Visit the issues page">file an issue on Github</a> if things break.</p>
+            <p class="report--warning">Note: These haven&#39;t been tested yet. Please <a href="https://github.com/flovan/headstart/issues?state=open" title="Visit the issues page">file an issue on Github</a> if things break, or even if they work just fine (so I can remove this notice).</p>
             
 
 
@@ -311,7 +311,13 @@ div {
             <p>This stylesheet gets included every page. The styles of, for example, a <code class="language-html">&lt;header&gt;</code>, <code class="language-html">&lt;menu&gt;</code> or <code class="language-html">&lt;footer&gt;</code> are best defined here. If you plan on using modules, this is also the best place to import them.</p>
             <h3>View specific styles</h3>
             <p>When working on a large scale project, somes styles will be limited to individual pages. This is when the view-specific files come in handy, as they will lighten up the main stylesheet and thus speed up the individual pages of your website.</p>
-            <p>These files should be prefixed with <code class="language-none">view-</code>, followed by the name of the target HTML file. For example <code class="language-none">view-index.scss</code>, <code class="language-none">view-about.scss</code> or <code class="language-none">view-portfolio.scss</code></p>
+            <p>There is an example file included for the index page. To use it, remove the leading underscore from its filename.</p>
+            <h3>IE&lt;9 styles</h3>
+            <p>If you need to use CSS hacks for older IE browser, you can put them in the <code class="language-none">ie.scss</code> file. To use it, remove the leading underscore from its filename, and enable the conditional comments in the header layout:</p>
+            <p><code class="language-none">templates/layout/header.html</code>:</p>
+            <pre><code class="language-html">&lt;!--[if lt IE 9]&gt;--&gt;
+&lt;link rel="stylesheet" href="assets/css/ie.min.css"&gt;
+&lt;!--&lt;![endif]--&gt;</code></pre>
         </div>
     </div>
 </div>
