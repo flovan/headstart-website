@@ -6,7 +6,7 @@
 
 $(document).ready(function() {
 
-	log('_## Main script running_');
+	console.log('## Main script running');
 
 	// VARS -------------------------------------------------------------------
 	//

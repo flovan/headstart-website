@@ -12,5 +12,5 @@
 	"export_misc": "export",
 	"assemble_templates": true,
 	"template_asset_prefix": "",
-	"revisionCaching": false
+	"revisionCaching": true
 }
