@@ -11,11 +11,13 @@
         </aside>
         <div class="getting-started__content">
 
-
             <h1 id="install">Installing</h1>
-            <p class="report--info">Headstart runs on NodeJS and uses Sass for compilation. If you haven&#39;t installed those on your system, skip down to <a href="getting-started.html#requirements">the requirements</a>.</p>
+            <p class="report--warning"><strong>First time users:</strong> Headstart runs on NodeJS and uses Sass for compilation. Make sure your system meets <a href="getting-started.html#requirements">the requirements</a> before continuing.</p>
             <p>Open up your Command Line and install Headstart globally. If any errors are displayed, try running the command with <code class="language-none">sudo</code>.</p>
             <pre class="language-none"><code>npm install -g headstart</code></pre>
+            <p>When NPM finishes downloading and installing Headstart and all its dependencies, run the following command to get a quick overview of all the available commands:</p>
+            <pre class="language-none"><code>headstart
+// or `hs</code></pre>
 
 
             <hr id="boilerplate">
@@ -121,12 +123,16 @@ cd myproject</code></pre>
 
     // Prefix injected script and link tags
     // eg. "{{public}}/"
-    "template_asset_prefix": ""
+    "template_asset_prefix": "",
+
+    // Turn on revisioning to get better
+    // caching out of the browser
+    "revisionCaching": false
 }</code></pre>
             <h3>Assets</h3>
             <p>The <code class="language-none">assets</code> folder contains your scripts, styles, images, and other files such as fonts, video, etc. By default, the following folders will be present:</p>
             <ul>
-                <li><code class="language-none">images</code> &#126; Empty, aside from some placeholder icons.</li>
+                <li><code class="language-none">images</code> &#126; Empty, aside from some placeholder icons. Make sure to replace these!</li>
                 <li><code class="language-none">js</code> &#126; A basic setup to get you started. More on that in the <a href="js-guide.html">JS guide</a>.</li>
                 <li><code class="language-none">sass</code> &#126; A basic setup to get you started. More on that in the <a href="css-guide.html">CSS guide</a>.</li>
             </ul>
@@ -135,11 +141,11 @@ cd myproject</code></pre>
             <h3>Miscellaneous</h3>
             <p>The <code class="language-none">misc</code> directory contains files which will only be added when making a production ready build with the <code class="language-none">--production</code> flag:</p>
             <ul>
-                <li><code class="language-none">browserconfig.xml</code> &#126; A configuration file for Windows tiles.</li>
-                <li><code class="language-none">crossdomain.xml</code> &#126; A policy file to restrict access to assets.</li>
-                <li><code class="language-none">htaccess.txt</code> &#126; As <code class="language-none">.htaccess</code> files are hidden files, this file will get converted for you automatically. It adds support for webfont filetypes, and enables gzipping and caching for your assets.</li>
-                <li><code class="language-none">humans.txt</code> &#126; <em>We are people, not machines!</em> Read more on this <a href="http://humanstxt.org/">here</a>.</li>
-                <li><code class="language-none">robots.txt</code> &#126; A behaviour sheet for robots and content spiders. Read more <a href="http://www.robotstxt.org/">here</a>.</li>
+                <li><code class="language-none">browserconfig.xml</code> &#126; A configuration file for Windows tiles. More info <a href="http://msdn.microsoft.com/en-us/library/ie/dn455106.aspx">here</a>.</li>
+                <li><code class="language-none">crossdomain.xml</code> &#126; A policy file to restrict access to assets. More info <a href="www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html">here</a>.</li>
+                <li><code class="language-none">htaccess.txt</code> &#126; Apache configuration file in (visible!) <code class="language-none">.txt</code> format that will get converted to a valid <code class="language-none">.htaccess</code> file during the build process. More info <a href="https://github.com/h5bp/server-configs-apache">here</a>.</li>
+                <li><code class="language-none">humans.txt</code> &#126; <em>We are people, not machines!</em> More info <a href="http://humanstxt.org/">here</a>.</li>
+                <li><code class="language-none">robots.txt</code> &#126; A behaviour sheet for robots and content spiders. More info <a href="http://www.robotstxt.org/">here</a>.</li>
             </ul>
 
 
@@ -179,6 +185,9 @@ cd myproject</code></pre>
             <p>Not as much a requirement, but included here just in case. If you work with a Mac, it is possible that you&#39;ll be asked to install the Command Line tools through Xcode. Don&#39; worry though, there is a way to install them without the getting your hands on the full application:</p>
             <pre class="language-none"><code>xcode-select --install</code></pre>
             <p>This will open up a Software Update pop-up that will do the searching and installing for you. Just hit install and let it do its job.</p>
+
+            <h3>That&#39;s all!</h3>
+            <p>Once your machine meets all of the requirements, <a href="#install">jump back up and install Headstart</a>!</p>
 
             <hr id="contribute">
             <h1>Contribute</h1>
