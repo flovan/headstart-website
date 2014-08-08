@@ -17,7 +17,7 @@
             <pre class="language-none"><code>npm install -g headstart</code></pre>
             <p>When NPM finishes downloading and installing Headstart and all its dependencies, run the following command to get a quick overview of all the available commands:</p>
             <pre class="language-none"><code>headstart
-// or `hs</code></pre>
+// or `hs`</code></pre>
 
 
             <hr id="boilerplate">
@@ -58,6 +58,18 @@ cd myproject</code></pre>
                 <li>Minify template HTML.</li>
             </ul>
             <p>Note that you can also use the <code class="language-none">--serve</code> flag here if you want or need to.</p>
+
+
+            <hr id="services">
+            <h1>Extra Services</h1>
+            <h3>Web tunneling</h3>
+            <p>Headstart makes it possible to expose your local web server to the internet. This way you can share whatever you&#39;re building with the world without the need for fiddling with a server or FTP.</p>
+            <p>To use it, add the <code class="language-none">--tunnel</code> flag to your build instruction. You&#39;ll see a public acces url being written out in your command line window.</p>
+            <p>But it doesn&#39;t stop here! If you navigate your browser to <strong>http://localhost:4040</strong>, you&#39;ll be able to inspect and replay the incoming HTTP traffic so you can find out where the bottlenecks are.</p>
+            <p>Shout-out to <a href="https://inconshreveable.com">Alan Shreve</a>, the creator of <a href="http://ngrok.com">ngrok</a>, for making this possible.</p>
+            <h3>Google Pagespeed Insights</h3>
+            <p>To make sure your creation is performing at its best, it is advised to run your files through Google&#39;s <a href="https://developers.google.com/speed/pagespeed/insights/">Pagespeed Insights</a> to check if there are any optimizations to be made.</p>
+            <p>Headstart comes bundled with a command line version of their online service, which you can use by appending the <code class="language-none">--psi</code> flag to your build instructions. By default, this will run your served files against the desktop strategy, but you can change this by adding <code class="language-none">--strategy=mobile</code> as an extra flag.</p>
 
 
             <hr id="structure">
