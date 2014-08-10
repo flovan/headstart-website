@@ -2,42 +2,38 @@
 
 'use strict';
 
+// Underscore is bundled in with ender, so just require it
+// Comment out this line when using the separated Underscore file,
+// eg. when using jQuery
+var _ = require('underscore');
+
 // Document -------------------------------------------------------------------
 
-$(document).ready(function() {
+// When using jQuery, use
+// $(document).ready(function () {
 
-	console.log('## Main script running');
+$.domReady(function () {
+
+	console.log('## Document ready');
 
 	// VARS -------------------------------------------------------------------
 	//
 
 	var
-		fileName = _.last(window.location.href.split('/')),
-		$localLink = $('a[href*="' + fileName + '#"]'),
-		$scrollTarget = $('html, body')
+		$window = $(window),
+		$body = $('body')
 	;
 
 	// ACTIONS ----------------------------------------------------------------
 	//
 
-	$localLink.on('click', localLinkClickHandler);
+	// $elem.on('something', doSomething);
 
 	//
 	// FUNCTIONS --------------------------------------------------------------
 	//
 
-	function localLinkClickHandler(e)
-	{
-		var offsetTop = $('#' + $(e.currentTarget).attr('href').split('#')[1]).offset().top,
-			optimTime = 400 * (Math.ceil(offsetTop/1000));
-		$scrollTarget.animate({
-			scrollTop: offsetTop + 'px'
-		}, optimTime, 'easeInOutQuad', function()
-		{
-			window.location.hash = $(e.currentTarget).attr('href').split('#')[1];
-		});
-		return false;
-	}
+	// function doSomething () {}
 
 });
 

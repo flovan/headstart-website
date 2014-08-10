@@ -14,7 +14,6 @@
 	clip: rect(0 0 0 0);
 	opacity: 0;
 }
-.is-hidden { @extend %is-hidden; }
 
 %is-bold { font-weight: bold; }
 %is-underlined { text-decoration: underline; }

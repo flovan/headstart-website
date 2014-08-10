@@ -19,25 +19,6 @@
 	}
 }
 
-.container,
-.container--header,
-.container--lead,
-.container--usp,
-.container--features,
-.container--open-source,
-.container--footer,
-.container--getting-started,
-.container--html-guide,
-.container--css-guide,
-.container--js-guide,
-.container--changelog,
-.container--title-block
-{
-	@extend %container;
-	@extend %is-cf;
-}
-
-
 // Extend your own classes here to inherit container behaviour
 // or enable a global class to be used in your HTML
 

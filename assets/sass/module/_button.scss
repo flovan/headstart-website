@@ -1,64 +1,36 @@
 //  Button Module -------------------------------------------------------------
 //
-// Resets and sets some default styles that <button> and <a> elements have
+// Sets some default styles for elements that are usually used for buttons,
+// such as <button> and <a> elements
 
-%button
-{
+%button {
+	display: inline-block;
 	border: none; background: none;
 	outline: none;
 	font-family: $font-stack;
-	display: inline-block;
-	font-weight: bold;
 	text-decoration: none;
 	line-height: 1;
 	
-	&:disabled { opacity: 0.5; }
+	&:disabled {
+		opacity: 0.5;
+	}
 }
 
-//  Modifiers -----------------------------------------------------------------
+// Modifiers ------------------------------------------------------------------
+//
 
-%button--darkest-teal,
-%button--dark-teal,
-%button--dark-teal-stroke
-{
+/*
+%button--grey {
 	@extend %button;
-	padding: rem(15);
-	border-radius: rem(15);
-	color: $white;
-	&:hover, &:active { color: $white; }
-}
-
-%button--darkest-teal
-{
-	background-color: $darkest-teal;
+	@include rem(padding, 15);
+	background-color: shade($white, 30);
+	color: shade($white, 70);
 	
-	&:hover { background-color: tint($darkest-teal, 10%); }
-	&:active { background-color: shade($darkest-teal, 10%); }
-}
-
-%button--dark-teal
-{
-	background-color: $dark-teal;
-	
-	&:hover { background-color: tint($dark-teal, 10%); }
-	&:active { background-color: shade($dark-teal, 10%); }
-}
-
-%button--dark-teal-stroke
-{
-	background-color: none;
-	color: $dark-teal;
-	border: 2px solid $dark-teal;
-	
-	&:hover, &:active { color: $white; }
-	&:hover
-	{
-		background-color: tint($dark-teal, 10%);
-		border-color: tint($dark-teal, 10%);
+	&:hover {
+		background-color: shade($white, 20);
 	}
-	&:active
-	{
-		background-color: shade($dark-teal, 10%);
-		border-color: shade($dark-teal, 10%);
+	&:active {
+		background-color: shade($white, 40);
 	}
 }
+*/

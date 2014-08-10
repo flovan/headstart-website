@@ -20,7 +20,7 @@
 
 ul.report,
 ol.report
-{ @include rem(padding-left, 20); }
+{ @include rem(padding-left, 35); }
 
 // Modifiers ------------------------------------------------------------------
 //
@@ -34,9 +34,6 @@ ol.report
 	border-color: $reporting-success;
 
 	a, a:visited, a:hover, a:active { color: shade($reporting-success, 60); }
-	li:before {
-		background-color: $reporting-success;
-	}
 }
 
 .report--error
@@ -47,9 +44,6 @@ ol.report
 	border-color: $reporting-error;
 
 	a, a:visited, a:hover, a:active { color: shade($reporting-error, 60); }
-	li:before {
-		background-color: $reporting-error;
-	}
 }
 
 .report--warning
@@ -60,9 +54,6 @@ ol.report
 	border-color: $reporting-warning;
 
 	a, a:visited, a:hover, a:active { color: shade($reporting-warning, 60); }
-	li:before {
-		background-color: $reporting-warning;
-	}
 }
 
 .report--info
@@ -73,7 +64,4 @@ ol.report
 	border-color: $reporting-info;
 
 	a, a:visited, a:hover, a:active { color: shade($reporting-info, 60); }
-	li:before {
-		background-color: $reporting-info;
-	}
 }

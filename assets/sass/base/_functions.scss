@@ -7,7 +7,6 @@
 // $number: 	The value you want to unify
 
 @function strip ($number) {
-
 	@return $number / ($number * 0 + 1);
 }
 
@@ -46,7 +45,6 @@
 // Taken from Bourbon source
 
 @function tint ($color, $percent) {
-
 	@return mix(white, $color, $percent);
 }
 
@@ -56,6 +54,5 @@
 // Taken from Bourbon source
 
 @function shade ($color, $percent) {
-	
 	@return mix(black, $color, $percent);
 }

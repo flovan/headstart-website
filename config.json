@@ -1,7 +1,7 @@
 {
 	"browser": "Google Chrome",
 	"editor": "Sublime Text",
-	"minifyHTML": true,
+	"minifyHTML": false,
 	"combineMediaQueries": false,
 	"useUncss": false,
 	"uncssIgnore": [],
@@ -12,5 +12,5 @@
 	"export_misc": "export",
 	"assemble_templates": true,
 	"template_asset_prefix": "",
-	"revisionCaching": true
+	"revisionCaching": false
 }
