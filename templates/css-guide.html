@@ -311,13 +311,13 @@ div {
             <p>This stylesheet gets included every page. The styles of, for example, a <code class="language-html">&lt;header&gt;</code>, <code class="language-html">&lt;menu&gt;</code> or <code class="language-html">&lt;footer&gt;</code> are best defined here. If you plan on using modules, this is also the best place to import them.</p>
             <h3>View specific styles</h3>
             <p>When working on a large scale project, somes styles will be limited to individual pages. This is when the view-specific files come in handy, as they will lighten up the main stylesheet and thus speed up the individual pages of your website.</p>
-            <p>There is an example file included for the index page. To use it, remove the leading underscore from its filename.</p>
+            <p>The default boilerplate contains an example file for the index page, <code class="language-none">_view-index.sass</code>. To use it, just remove the leading underscore.</p>
             <h3>IE&lt;9 styles</h3>
-            <p>If you need to use CSS hacks for older IE browser, you can put them in the <code class="language-none">ie.scss</code> file. To use it, remove the leading underscore from its filename, and enable the conditional comments in the header layout:</p>
+            <p>If you need to use CSS hacks for older IE browser, you can put them in the <code class="language-none">_ie.scss</code> file. To actually use it, remove the leading underscore and enable the conditional comments in the header layout:</p>
             <p><code class="language-none">templates/layout/header.html</code>:</p>
-            <pre><code class="language-html">&lt;!--[if lt IE 9]&gt;--&gt;
+            <pre><code class="language-html">&lt;!--[if lt IE 9]
 &lt;link rel="stylesheet" href="assets/css/ie.min.css"&gt;
-&lt;!--&lt;![endif]--&gt;</code></pre>
+&lt;![endif]--&gt;</code></pre>
         </div>
     </div>
 </div>

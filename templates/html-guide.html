@@ -12,10 +12,11 @@
         <div class="html-guide__content language-markup">
             <p class="content__introduction">Headstart combines a solid HTML foundation, based on the <a href="http://html5boilerplate.com/" title="Visit the HTML5 Boilerplate website">HTML5 Boilerplate</a>, with light templating support through <a href="http://handlebarsjs.com" title="Visit the Handlebars website">Handlebars</a>.</p>
             <hr id="templating">
+            <p class="report--warning"><strong>Note:</strong> Using ember in combination with Headstart <a href="https://github.com/flovan/headstart/issues/26">will break the templating functionality</a>.</p>
             <h1>Templating</h1>
             <p>Simple layouting and importable partials are yours to use, making the tedious task of managing menu structures, sidebars or footers across multiple pages easy as can be.</p>
             <h3>Layout</h3>
-            <p>By default you are provided with <code class="language-none">header</code> and <code class="language-none">footer</code> layout parts, which can (and should!) both be included into the main content files. The header starts your document, while the footer closes it.</p>
+            <p>Using layouts is completely optional, but by default you are provided with <code class="language-none">header</code> and <code class="language-none">footer</code> layout parts to lighten up your main content files.</p>
             <h3>Partials</h3>
             <p>You can easily extract pieces of your body HTML, and put them into a partial, for example <code class="language-none">templates/partials/page_footer.html</code>:</p>
             <pre><code>&lt;footer&gt;
@@ -30,7 +31,7 @@
 
 &#123;&#123;&gt; partials/page_footer&#125;&#125;
 &#123;&#123;&gt; layout/footer&#125;&#125;</code></pre>
-            <h3>Page-targeted content</h3>
+            <h3>Targeted individual pages</h3>
             <p>It is possible to tell the building engine to make small changes to the HTML for each page by using this equal statement:</p>
             <pre><code>&#123;&#123;#equal templateName 'your-page.html'&#125;&#125;&#123;&#123;/equal&#125;&#125;</code></pre>
             <p>Noticed how the top menu items on this website get a bold style applied when their respective page is active?</p>

@@ -6,7 +6,7 @@
 
 $(document).ready(function() {
 
-	log('_## Index script running_');
+	console.log('## Index script ready');
 
 	// VARS -------------------------------------------------------------------
 	//

@@ -29,13 +29,13 @@
             <h1>IE files</h1>
             <p>This folder contains patches and polyfills for IE&lt;9, ordered in the <code class="language-none">body</code> and <code class="language-none">head</code> folders. Each folder will produce a concatenated file which you can use through the conditional comments in the layout templates:</p>
             <p><code class="language-none">templates/layout/header.html</code>:</p>
-            <pre><code class="language-html">&lt;!--[if lt IE 9]&gt;--&gt;
+            <pre><code class="language-html">&lt;!--[if lt IE 9]
 &lt;script src="assets/js/ie.head.min.js"&gt;&lt;/script&gt;
-&lt;!--&lt;![endif]--&gt;</code></pre>
+&lt;![endif]--&gt;</code></pre>
             <p><code class="language-none">templates/layout/footer.html</code>:</p>
-            <pre><code class="language-html">&lt;!--[if lt IE 9]&gt;--&gt;
+            <pre><code class="language-html">&lt;!--[if lt IE 9]
 &lt;script src="assets/js/ie.body.min.js"&gt;&lt;/script&gt;
-&lt;!--&lt;![endif]--&gt;</code></pre>
+&lt;![endif]--&gt;</code></pre>
 
 
             <hr id="libs">
@@ -82,7 +82,7 @@
             <h3>Main script</h3>
             <p>The <code class="language-none">main.js</code> file contains a very basic <code>.ready()</code> setup wrapped in an <a href="http://gregfranko.com/blog/i-love-my-iife/">IIFE</a>.</p>
             <h3>View specific scripts</h3>
-            <p>View-specific files make it easy to produce script files for individual pages. They are content-wise the same as the <code class="language-none">main.js</code>. There is an example file included for the index page. To use it, remove the leading underscore from its filename.</p>
+            <p>View-specific files make it easy to inclide script files in individual pages. The default boilerplate contains an example file for the index page, <code class="language-none">_view-index.js</code>. To use it, just remove the leading underscore.</p>
         </div>
     </div>
 </div>
