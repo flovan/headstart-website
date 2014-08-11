@@ -50,6 +50,10 @@ hr
 	min-height: 100%;
 	width: 100% - 2*$min-page-padding;
 }
+.is-columned {
+	column-count: 2;
+	column-gap: $default-gutter-width;
+}
 .wrapper,
 .content-menu {
 	@include rem(padding, $spacing);
@@ -170,12 +174,61 @@ hr
 			font-size: 120%;
 		}
 	}
-	/* @include media-min(1200) {
-		.content__wrapper:not(.wrapper--intro) {
-			font-size: 140%;
+	@include media-min(1500) {
+		.content__wrapper.wrapper--intro {
+			font-size: 120%;
 		}
-	} */
+		.content__wrapper:not(.wrapper--intro) {
+			font-size: 160%;
+		}
+	}
 }
+	.open-source-link {
+		display: inline-block;
+		vertical-align: middle;
+		min-width: 80px;
+		
+		&:before {
+			content: '';
+			display: block;
+			background: url(../images/headstart-opensource-logos.png) no-repeat;
+			margin: 0 auto;
+
+			@include highres() {
+				background-image: url(../images/headstart-opensource-logos@2x.png);
+				background-size: 225px 61px;
+			}
+		}
+		&:not(:last-child) {
+			@include rem(margin-right, $spacing/3);
+		}
+
+		&.nodejs:before {
+			width: 93px;
+			height: 25px;
+			background-position: -50px 0;
+		}
+		&.liftoff:before {
+			width: 85px;
+			height: 29px;
+			background-position: -175px 0;
+		}
+		&.gulp:before {
+			width: 25px;
+			height: 59px;
+			background-position: -145px 0;
+		}
+		&.sass:before {
+			width: 48px;
+			height: 36px;
+			background-position: 0px 0px;
+		}
+		&.handlebars:before {
+			width: 85px;
+			height: 35px;
+			background-position: -50px -26px;
+		}
+	}
 
 // Styles ---------------------------------------------------------------------
 	.getting-started-link {
