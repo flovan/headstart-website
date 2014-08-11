@@ -1,6 +1,11 @@
 // Accent colors --------------------------------------------------------------
 
-
+$light-green: #5FBF9A;
+$darkest-teal: #0B1316;
+$darker-teal: #082227;
+$dark-teal: #094B4F;
+$teal: #179F9F;
+$light-blue: #EEF6F7;
 
 // Greys ----------------------------------------------------------------------
 
@@ -32,4 +37,9 @@ $reporting-info-light: #DAE5F0;
 //
 // http://www.jordanm.co.uk/tinytype
 
-$font-stack: Helvetica Neue, Helvetica, Verdana, Roboto, sans-serif;
+$font-stack: Source Sans Pro, Helvetica Neue, Helvetica, Verdana, Roboto, sans-serif;
+
+// Spacing --------------------------------------------------------------------
+
+$spacing: 30;
+$spacing-px: $spacing * 1px;

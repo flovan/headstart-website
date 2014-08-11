@@ -6,10 +6,10 @@
     	
     	<!-- SEO -->
     	
-        <title>__PAGE_TITLE__</title>
-        <meta name="description" content="__PAGE_DESCRIPTION__">
-        <meta name="keywords" content="__PAGE_KEYWORDS__">
-        <meta name="author" content="__PAGE_AUTHOR__">
+        <title>Headstart</title>
+        <meta name="description" content="An easy-to-use automated front-end setup.">
+        <meta name="keywords" content="front-end, frontend, framework, boilerplate, gulp, sass, scss, livereload, development, css, html, javascript, js, jquery, automate, optimize">
+        <meta name="author" content="Florian Vanthuyne">
 
         <!-- Spiders must use meta description -->
 
@@ -26,25 +26,14 @@
         <meta name="MobileOptimized" content="320">
         <meta http-equiv="cleartype" content="on">
 
-        <!-- iOS web app -->
-        <!-- Note: more options here: https://gist.github.com/tfausak/2222823 -->
-
-        <!--
-    	<meta name="apple-mobile-web-app-capable" content="yes">
-    	<meta name="apple-mobile-web-app-title" content="__PAGE_TITLE__">
-    	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-        -->
-    	
-    	<!-- Icons -->
-        <!-- Note: One touch icon works but is a tad heavier (http://mathiasbynens.be/notes/touch-icons) -->
-    	
-        <!--
-        <link rel="apple-touch-iconprecomposed" sizes="152x152" href="assets/images/icons/apple-touch-icon-152x152.png">
-    	<link rel="icon" href="assets/images/icons/favicon.png">
-        <meta name="msapplication-TileImage" content="assets/images/icons/wp-tile-icon-144x144.png">
-        <meta name="msapplication-TileColor" content="#FFFFFF">
-    	-->
+        <!-- Icons -->
         
+        <link rel="icon" href="assets/images/icons/favicon.png">
+
+        <!-- Stylesheets -->
+        
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
+        <!-- <link rel="stylesheet" href="http://basehold.it/24"> -->
         <!-- inject:css --><!-- endinject -->
 
         <!--[if lt IE 9]>-->
@@ -53,3 +42,44 @@
         <!--<![endif]-->
 	</head>  
 	<body>
+        <aside class="sidebar">
+            <div class="sidebar__wrapper wrapper">
+                <div class="sidebar__logo-wrapper">
+                    <a class="logo sidebar__logo" href="index.html"><span class="is-hidden">Headstart</span></a>
+                    <a href="changelog.html" class="sidebar__version">v1.2.2</a>
+                </div>
+                <menu class="menu sidebar__menu">
+                    <ul>
+                        <li><a class="is-active" href="index.html">Welcome</a></li>
+                        <li>
+                            <a href="getting-started.html">Getting started</a>
+                            <ul>
+                                <li><a href="getting-started.html#installing">Installing</a></li>
+                                <li><a href="getting-started.html#new-project">New Project</a></li>
+                                <li><a href="getting-started.html#develop">Develop</a></li>
+                                <li><a href="getting-started.html#services">Extra Services</a></li>
+                                <li><a href="getting-started.html#customize">Customize</a></li>
+                                <li><a href="getting-started.html#requirements">Requirements</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="boilerplate.html">Boilerplate</a>
+                            <ul>
+                                <li><a href="boilerplate.html#templating">Templating</a></li>
+                                <li><a href="boilerplate.html#assets">Asset Management</a></li>
+                                <li><a href="boilerplate.html#integration">Back-end integration</a></li>
+                                <li><a href="boilerplate.html#sass-setup">Sass setup</a></li>
+                                <li><a href="boilerplate.html#js-setup">Javascript setup</a></li>
+                                <li><a href="boilerplate.html#changelog">Changelog</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="upgrading-guide.html">Upgrading</a></li>
+                        <li><a href="changelog">Changelog</a></li>
+                        <li><a href="credits.html">Credits</a></li>
+                        <li><a href="contributing.html">Contributing</a></li>
+                        <li><a href="issues.html">Issues</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </menu>
+            </div>
+        </aside>

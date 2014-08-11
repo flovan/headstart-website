@@ -28,3 +28,40 @@
 		width: $perc - ($default-gutter-width - ($default-gutter-width/($total-columns / $columns)));
 	}
 }
+
+@mixin goldencol ($size, $isSub: false, $isOffset: false) {
+
+	$gr: 1.61803398874989484820;
+
+	@if $size == 'small' {
+		@if $isSub {
+			@if $isOffset {
+				left: (1 - 1/$gr) - (1 - 1/$gr)/$gr * 100 * 1%;
+			} @else {
+				max-width: (1 - 1/$gr) * (1/$gr) * (1/$gr) * 100 * 1%;
+			}
+		} @else {
+			@if $isOffset {
+				left: (1 - 1/$gr) * 100 * 1%;
+			} @else {
+				max-width: (1 - 1/$gr) * 100 * 1%;
+			}
+		}
+	} @elseif $size == 'large' {
+		@if $isSub {
+			@if $isOffset {
+				left: (1 - 1/$gr)/$gr * 100 * 1%;
+			} @else {
+				max-width: (1 - 1/$gr)/$gr * 100 * 1%;
+			}
+		} @else {
+			@if $isOffset {
+				left: (1/$gr) * 100 * 1%;
+			} @else {
+				max-width: (1/$gr) * 100 * 1%;
+			}
+		}
+	} @else {
+		@warn 'Assuming $size to be either "small" or "large"';
+	}
+}

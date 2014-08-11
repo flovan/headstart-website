@@ -16,20 +16,179 @@
 
 //@import 'module/container';
 //@import 'module/font';
-//@import 'module/text';
+@import 'module/text';
 //@import 'module/reporting';
 //@import 'module/form';
-//@import 'module/button';
+@import 'module/button';
 
 // Vendor imports -------------------------------------------------------------
 
 //@import 'vendor/somestyles';
 
+// Common Styles --------------------------------------------------------------
+
+.is-hidden {
+	@extend %is-hidden;
+}
+hr
+{
+	border: none;
+	border-top: 2px solid $light-blue;
+	@include rem(margin, 0, 0, $spacing);
+}
+%fixed-col {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	transform: translateZ(0);
+	width: 100% - 2*$min-page-padding;
+	overflow-y: scroll;
+}
+%abs-col {
+	position: absolute;
+	top: 0;
+	min-height: 100%;
+	width: 100% - 2*$min-page-padding;
+}
+.wrapper,
+.content-menu {
+	@include rem(padding, $spacing);
+
+	&.wrapper--intro {
+		background-color: $teal;
+		color: $white;
+		
+		h1 {
+			line-height: 1;
+		}
+		p {
+			font-size: em(20);
+
+			@include media-min(960) {
+				font-size: em(25);
+			}
+		}
+	}
+}
+
+.sidebar {
+	@include goldencol('large', true);
+	@extend %fixed-col;
+	background-color: $darker-teal;
+}
+	.sidebar__logo-wrapper {
+		position: relative;
+	}
+		.sidebar__logo,
+		.sidebar__version {
+			vertical-align: top;
+		}
+		.sidebar__logo {
+			display: inline-block;
+			width: 38px;
+			height: 33px;
+			@include rem(margin-right, $spacing/2);
+			@include rem(margin-bottom, $spacing);
+			background: url(../images/headstart-logo-graphic.png) no-repeat left top;
+			text-decoration: none;
+
+			@include highres() {
+				background-image: url(../images/headstart-logo-graphic@2x.png);
+				background-size: 38px 33px;
+			}
+		}
+		.sidebar__version {
+			font-size: em(12);
+			line-height: 1;
+			text-decoration: none;
+			@extend %is-bold;
+
+			&, &:visited {
+				color: $dark-teal;
+			}
+			&:hover {
+				color: $white;
+			}
+		}
+	.sidebar__menu {
+		&, & ul {
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			list-style-type: none;
+			padding: 0;
+
+			&:before {
+				display: none;
+			}
+		}
+		a {
+			display: block;
+			text-decoration: none;
+			line-height: 1;
+			
+			&, &:visited {
+				color: $white;
+			}
+			&.is-active {
+				color: $teal;
+			}
+			&:hover, &.is-active {
+				text-decoration: underline;
+			}
+		}
+		& > ul > li {
+			& > a {
+				@extend %is-bold;
+				@include rem(padding, $spacing/3, 0);
+			}
+		}
+		ul ul {
+			@include rem(margin-left, $spacing/2);
+			@include rem(margin-bottom, $spacing/3);
+
+			a {
+				@include rem(padding, $spacing/6, 0);
+				font-size: em(15);
+			}
+		}
+	}
+.content-menu {
+	@include goldencol('small', true);
+	@extend %fixed-col;
+	right: 0;
+	background: $light-blue;
+}
+.content {
+	@include goldencol('large');
+	@include goldencol('large', true, true);
+	@extend %abs-col;
+
+	@include media-min(1050) {
+		.content__wrapper:not(.wrapper--intro) {
+			font-size: 120%;
+		}
+	}
+	/* @include media-min(1200) {
+		.content__wrapper:not(.wrapper--intro) {
+			font-size: 140%;
+		}
+	} */
+}
+
 // Styles ---------------------------------------------------------------------
+	.getting-started-link {
+		@extend %button--dark-teal;
 
-
-// YOUR STYLES HERE <---------
-
+		& + span {
+			display: inline-block;
+			@include rem(margin, 0, $spacing/3);
+		}
+	}
+	.check-github-link {
+		@extend %button--dark-teal-stroke;
+	}
 
 // Print ----------------------------------------------------------------------
 //

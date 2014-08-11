@@ -17,12 +17,17 @@ body {
     font-size: (strip($base-font-size) / 16 * 100) * 1%;
     line-height: $base-line-height;
     background-color: $white;
-    color: $black;
+    color: $darkest-teal;
 	height: 100%;
 
-	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	&,
+	& input,
+	& textarea,
+	& button {
+		-webkit-font-smoothing: antialiased;
+		font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
 }
 
 // MS viewport fix
