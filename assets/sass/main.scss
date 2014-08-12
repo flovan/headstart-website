@@ -254,6 +254,22 @@ footer {
 		background-position: -50px -26px;
 	}
 }
+.share-container {
+	.twitter-share-button,
+	.fb-share-button,
+	.github-star-button {
+		display: block;
+		margin: 0 auto;
+	}
+	.twitter-share-button {
+		width: 90px !important;
+		@include rem(margin-bottom, $spacing/2);
+	}
+	.fb-share-button {
+		width: 55px;
+		@include rem(margin-bottom, $spacing/1.5);
+	}
+}
 
 // Print ----------------------------------------------------------------------
 //
