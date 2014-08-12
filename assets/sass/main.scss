@@ -23,7 +23,7 @@
 
 // Vendor imports -------------------------------------------------------------
 
-//@import 'vendor/somestyles';
+@import 'vendor/prism';
 
 // Common Styles --------------------------------------------------------------
 
@@ -76,9 +76,22 @@ hr
 }
 
 .sidebar {
-	@include goldencol('large', true);
 	@extend %fixed-col;
 	background-color: $darker-teal;
+	z-index: 9;
+	transition: transform .2s cubic-bezier(0.19, 1, 0.22, 1);
+	
+	@include media-max(879) {
+		@include goldencol('small');
+		transform: translateX(-100%);
+
+		&.is-opened {
+			transform: none;
+		}
+	}
+	@include media-min(880) {
+		@include goldencol('large', true);
+	}
 }
 	.sidebar__logo-wrapper {
 		position: relative;
@@ -159,23 +172,55 @@ hr
 		}
 	}
 .content-menu {
-	@include goldencol('small', true);
-	@extend %fixed-col;
-	right: 0;
 	background: $light-blue;
-}
-.content {
-	@include goldencol('large');
-	@include goldencol('large', true, true);
-	@extend %abs-col;
-	@include rem(margin-bottom, 80);
-	background: $white;
+	@extend %fixed-col;
 
-	@include media-min(1050) {
-		.wrapper--content {
-			font-size: 120%;
+	@include media-min(1000) {
+		@include goldencol('small', true);
+		right: 0;
+	}
+	@include media-max(999) {
+		position: static;
+		width: auto;
+		
+		.twitter-share-button,
+		.fb-share-button,
+		.github-star-button {
+			vertical-align: top;
+			margin: 0;
+		}
+		.twitter-share-button,
+		.fb-share-button {
+			@include rem(margin-right, $spacing/2);
+		}
+		.twitter-share-button {
+			width: 90px !important;
+		}
+		.fb-share-button {
+			position: relative;
+			@include rem(top, -4);
 		}
 	}
+	@include media-max(879) {
+		text-align: right;
+	}
+}
+	.menu-toggle {
+		@extend %button--dark-teal-stroke;
+		position: absolute;
+		@include rem(top, 18);
+		@include rem(left, $spacing);
+
+		@include media-min(880) {
+			display: none;
+		}
+	}
+.content {
+	@extend %abs-col;
+	left: 0;
+	right: 0;
+	background: $white;
+	
 	@include media-min(1500) {
 		.wrapper--intro {
 			font-size: 120%;
@@ -184,16 +229,33 @@ hr
 			font-size: 160%;
 		}
 	}
+	@include media-min(1050) {
+		.wrapper--content {
+			font-size: 120%;
+		}
+	}
+	@include media-min(1000) {
+		@include goldencol('large');
+	}
+	@include media-max(999) {
+		width: auto;
+	}
+	@include media-min(880) {
+		@include goldencol('large', true, true);
+		@include rem(margin-bottom, 80);
+	}
 }
 footer {
-	position: fixed;
-	top: auto;
-	bottom: 0;
-	right: 0;
-	z-index: -1;
-	@include goldencol('large', true, true);
 	background-color: $light-blue;
 	font-size: 14px;
+	@include media-min(880) {
+		position: fixed;
+		top: auto;
+		bottom: 0;
+		right: 0;
+		z-index: -1;
+		@include goldencol('large', true, true);
+	}
 }
 
 // Styles ---------------------------------------------------------------------
@@ -254,21 +316,11 @@ footer {
 		background-position: -50px -26px;
 	}
 }
-.share-container {
-	/* .twitter-share-button,
-	.fb-share-button,
-	.github-star-button {
-		display: block;
-		margin: 0 auto;
-	} */
-	.twitter-share-button {
-		//width: 90px !important;
-		@include rem(margin-bottom, $spacing/2);
-	}
-	.fb-share-button {
-		//width: 92px !important;
-		@include rem(margin-bottom, $spacing/1.5);
-	}
+.twitter-share-button {
+	@include rem(margin-bottom, $spacing/2);
+}
+.fb-share-button {
+	@include rem(margin-bottom, $spacing/1.5);
 }
 
 // Print ----------------------------------------------------------------------

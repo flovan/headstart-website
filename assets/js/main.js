@@ -2,17 +2,7 @@
 
 'use strict';
 
-// Underscore is bundled in with ender, so just require it
-// Comment out this line when using the separated Underscore file,
-// eg. when using jQuery
-var _ = require('underscore');
-
-// Document -------------------------------------------------------------------
-
-// When using jQuery, use
-// $(document).ready(function () {
-
-$.domReady(function () {
+$(document).ready(function () {
 
 	console.log('## Document ready');
 
@@ -21,19 +11,37 @@ $.domReady(function () {
 
 	var
 		$window = $(window),
-		$body = $('body')
+		$body = $('body'),
+
+		$menuToggle = $('.menu-toggle'),
+		$sidebar = $('.sidebar'),
+		$content = $('.content'),
+		$contentOverlay = $('.content-overlay')
 	;
 
 	// ACTIONS ----------------------------------------------------------------
 	//
 
-	// $elem.on('something', doSomething);
+	$menuToggle.on('click', menuToggleClickHandler);
+	$contentOverlay.on('click', contentOverlaylickHandler);
 
 	//
 	// FUNCTIONS --------------------------------------------------------------
 	//
 
-	// function doSomething () {}
+	function menuToggleClickHandler (e) {
+		console.log('clicked the toggle');
+		$sidebar.addClass('is-opened');
+		$body.addClass('is-covered');
+		return false;
+	}
+
+	function contentOverlaylickHandler (e) {
+		console.log('clicked the cover');
+		$sidebar.removeClass('is-opened');
+		$body.removeClass('is-covered');
+		return false;
+	}
 
 });
 
