@@ -255,18 +255,18 @@ footer {
 	}
 }
 .share-container {
-	.twitter-share-button,
+	/* .twitter-share-button,
 	.fb-share-button,
 	.github-star-button {
 		display: block;
 		margin: 0 auto;
-	}
+	} */
 	.twitter-share-button {
-		width: 90px !important;
+		//width: 90px !important;
 		@include rem(margin-bottom, $spacing/2);
 	}
 	.fb-share-button {
-		width: 55px;
+		//width: 92px !important;
 		@include rem(margin-bottom, $spacing/1.5);
 	}
 }
