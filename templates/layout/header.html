@@ -42,6 +42,19 @@
         <!--<![endif]-->
 	</head>  
 	<body>
+        <div id="fb-root"></div>
+        <script>
+        window.fbAsyncInit = function() {
+        FB.init({appId: '912714955409005', status: true, cookie: true,
+        xfbml: true});
+        };
+        (function() {
+        var e = document.createElement('script'); e.async = true;
+        e.src = document.location.protocol +
+        '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+        }());
+        </script>
         <aside class="sidebar">
             <div class="sidebar__wrapper wrapper">
                 <div class="sidebar__logo-wrapper">
@@ -76,6 +89,9 @@
                         <li><a href="upgrading-guide.html">Upgrading</a></li>
                         <li><a href="changelog">Changelog</a></li>
                         <li><a href="credits.html">Credits</a></li>
+                        <li><a href="contributing.html">Contributing</a></li>
+                        <li><a href="issues.html">Issues</a></li>
+                        <li><a href="support.html">Support</a></li>
                     </ul>
                 </menu>
             </div>
