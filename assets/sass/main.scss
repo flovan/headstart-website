@@ -15,7 +15,8 @@
 // Module imports -------------------------------------------------------------
 
 //@import 'module/container';
-//@import 'module/font';
+@import 'module/font';
+@import 'module/icons';
 @import 'module/text';
 //@import 'module/reporting';
 //@import 'module/form';
@@ -74,23 +75,27 @@ hr
 		}
 	}
 }
-
 .sidebar {
 	@extend %fixed-col;
 	background-color: $darker-teal;
 	z-index: 9;
-	transition: transform .2s cubic-bezier(0.19, 1, 0.22, 1);
+	transition: transform .2s $easeOutExpo;
 	
+	@include media-min(880) {
+		@include goldencol('large', true);
+	}
 	@include media-max(879) {
-		@include goldencol('small');
 		transform: translateX(-100%);
 
 		&.is-opened {
 			transform: none;
 		}
 	}
-	@include media-min(880) {
-		@include goldencol('large', true);
+	@include media-min-max(551, 879) {
+		@include goldencol('small');
+	}
+	@include media-max(550) {
+		@include goldencol('large');
 	}
 }
 	.sidebar__logo-wrapper {
@@ -178,6 +183,7 @@ hr
 	@include media-min(1000) {
 		@include goldencol('small', true);
 		right: 0;
+		overflow-x: hidden;
 	}
 	@include media-max(999) {
 		position: static;
@@ -201,18 +207,23 @@ hr
 			@include rem(top, -4);
 		}
 	}
-	@include media-max(879) {
+	@include media-min-max(501, 879) {
 		text-align: right;
+	}
+	@include media-max(500) {
+		@include rem(padding, $spacing - 8, $spacing);
 	}
 }
 	.menu-toggle {
 		@extend %button--dark-teal-stroke;
-		position: absolute;
-		@include rem(top, 18);
-		@include rem(left, $spacing);
 
 		@include media-min(880) {
 			display: none;
+		}
+		@include media-min(501) {
+			position: absolute;
+			@include rem(top, 22);
+			@include rem(left, $spacing);
 		}
 	}
 .content {
@@ -259,6 +270,13 @@ footer {
 }
 
 // Styles ---------------------------------------------------------------------
+.getting-started-link,
+.check-github-link {
+	@include media-max(500) {
+		display: block;
+		text-align: center;
+	}
+}
 .getting-started-link {
 	@extend %button--dark-teal;
 
@@ -266,58 +284,92 @@ footer {
 		display: inline-block;
 		@include rem(margin, 0, $spacing/3);
 	}
+
+	@include media-max(500) {
+		@include rem(margin-bottom, $spacing/3);
+
+		& + span {
+			display: block;
+			text-align: center;
+			@include rem(margin, 0, 0, $spacing/3);
+		}
+	}
 }
 .check-github-link {
 	@extend %button--dark-teal-stroke;
 }
-.open-source-link {
-	display: inline-block;
-	vertical-align: middle;
-	min-width: 80px;
-	
-	&:before {
-		content: '';
-		display: block;
-		background: url(../images/headstart-opensource-logos.png) no-repeat;
-		margin: 0 auto;
+.feature-list {
+	@include media-max(540) {
+		column-count: 1;
+	}
+}
+.open-source-wrapper {
+	@include media-max(534) {
+		text-align: center;
+		margin-bottom: 0;
 
-		@include highres() {
-			background-image: url(../images/headstart-opensource-logos@2x.png);
-			background-size: 225px 61px;
+		.open-source-link {
+			@include rem(margin-bottom, $spacing);
 		}
 	}
-	&:not(:last-child) {
-		@include rem(margin-right, $spacing/3);
-	}
+}
+	.open-source-link {
+		display: inline-block;
+		vertical-align: middle;
+		min-width: 80px;
+		
+		&:before {
+			content: '';
+			display: block;
+			background: url(../images/headstart-opensource-logos.png) no-repeat;
+			margin: 0 auto;
 
-	&.nodejs:before {
-		width: 93px;
-		height: 25px;
-		background-position: -50px 0;
+			@include highres() {
+				background-image: url(../images/headstart-opensource-logos@2x.png);
+				background-size: 261px 61px;
+			}
+		}
+		&:not(:last-child) {
+			@include rem(margin-right, $spacing/3);
+		}
+
+		&.nodejs:before {
+			width: 93px;
+			height: 25px;
+			background-position: -50px 0;
+		}
+		&.liftoff:before {
+			width: 85px;
+			height: 29px;
+			background-position: -175px 0;
+		}
+		&.gulp:before {
+			width: 25px;
+			height: 59px;
+			background-position: -145px 0;
+		}
+		&.sass:before {
+			width: 48px;
+			height: 36px;
+			background-position: 0px 0px;
+		}
+		&.handlebars:before {
+			width: 85px;
+			height: 35px;
+			background-position: -50px -26px;
+		}
 	}
-	&.liftoff:before {
-		width: 85px;
-		height: 29px;
-		background-position: -175px 0;
-	}
-	&.gulp:before {
-		width: 25px;
-		height: 59px;
-		background-position: -145px 0;
-	}
-	&.sass:before {
-		width: 48px;
-		height: 36px;
-		background-position: 0px 0px;
-	}
-	&.handlebars:before {
-		width: 85px;
-		height: 35px;
-		background-position: -50px -26px;
+.twitter-share-button,
+.fb-share-button,
+.github-star-button {
+	@include media-max(500) {
+		// Blasted facebook button!
+		// Making this so hard!
+		display: none !important;
 	}
 }
 .twitter-share-button {
-	@include rem(margin-bottom, $spacing/2);
+	@include rem(margin-bottom, $spacing/2.2);
 }
 .fb-share-button {
 	@include rem(margin-bottom, $spacing/1.5);

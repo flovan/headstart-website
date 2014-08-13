@@ -2,8 +2,7 @@
 //
 // Resets and sets some default styles that <button> and <a> elements have
 
-%button
-{
+%button {
 	border: none; background: none;
 	outline: none;
 	font-family: $font-stack;
@@ -12,52 +11,72 @@
 	text-decoration: none;
 	line-height: 1;
 	
-	&:disabled { opacity: 0.5; }
+	&:disabled {
+		opacity: 0.5;
+	}
+
+	[class*=icon] {
+		@extend %is-inline-block;
+		position: relative;
+		@include rem(top, 2);
+		@include rem(margin-right, $spacing/3);
+	}
 }
 
 //  Modifiers -----------------------------------------------------------------
 
 %button--darkest-teal,
 %button--dark-teal,
-%button--dark-teal-stroke
-{
+%button--dark-teal-stroke {
 	@extend %button;
-	padding: rem(15);
-	border-radius: rem(15);
+	@include rem(padding, 10, 15);
+	@include rem(border-radius, 6);
 	color: $white;
-	&:hover, &:active { color: $white; }
+	transition: all .25s $easeOutExpo;
+	&:hover {
+		transition: none;
+	}
+	&:hover, &:active {
+		color: $white;
+	}
 }
 
-%button--darkest-teal
-{
+%button--darkest-teal {
 	background-color: $darkest-teal;
 	
-	&:hover { background-color: tint($darkest-teal, 10%); }
-	&:active { background-color: shade($darkest-teal, 10%); }
+	&:hover {
+		background-color: tint($darkest-teal, 10%);
+	}
+	&:active {
+		background-color: shade($darkest-teal, 10%);
+	}
 }
 
-%button--dark-teal
-{
+%button--dark-teal {
 	background-color: $dark-teal;
 	
-	&:hover { background-color: tint($dark-teal, 10%); }
-	&:active { background-color: shade($dark-teal, 10%); }
+	&:hover {
+		background-color: tint($dark-teal, 10%);
+	}
+	&:active {
+		background-color: shade($dark-teal, 10%);
+	}
 }
 
-%button--dark-teal-stroke
-{
+%button--dark-teal-stroke {
 	background-color: none;
 	color: $dark-teal;
 	border: 2px solid $dark-teal;
 	
-	&:hover, &:active { color: $white; }
-	&:hover
-	{
+	&:hover,
+	&:active {
+		color: $white;
+	}
+	&:hover {
 		background-color: tint($dark-teal, 10%);
 		border-color: tint($dark-teal, 10%);
 	}
-	&:active
-	{
+	&:active {
 		background-color: shade($dark-teal, 10%);
 		border-color: shade($dark-teal, 10%);
 	}

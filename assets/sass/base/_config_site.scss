@@ -43,3 +43,7 @@ $font-stack: Source Sans Pro, Helvetica Neue, Helvetica, Verdana, Roboto, sans-s
 
 $spacing: 30;
 $spacing-px: $spacing * 1px;
+
+// Easing ---------------------------------------------------------------------
+
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);

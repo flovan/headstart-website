@@ -20,6 +20,8 @@
 %is-italic { font-style: italic; }
 %is-uppercase { text-transform: uppercase; }
 %is-smallcaps { font-variant: small-caps; }
+%is-block { display: block; }
+%is-inline-block { display: inline-block; }
 
 %is-cf:before,
 %is-cf:after {
