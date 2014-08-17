@@ -5,9 +5,36 @@
 	<div class="wrapper wrapper--intro">
 		<h1>Asset Management</h1>
 	</div>
-	<div class="wrapper wrapper--content" id="tunneling">
-        <h2>WIP</h2>
-        
+	<div class="wrapper wrapper--content">
+        <p>Stylesheets and scripts get optimized and injected on the fly by the build engine. Working with development libraries instead of minified and production-ready code not only enables you to read through the code, it also makes it easier to debug possible errors.</p>
+
+        <hr id="view-specific">
+        <h2>View-specific files</h2>
+        <p>Assets can be linked to a specific page by prefixing their filenames with <code class="language-none">view-</code>, followed by the page name. Eg. <code class="language-none">view-index.scss</code> or <code class="language-none">view-profile.js</code>.</p>
+
+
+        <hr class="exclude">
+        <h2>Excluding files</h2>
+        <p>Exclude files by prefixing with an <strong>underscore</strong>, eg. <code class="language-none">_jquery-1.11.0.js</code>.</p>
+
+
+        <hr id="dependencies">
+        <h2>Script dependencies</h2>
+        <p>By default, scripts get injected in the following order:</p>
+        <ol>
+            <li>The library, i.e. any <code class="language-none">ender</code> or <code class="language-none">jquery</code> prefixed file from the <code class="language-none">assets/js/libs</code> folder.</li>
+            <li>When not building <code class="language-none">--production</code>, all files from the <code class="language-none">assets/js/libs/dev</code> folder.</li>
+            <li>All other libs from the <code class="language-none">assets/js/libs</code> folder.</li>
+            <li>All core files from the <code class="language-none">assets/js/core</code> folder.</li>
+            <li>The mains script, <code class="language-none">assets/js/main.js</code>.</li>
+            <li>The view-specific script, if provided.</li>
+        </ol>
+        <p>It is possible to define specific dependencies within this order <strong>by prepending a simple comment inside of your files</strong>. Say you are working with <code class="language-none">libA.js</code> which needs <code class="language-none">libZ.js</code> to work correcly. To make sure the latter is inject first, simply prepend the following to <code class="language-none">libA.js</code>:</p>
+        <pre class="language-javascript"><code>// requires: libZ.js
+
+/* 
+Other code from libZ here ...
+*/</code></pre>
 	</div>
 	{{> partials/footer}}
 
