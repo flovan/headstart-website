@@ -16,11 +16,15 @@ $(document).ready(function () {
 		$menuToggle = $('.menu-toggle'),
 		$sidebar = $('.sidebar'),
 		$content = $('.content'),
-		$contentOverlay = $('.content-overlay')
+		$contentOverlay = $('.content-overlay'),
+		$ghStarButton = $('.github-star-button')
 	;
 
 	// ACTIONS ----------------------------------------------------------------
 	//
+
+	twitButton(document, 'script', 'twitter-wjs');
+	$ghStarButton.attr('src', 'http://ghbtns.com/github-btn.html?user=flovan&repo=headstart&type=watch&count=true');
 
 	$menuToggle.on('click', menuToggleClickHandler);
 	$contentOverlay.on('click', contentOverlaylickHandler);
@@ -44,5 +48,9 @@ $(document).ready(function () {
 	}
 
 });
+
+function twitButton (d,s,id) {
+	var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}
+}
 
 }(window, $));

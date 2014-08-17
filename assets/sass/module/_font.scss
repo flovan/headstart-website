@@ -12,3 +12,25 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src:url('../fonts/source_sans_pro-400.eot?-anexlt');
+    src:url('../fonts/source_sans_pro-400.eot?#iefix-anexlt') format('embedded-opentype'),
+    	url('../fonts/source_sans_pro-400.woff?-anexlt') format('woff'),
+    	url('../fonts/source_sans_pro-400.ttf?-anexlt') format('truetype'),
+    	url('../fonts/source_sans_pro-400.svg?-anexlt#icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src:url('../fonts/source_sans_pro-700.eot?-anexlt');
+    src:url('../fonts/source_sans_pro-700.eot?#iefix-anexlt') format('embedded-opentype'),
+    	url('../fonts/source_sans_pro-700.woff?-anexlt') format('woff'),
+    	url('../fonts/source_sans_pro-700.ttf?-anexlt') format('truetype'),
+    	url('../fonts/source_sans_pro-700.svg?-anexlt#icons') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}

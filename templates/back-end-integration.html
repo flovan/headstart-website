@@ -1,0 +1,46 @@
+{{> layout/header}}
+
+	<div class="content-overlay"></div>
+	{{> partials/submenu}}
+	<div class="wrapper wrapper--intro" id="introduction">
+		<h1>New project</h1>
+	</div>
+	<div class="wrapper wrapper--content">
+        <p>Let&#39;s assume you just sat through <a href="installation.html">the installation process</a>, and now you want to intitialise a new project for you to work on. You will be using the command line again to create a new folder.</p>
+        <pre class="language-none"><code>cd some/where/on/you/computer
+mkdir myproject
+cd myproject</code></pre>
+        <p>The commands above instructed the command line to point to a certain location on your computer, make a folder called &quot;myproject&quot; and to go into it.</p>
+        <p><strong>If you don&#39;t feel comforteable traversing your filesystem like this</strong>, you can (on a Mac) drag any folder onto the Command Line icon, or (on a Windows machine) right click any folder while holding the Shift key and choosing &quot;Open command window from here&quot;.</p>
+
+
+        <hr id="initialising">
+        <h2>Initialising a project</h2>
+        <p>To start a new project in the folder that you just created, you have to instruct Headstart to populate it with <a href="boilerplate.html">the default boilerplate files</a>.</p>
+        <pre class="language-none"><code>headstart init</code></pre>
+        <p>This will fetch the files directly from Github (each release of Headstart comes with a hardcoded default version) into a &quot;.temp&quot; folder, extract them, and clean up afterwards. You don&#39;t have to worry about losing any files, though. If your command line isn&#39;t pointing at an empty folder, it will ask you what to do&mdash;twice!&mdash;so that you don&#39;t delete any files by accident.</p>
+        <p>When the downloading and extraction have completed, you will be asked a few yes-or-no questions to help you get started even faster. If you don&#39;t want to do this just yet, just type &quot;n&quot;, hit enter, and you&#39;ll be left alone.</p>
+        <p>Good job so far! It is time to <a href="develop.html">start developing</a>!</p>
+
+
+        <hr id="customize">
+        <h2>Customising the boilerplate files</h2>
+        <p>If you want to make changes to <a href="boilerplate.html">the default boilerplate</a>, you can <a href="https://github.com/flovan/headstart-boilerplate">fork the Github repo</a> and use your own repository to initialise your projects. Make sure to replace &quot;gituser/repo&quot; with your username and repo.</p>
+        <pre class="language-none"><code>headstart init --base gituser/repo</code></pre>
+        <p><strong>Headstart only needs a few conventions to work properly</strong>, making almost evey file delete key friendly. Here&#39;s what you should keep in mind before you start trashing about:</p>
+        <ul>
+            <li>Folder structures and names are needed to do the grunt work for you. Renaming or removing any folder will likely break some things / all of the things.</li>
+            <li>All Sass files and subfolders can be removed, except for &quot;main.scss&quot; and any &quot;view-*.scss&quot; file.</li>
+            <li>All JS files can be removed, except for &quot;main.js&quot; and any &quot;view-*.js&quot; file. Folder structure is important, so keep things like &quot;libs&quot; or &quot;ie/head&quot; in place.</li>
+            <li>Only &quot;templates/layout&quot; and &quot;templates/partials&quot; can be used for templating. You don&#39;t have to use them, but using other folders won&#39;t yield any result (unless you are using some kind of <a href="back-end-integration.html">back-end integration</a>).</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+	</div>
+	{{> partials/footer}}
+
+{{> layout/footer}}
