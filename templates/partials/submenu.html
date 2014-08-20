@@ -1,6 +1,12 @@
 <nav class="content-menu">
 	<button class="menu-toggle"><span class="icon--list"></span> Menu</button>
 	<!-- -->
+	{{#equal templateName 'index.html'}}
+	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.headstart.io" data-text="Headstart, the easy-to-use automated front-end workflow." data-via="headstartio">Tweet</a>
+	<div class="fb-share-button" data-href="http://headstart.io" data-type="button_count"></div>
+	<iframe class="github-star-button" src="" allowtransparency="true" frameborder="0" scrolling="0" width="89" height="20"></iframe>
+	{{/equal}}
+	<!-- -->
 	{{#equal templateName 'installation.html'}}
 	<div class="content-menu-wrapper">
 		<hr>
@@ -77,9 +83,19 @@
 	</div>
 	{{/equal}}
 	<!-- -->
-	{{#equal templateName 'index.html'}}
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.headstart.io" data-text="Headstart, the easy-to-use automated front-end workflow." data-via="headstartio">Tweet</a>
-	<div class="fb-share-button" data-href="http://headstart.io" data-type="button_count"></div>
-	<iframe class="github-star-button" src="" allowtransparency="true" frameborder="0" scrolling="0" width="89" height="20"></iframe>
+	{{#equal templateName 'sass-setup.html'}}
+	<div class="content-menu-wrapper">
+		<hr>
+		<ul>
+			<li><a href="#structure">Folder Structure</a></li>
+			<li><a href="#prefixing">Prefixing</a></li>
+			<li><a href="#base">Base files</a></li>
+			<li><a href="#libs">Library files</a></li>
+			<li><a href="#mixin">Mixins</a></li>
+			<li><a href="#module">Modules</a></li>
+			<li><a href="#vendor">Vendor files</a></li>
+			<li><a href="#root">Root files</a></li>
+		</ul>
+	</div>
 	{{/equal}}
 </nav>

@@ -417,6 +417,71 @@ footer {
 .next-chapter-button {
 	@extend %button--dark-teal-stroke;
 }
+.grid-example {
+	margin-bottom: em(strip($base-font-size)*1.5);
+	
+	.row {
+		@extend%is-cf;
+		
+		&:not(:last-child) {
+			@include rem(margin-bottom, 5);
+		}
+		& > * {
+			text-align: center;
+			@include rem(padding, 5, 0);
+			background: $light-blue;
+
+			@include media-max($default-column-breakpoint - 1) {
+				&:not(:last-child) {
+					@include rem(margin-bottom, 5);
+				}
+			}
+		}
+	}
+	.col-12 {
+		@include column(12);
+	}
+	.col-6 {
+		&:first-child {
+			@include column(6);
+		}
+		&:last-child {
+			@include column(6, true);
+		}
+	}
+	.col-4 {
+		&:not(:last-child) {
+			@include column(4);
+		}
+		&:last-child {
+			@include column(4, true);
+		}
+	}
+	.col-3 {
+		&:not(:last-child) {
+			@include column(3);
+		}
+		&:last-child {
+			@include column(3, true);
+		}
+	}
+	.col-2 {
+		&:not(:last-child) {
+			@include column(2);
+		}
+		&:last-child {
+			@include column(2, true);
+		}
+	}
+	.col-1 {
+		&:not(:last-child) {
+			@include column(1);
+		}
+		&:last-child {
+			@include column(1, true);
+		}
+	}
+}
 
 // Print ----------------------------------------------------------------------
 //
