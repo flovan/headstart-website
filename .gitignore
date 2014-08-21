@@ -1,2 +1,12 @@
 .sass-cache
 export
+/bootstrap/compiled.php
+/vendor
+# temporarily included composer files to work
+# on this remotely (dunno if needed though)
+#composer.phar
+#composer.lock
+.env.*.php
+.env.php
+.DS_Store
+Thumbs.db
