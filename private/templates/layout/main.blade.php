@@ -36,10 +36,7 @@
 
         @include('top-inject')
 
-        <!--[if lt IE 9]>-->
-        <!--<script src="{{URL::to('/')}}/assets/js/ie.head.min.js"></script>
-        <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/ie.min.css">-->
-        <!--<![endif]-->
+        <!--[if lt IE 9]><script src="{{URL::to('/')}}/assets/js/ie.head.min.js"></script><![endif]-->
 	</head>  
 	<body>
         <div id="fb-root"></div>
@@ -69,12 +66,10 @@
             @yield('content', array('view'=>$view))
             @include('partials.footer')
         </section>
-        
+
         @include('bottom-inject')
 
-        <!--[if lt IE 9]>-->
-        <!--<script src="{{URL::to('/')}}/assets/js/ie.body.min.js"></script>-->
-        <!--<![endif]-->
+        <!--[if lt IE 9]><script src="{{URL::to('/')}}/assets/js/ie.body.min.js"></script><![endif]-->
 
         <!-- Google Analytics START -->
         <script type="text/javascript">

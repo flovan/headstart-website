@@ -3,12 +3,10 @@
 @section('content')
 @include('partials.sub-menu')
 <div class="wrapper wrapper--intro">
-	<h1>Headstart</h1>
-	<p>Front-end developers have to perform lots of tedious tasks with the help of numerous desktop or web applications. Optimizing images, compiling sass, concatenating scripts, etc., over and over again. Enough! Stop right now.</p>
-	<p>Enter <strong>Headstart</strong>, the easy-to-use automated front-end workflow.</p>
+	<h1>Headstart, the easy-to-use automated front-end workflow.</h1>
+	<p>Headstart is an all-in-one task runner that frees front-end developers of the little worries that come along with modern web development. If you ever wanted to use tools like <a href="http://gruntjs.com/">Grunt</a> or <a href="http://gulpjs.com/">Gulp</a>, but found the configuration too troublesome, you will probably like this pre-configured setup better.</p>
 </div>
 <div class="wrapper wrapper--content">
-	<p>Headstart is an all-in-one task runner that frees front-end developers of the little worries that come along with modern web development. If you ever wanted to use tools like <a href="http://gruntjs.com/">Grunt</a> or <a href="http://gulpjs.com/">Gulp</a>, but found the configuration too troublesome, you will probably like this pre-configured setup better.</p>
 	<p>
 		<a href="{{URL::to('/')}}/getting-started" class="getting-started-link"><span class="icon--rocket"></span> Get started</a>
 		<span> or </span>
@@ -49,6 +47,6 @@
 	<h2>Contribute and Support</h2>
 	<p>If you want to stay up-to-date with the latest changes, follow <a href="https://twitter.com/headstartio">@headstartio</a> on Twitter.</p>
 	<p>Questions? Bugs? Feature requests? Add them to the <a href="https://github.com/flovan/headstart/issues">issues page</a> on Github. Found a typo on the website, or feel like something could be explained better? Fork <a href="https://github.com/flovan/headstart-website">the website repo</a>, make your changes and send a Pull request.</p>
-	<p class="report--info">This is a one-man project, so it is possible that some releases contain bugs. If you encounter one, just let me know through the proper chanel, and I&#39;ll try to respond as soon as I get a notification email. I plan on automating the release testing to prevent this, but I am still unsure on <em>how</em> to do that. If you like this project, feel free to help me out on that one. You can reach me through <a href="https://twitter.com/prplps">@prplps</a> on Twitter.</p>
+	<p class="report--info"><strong>Note:</strong> It is possible that some releases contain bugs due to the extensive feature set. I am planning to add some form of unit testing to prevent this, but I am still unsure on <em>how</em> to do that. If you like this project and know how to do this&mdash; with for example <a href="https://jasmine.github.io">Jasmine</a> or <a href="http://karma-runner.github.io/0.8/index.html">Karma</a>&mdash;feel free to help me out on that one. Various ways of contacting me can be found on <a href="http://flovan.me">my website</a>.</p>
 </div>
 @stop

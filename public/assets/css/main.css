@@ -859,6 +859,8 @@ hr {
       @media screen and (min-width: 60em) {
         .wrapper.wrapper--intro p {
           font-size: 1.5625em; } }
+    .wrapper.wrapper--intro a {
+      color: white; }
 
 .sidebar {
   background-color: #082227;
@@ -1150,6 +1152,11 @@ footer {
   .fb-share-button,
   .github-star-button {
     display: none !important; } }
+@media screen and (min-width: 62.5em) {
+  .twitter-share-button,
+  .fb-share-button,
+  .github-star-button {
+    display: block; } }
 
 .twitter-share-button {
   margin-bottom: 13.63636px;

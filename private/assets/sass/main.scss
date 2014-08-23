@@ -68,6 +68,9 @@ hr
 				font-size: em(25);
 			}
 		}
+		a {
+			color: $white;
+		}
 	}
 }
 .sidebar {
@@ -416,6 +419,9 @@ footer {
 		// Blasted facebook button!
 		// Making this so hard!
 		display: none !important;
+	}
+	@include media-min(1000) {
+		display: block;
 	}
 }
 .twitter-share-button {
