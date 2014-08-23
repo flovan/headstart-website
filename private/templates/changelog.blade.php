@@ -7,6 +7,11 @@
 </div>
 <div class="wrapper wrapper--content">
 	<p>Below you&#39;ll find the changes that each release brings.</p>
+    <hr id="r123">
+    <h2>1.2.3</h2>
+    <ul>
+        <li>Fix for missing view-specific JS files.</li>
+    </ul>
 	<hr id="r122">
     <h2>1.2.2</h2>
     <ul>

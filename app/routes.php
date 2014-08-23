@@ -13,61 +13,61 @@
 
 Route::get('/', function()
 {
-	return View::make('index');
+	return View::make('index')->with('view', 'index');
 });
 Route::get('installation', function()
 {
-	return View::make('installation');
+	return View::make('installation')->with('view', 'installation');
 });
 Route::get('new-project', function()
 {
-	return View::make('new-project');
+	return View::make('new-project')->with('view', 'new-project');
 });
 Route::get('building', function()
 {
-	return View::make('building');
+	return View::make('building')->with('view', 'building');
 });
 Route::get('extra-services', function()
 {
-	return View::make('extra-services');
+	return View::make('extra-services')->with('view', 'extra-services');
 });
 Route::get('base-setup', function()
 {
-	return View::make('base-setup');
+	return View::make('base-setup')->with('view', 'base-setup');
 });
 Route::get('templating', function()
 {
-	return View::make('templating');
+	return View::make('templating')->with('view', 'templating');
 });
 Route::get('asset-conventions', function()
 {
-	return View::make('asset-conventions');
+	return View::make('asset-conventions')->with('view', 'asset-conventions');
 });
 Route::get('sass-setup', function()
 {
-	return View::make('sass-setup');
+	return View::make('sass-setup')->with('view', 'sass-setup');
 });
 Route::get('js-setup', function()
 {
-	return View::make('js-setup');
+	return View::make('js-setup')->with('view', 'js-setup');
 });
 Route::get('back-end-integration', function()
 {
-	return View::make('back-end-integration');
+	return View::make('back-end-integration')->with('view', 'back-end-integration');
 });
 Route::get('boilerplate-changelog', function()
 {
-	return View::make('boilerplate-changelog');
+	return View::make('boilerplate-changelog')->with('view', 'boilerplate-changelog');
 });
 Route::get('upgrading-guide', function()
 {
-	return View::make('upgrading-guide');
+	return View::make('upgrading-guide')->with('view', 'upgrading-guide');
 });
 Route::get('changelog', function()
 {
-	return View::make('changelog');
+	return View::make('changelog')->with('view', 'changelog');
 });
 Route::get('roadmap', function()
 {
-	return View::make('roadmap');
+	return View::make('roadmap')->with('view', 'roadmap');
 });

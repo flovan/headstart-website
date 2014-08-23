@@ -66,9 +66,10 @@
         </aside>
         <section class="content">
             <div class="content-overlay"></div>
-            @yield('content')
+            @yield('content', array('view'=>$view))
             @include('partials.footer')
         </section>
+        
         @include('bottom-inject')
 
         <!--[if lt IE 9]>-->
