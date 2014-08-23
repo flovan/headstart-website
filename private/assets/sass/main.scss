@@ -98,8 +98,10 @@ hr
 }
 	.sidebar__wrapper,
 	.content-menu__wrapper {
-		width: calc(100% + 40px);
-		@include rem(padding-right, $spacing + 40px);
+		@include media-min(1000) {
+			width: calc(100% + 40px);
+			@include rem(padding-right, $spacing + 40px);
+		}
 	}
 		.sidebar__logo-wrapper {
 			position: relative;
@@ -219,7 +221,7 @@ hr
 		text-align: right;
 	}
 	@include media-max(500) {
-		@include rem(padding, $spacing - 8, $spacing);
+		//@include rem(padding, $spacing - 8, $spacing);
 	}
 
 	hr {
@@ -264,14 +266,12 @@ hr
 	.is-empty .content-menu-item-wrapper {
 		@include rem(margin-top, $spacing);
 	}
+	.is-index .content-menu-item-wrapper {
+		display: none;
+	}
 .content {
-	/* position: absolute;
-	top: 0;
-	left: 0;
-	right: 0; */
 	min-height: 100%;
 	width: 100% - 2*$min-page-padding;
-	background: $white;
 	
 	@include media-min(1500) {
 		.wrapper--intro {
@@ -281,11 +281,6 @@ hr
 			font-size: 160%;
 		}
 	}
-	// @include media-min(1050) {
-	// 	.wrapper--content {
-	// 		font-size: 120%;
-	// 	}
-	// }
 	@include media-min(1000) {
 		@include goldencol('large', false, true, width);
 	}
@@ -294,9 +289,12 @@ hr
 	}
 	@include media-min(880) {
 		@include goldencol('large', true, true, margin-left);
-		@include rem(margin-bottom, 80);
+		@include rem(padding-bottom, 80);
 	}
 }
+	.content .wrapper--content {
+		background: $white;
+	}
 footer {
 	background-color: $dark-teal;
 	font-size: 14px;

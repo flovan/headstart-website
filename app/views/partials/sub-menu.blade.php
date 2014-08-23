@@ -1,4 +1,4 @@
-<nav class="content-menu @if($view === 'changelog' || $view === 'boilerplate-changelog')is-empty @endif">
+<nav class="content-menu @if($view === 'changelog' || $view === 'boilerplate-changelog')is-empty @endif @if($view === 'index')is-index @endif">
 	<div class="content-menu__wrapper wrapper">
 		<button class="menu-toggle"><span class="icon--list"></span> Menu</button>
 		@if($view === 'index')
