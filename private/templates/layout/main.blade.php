@@ -38,21 +38,10 @@
 
         <!--[if lt IE 9]><script src="{{URL::to('/')}}/assets/js/ie.head.min.js"></script><![endif]-->
 	</head>  
-	<body>
+	<body id="main">
         <div id="fb-root"></div>
-        <script>
-        window.fbAsyncInit = function() {
-        FB.init({appId: '912714955409005', status: true, cookie: true,
-        xfbml: true});
-        };
-        (function() {
-        var e = document.createElement('script'); e.async = true;
-        e.src = document.location.protocol +
-        '//connect.facebook.net/en_US/all.js';
-        document.getElementById('fb-root').appendChild(e);
-        }());
-        </script>
-        <aside class="sidebar">
+        
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar__wrapper wrapper">
                 <div class="sidebar__logo-wrapper">
                     <a class="logo sidebar__logo" href="{{URL::to('/')}}"><span class="is-hidden">Headstart</span></a>
@@ -61,30 +50,15 @@
                 @include('partials.main-menu')
             </div>
         </aside>
-        <section class="content">
+        @include('partials.sub-menu')
+        <section class="content" id="content">
             <div class="content-overlay"></div>
             @yield('content', array('view'=>$view))
             @include('partials.footer')
         </section>
-
+        
         @include('bottom-inject')
 
         <!--[if lt IE 9]><script src="{{URL::to('/')}}/assets/js/ie.body.min.js"></script><![endif]-->
-
-        <!-- Google Analytics START -->
-        <script type="text/javascript">
-
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-19595931-9']);
-          _gaq.push(['_trackPageview']);
-
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-
-        </script>
-        <!-- Google Analytics END -->
         </body>
     </html>

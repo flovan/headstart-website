@@ -1,7 +1,6 @@
 @extends('layout.main')
 
 @section('content')
-@include('partials.sub-menu')
 <div class="wrapper wrapper--intro">
 	<h1>Templating</h1>
 </div>

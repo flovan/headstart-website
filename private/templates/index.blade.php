@@ -1,7 +1,6 @@
 @extends('layout.main')
 
 @section('content')
-@include('partials.sub-menu')
 <div class="wrapper wrapper--intro">
 	<h1>Headstart, the easy-to-use automated front-end workflow.</h1>
 	<p>Headstart is an all-in-one task runner that frees front-end developers of the little worries that come along with modern web development. If you ever wanted to use tools like <a href="http://gruntjs.com/">Grunt</a> or <a href="http://gulpjs.com/">Gulp</a>, but found the configuration too troublesome, you will probably like this pre-configured setup better.</p>

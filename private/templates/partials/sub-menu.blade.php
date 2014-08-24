@@ -1,11 +1,15 @@
-<nav class="content-menu @if($view === 'changelog' || $view === 'boilerplate-changelog')is-empty @endif @if($view === 'index')is-index @endif">
+<nav class="content-menu @if($view === 'changelog' || $view === 'boilerplate-changelog')is-empty @endif @if($view === 'index')is-index @endif" id="content-menu">
 	<div class="content-menu__wrapper wrapper">
 		<button class="menu-toggle"><span class="icon--list"></span> Menu</button>
+
 		@if($view === 'index')
 		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.headstart.io" data-text="Headstart, the easy-to-use automated front-end workflow." data-via="headstartio">Tweet</a>
+
 		<div class="fb-share-button" data-href="http://headstart.io" data-type="button_count"></div>
+
 		<iframe class="github-star-button" src="" allowtransparency="true" frameborder="0" scrolling="0" width="89" height="20"></iframe>
 		@endif
+
 		<div class="content-menu-item-wrapper">
 			@if($view === 'installation')
 			<hr>

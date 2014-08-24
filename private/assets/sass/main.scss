@@ -21,6 +21,7 @@
 @import 'module/reporting';
 //@import 'module/form';
 @import 'module/button';
+@import 'module/animate';
 
 // Vendor imports -------------------------------------------------------------
 
@@ -75,6 +76,8 @@ hr
 }
 .sidebar {
 	@extend %fixed-col;
+	@extend %animated;
+	@extend %fadeInLeft;
 	background-color: $darker-teal;
 	z-index: 9;
 	transition: transform .2s $easeOutExpo;
@@ -184,6 +187,8 @@ hr
 .content-menu {
 	background: $light-blue;
 	@extend %fixed-col;
+	@extend %animated;
+	@extend %fadeInRight;
 
 	@include media-min(1000) {
 		@include goldencol('small', true);
@@ -213,6 +218,7 @@ hr
 		}
 	}
 	@include media-min-max(880, 999) {
+		@include goldencol('large', true, true, margin-left);
 		&.is-empty {
 			display: none;
 		}
@@ -270,6 +276,8 @@ hr
 		display: none;
 	}
 .content {
+	@extend %animated;
+	@extend %fadeInRight;
 	min-height: 100%;
 	width: 100% - 2*$min-page-padding;
 	
@@ -295,6 +303,15 @@ hr
 	.content .wrapper--content {
 		background: $white;
 	}
+#main.is-exiting {
+	//.sidebar,
+	.content,
+	.content-menu {
+		background-color: red !important;
+		animation-direction: alternate-reverse !important;
+	}
+}
+
 footer {
 	background-color: $dark-teal;
 	font-size: 14px;
