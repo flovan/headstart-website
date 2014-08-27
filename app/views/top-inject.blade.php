@@ -1,1 +1,1 @@
-<!-- inject:css --><link rel="stylesheet" href="{{URL::to('/')}}//assets/css/main.css"><!-- endinject -->
+<!-- inject:css --><link rel="stylesheet" href="{{URL::to('/')}}/assets/css/main.css"><!-- endinject -->

@@ -13,12 +13,11 @@
 
 // Supporting links posted to the previous version of the website
 
-Route::get('{view}.html', function() {
+Route::get('{view}.html', function ($view) {
 
 	switch($view) {
-		// handled by default
-		// case 'index': return Redirect::to('/');	break;
-
+		case 'index': return Redirect::to('/');
+			break;
 		case 'getting-started': return Redirect::to('installation');
 			break;
 		case 'html-guide': return Redirect::to('templating');

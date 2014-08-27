@@ -36,32 +36,6 @@ $(document).ready(function () {
 	$menuToggle.on('click', menuToggleClickHandler);
 	$contentOverlay.on('click', contentOverlaylickHandler);
 
-	// Setup smoothState
-
-	/*var smooth = $content.smoothState({
-		onStart: {
-			duration: 250,
-			render: function () {
-				alert('YES');
-				smooth.toggleAnimationClass('is-exiting');
-				$body.animate({ 'scrollTop': 0 });
-			}
-		}
-	}).data('smoothState');*/
-
-	var smooth = $main.smoothState({
-		//prefetch: true,
-		onStart : {
-			duration: 250,
-			render: function (url, container) {
-				//$body.scrollTop(0);
-				smooth.toggleAnimationClass('is-exiting');
-			}
-		}
-	}).data('smoothState');
-
-	//smooth.load('http://localhost/headstart-website/public/changelog');
-
 	//
 	// FUNCTIONS --------------------------------------------------------------
 	//

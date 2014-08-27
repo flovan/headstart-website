@@ -21,7 +21,7 @@
 @import 'module/reporting';
 //@import 'module/form';
 @import 'module/button';
-@import 'module/animate';
+//@import 'module/animate';
 
 // Vendor imports -------------------------------------------------------------
 
@@ -32,8 +32,7 @@
 .is-hidden {
 	@extend %is-hidden;
 }
-hr
-{
+hr {
 	border: none;
 	border-top: 2px solid $light-blue;
 	@include rem(margin, 0, 0, $spacing);
@@ -76,8 +75,6 @@ hr
 }
 .sidebar {
 	@extend %fixed-col;
-	@extend %animated;
-	@extend %fadeInLeft;
 	background-color: $darker-teal;
 	z-index: 9;
 	transition: transform .2s $easeOutExpo;
@@ -154,7 +151,7 @@ hr
 				}
 			}
 			a {
-				display: block;
+				display: inline-block;
 				text-decoration: none;
 				line-height: 1;
 				
@@ -166,6 +163,10 @@ hr
 				}
 				&:hover, &.is-active {
 					text-decoration: underline;
+				}
+
+				@include media-max(879) {
+					display: block;
 				}
 			}
 			& > ul > li {
@@ -187,8 +188,6 @@ hr
 .content-menu {
 	background: $light-blue;
 	@extend %fixed-col;
-	@extend %animated;
-	@extend %fadeInRight;
 
 	@include media-min(1000) {
 		@include goldencol('small', true);
@@ -276,8 +275,6 @@ hr
 		display: none;
 	}
 .content {
-	@extend %animated;
-	@extend %fadeInRight;
 	min-height: 100%;
 	width: 100% - 2*$min-page-padding;
 	
@@ -303,14 +300,6 @@ hr
 	.content .wrapper--content {
 		background: $white;
 	}
-#main.is-exiting {
-	//.sidebar,
-	.content,
-	.content-menu {
-		background-color: red !important;
-		animation-direction: alternate-reverse !important;
-	}
-}
 
 footer {
 	background-color: $dark-teal;
@@ -335,6 +324,10 @@ footer {
 	&, & a {
 		color: $white;
 	}
+}
+
+#instantclick {
+	display: none;
 }
 
 // Styles ---------------------------------------------------------------------

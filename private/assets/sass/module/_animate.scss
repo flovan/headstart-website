@@ -5,9 +5,12 @@
 
 %animated {
 	animation-duration: .25s;
-    transition-timing-function: ease-out;//cubic-bezier(.34,.7,.22,1);
+    transition-timing-function: cubic-bezier(.34,.7,.22,1);
 	animation-fill-mode: both;
-	animation-direction: normal;
+
+	.is-exiting & {
+		animation-direction: alternate-reverse;
+	}
 }
 %fadeInLeft {
 	animation-name: fadeInLeft;

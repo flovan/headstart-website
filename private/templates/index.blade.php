@@ -17,7 +17,6 @@
 		<li>Command Line Interface (CLI)</li>
 		<li>Scaffold new projects</li>
 		<li>Customizable boilerplate</li>
-		<li>Static file serving with automated reloading</li>
 		<li>Simple templating</li>
 		<li>Image optimization</li>
 		<li>Sass compilation and minification</li>
@@ -28,9 +27,10 @@
 		<li>Hint your Javascript</li>
 		<li>Combine Media Queries</li>
 		<li>Minify HTML</li>
-		<li>Syncs your test setups through Browsersync</li>
+		<li>Static file serving with automated reloading</li>
+		<li>Sync open sessions through Browsersync</li>
 		<li>Tunnel static files to the web</li>
-		<li>Run projects through Google Pagespeed Insights</li>
+		<li>Run projects through Pagespeed Insights</li>
 	</ul>
 	<hr>
 	<h2>Open-source</h2>

@@ -682,169 +682,6 @@ ol.report--info {
     background-color: #084347;
     border-color: #084347; }
 
-.sidebar, .content-menu, .content {
-  -webkit-animation-duration: .25s;
-          animation-duration: .25s;
-  -webkit-transition-timing-function: ease-out;
-          transition-timing-function: ease-out;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  -webkit-animation-direction: normal;
-          animation-direction: normal; }
-
-.sidebar {
-  -webkit-animation-name: fadeInLeft;
-          animation-name: fadeInLeft; }
-
-.content-menu, .content {
-  -webkit-animation-name: fadeInRight;
-          animation-name: fadeInRight; }
-
-@-webkit-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-            transform: none; } }
-
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-            transform: none; } }
-@-webkit-keyframes fadeOutLeft {
-  0% {
-    opacity: 1; }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0); } }
-@keyframes fadeOutLeft {
-  0% {
-    opacity: 1; }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0); } }
-@-webkit-keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-            transform: translate3d(100%, 0, 0); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-            transform: none; } }
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-            transform: translate3d(100%, 0, 0); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-            transform: none; } }
-@-webkit-keyframes fadeOutRight {
-  0% {
-    opacity: 1; }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-            transform: translate3d(100%, 0, 0); } }
-@keyframes fadeOutRight {
-  0% {
-    opacity: 1; }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-            transform: translate3d(100%, 0, 0); } }
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-            transform: translate3d(0, 100%, 0); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-            transform: none; } }
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-            transform: translate3d(0, 100%, 0); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-            transform: none; } }
-@-webkit-keyframes fadeOutUp {
-  0% {
-    opacity: 1; }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-            transform: translate3d(0, -100%, 0); } }
-@keyframes fadeOutUp {
-  0% {
-    opacity: 1; }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-            transform: translate3d(0, -100%, 0); } }
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-            transform: translate3d(0, -100%, 0); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-            transform: none; } }
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-            transform: translate3d(0, -100%, 0); }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-            transform: none; } }
-@-webkit-keyframes fadeOutDown {
-  0% {
-    opacity: 1; }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-            transform: translate3d(0, 100%, 0); } }
-@keyframes fadeOutDown {
-  0% {
-    opacity: 1; }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-            transform: translate3d(0, 100%, 0); } }
 /* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+scss */
 /**
  * okaidia theme for JavaScript, CSS and HTML
@@ -1097,7 +934,7 @@ hr {
   .sidebar__menu li:before {
     display: none; }
 .sidebar__menu a {
-  display: block;
+  display: inline-block;
   text-decoration: none;
   line-height: 1; }
   .sidebar__menu a, .sidebar__menu a:visited {
@@ -1106,6 +943,9 @@ hr {
     color: #179f9f; }
   .sidebar__menu a:hover, .sidebar__menu a.is-active {
     text-decoration: underline; }
+  @media screen and (max-width: 54.9375em) {
+    .sidebar__menu a {
+      display: block; } }
 .sidebar__menu > ul > li > a {
   padding: 10px 0px;
   padding: 0.625rem 0rem; }
@@ -1220,12 +1060,6 @@ hr {
 .content .wrapper--content {
   background: white; }
 
-#main.is-exiting .content,
-#main.is-exiting .content-menu {
-  background-color: red !important;
-  -webkit-animation-direction: alternate-reverse !important;
-          animation-direction: alternate-reverse !important; }
-
 footer {
   background-color: #094b4f;
   font-size: 14px; }
@@ -1244,6 +1078,9 @@ footer {
     display: inline-block; }
   footer, footer a {
     color: white; }
+
+#instantclick {
+  display: none; }
 
 @media screen and (max-width: 31.25em) {
   .getting-started-link,
