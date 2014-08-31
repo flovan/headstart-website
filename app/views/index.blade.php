@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="wrapper wrapper--intro">
-	<h1>Headstart, the easy-to-use automated front-end workflow.</h1>
+	<h1>Headstart, an automated front-end workflow.</h1>
 	<p>Headstart is an all-in-one task runner that frees front-end developers of the little worries that come along with modern web development. If you ever wanted to use tools like <a href="http://gruntjs.com/">Grunt</a> or <a href="http://gulpjs.com/">Gulp</a>, but found the configuration too troublesome, you will probably like this pre-configured setup better.</p>
 </div>
 <div class="wrapper wrapper--content">
@@ -18,17 +18,16 @@
 		<li>Scaffold new projects</li>
 		<li>Customizable boilerplate</li>
 		<li>Simple templating</li>
-		<li>Image optimization</li>
+		<li>Image and SVG optimization</li>
 		<li>Sass compilation and minification</li>
 		<li>Javascript concatenation and uglification</li>
 		<li>CSS and Javascript revisioning</li>
-		<li>Remove unused CSS through Uncss</li>
 		<li>Validate your HTML through W3C</li>
 		<li>Hint your Javascript</li>
 		<li>Combine Media Queries</li>
 		<li>Minify HTML</li>
 		<li>Static file serving with automated reloading</li>
-		<li>Sync open sessions through Browsersync</li>
+		<li>Synchronise multiple browsers and devices</li>
 		<li>Tunnel static files to the web</li>
 		<li>Run projects through Pagespeed Insights</li>
 	</ul>
@@ -46,6 +45,6 @@
 	<h2>Contribute and Support</h2>
 	<p>If you want to stay up-to-date with the latest changes, follow <a href="https://twitter.com/headstartio">@headstartio</a> on Twitter.</p>
 	<p>Questions? Bugs? Feature requests? Add them to the <a href="https://github.com/flovan/headstart/issues">issues page</a> on Github. Found a typo on the website, or feel like something could be explained better? Fork <a href="https://github.com/flovan/headstart-website">the website repo</a>, make your changes and send a Pull request.</p>
-	<p class="report--info"><strong>Note:</strong> It is possible that some releases contain bugs due to the extensive feature set. I am planning to add some form of unit testing to prevent this, but I am still unsure on <em>how</em> to do that. If you like this project and know how to do this&mdash; with for example <a href="https://jasmine.github.io">Jasmine</a> or <a href="http://karma-runner.github.io/0.8/index.html">Karma</a>&mdash;feel free to help me out on that one. Various ways of contacting me can be found on <a href="http://flovan.me">my website</a>.</p>
+	<p class="report--info"><strong>Note:</strong> It is possible that some releases contain bugs due to the extensive feature set. I am planning to add some form of unit testing to prevent this, but I am still unsure on <em>how</em> to do that. If you like this project and know how to do this&mdash;for example with <a href="https://jasmine.github.io">Jasmine</a> or <a href="http://karma-runner.github.io/0.8/index.html">Karma</a>&mdash;feel free to help me out on that one. Various ways of contacting me can be found on <a href="http://flovan.me">my website</a>.</p>
 </div>
 @stop

@@ -90,7 +90,3 @@ Route::get('upgrading-guide', function () {
 Route::get('changelog', function () {
 	return View::make('changelog')->with('view', 'changelog');
 });
-
-Route::get('roadmap', function () {
-	return View::make('roadmap')->with('view', 'roadmap');
-});

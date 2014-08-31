@@ -91,6 +91,7 @@
 			<hr>
 			<ul>
 				<li><a href="#laravel">La&shy;ra&shy;vel In&shy;te&shy;gra&shy;tion</a></li>
+				<li><a href="#other">Other In&shy;te&shy;gra&shy;tions</a></li>
 			</ul>
 			@endif
 			@if($view === 'upgrading-guide')

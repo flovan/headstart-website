@@ -5,7 +5,7 @@
 	<h1>Boilerplate Changelog</h1>
 </div>
 <div class="wrapper wrapper--content">
-	<p>Below you&#39;ll find the changes that each release brings.</p>
+	<p>Take a look at the changes that each boilerplate release brings below. Releases are hardcoded into Headstart releases to ensure backwards-compatibility.</p>
 	<hr id="r110">
 	<h2>1.1.0</h2>
 	<ul>

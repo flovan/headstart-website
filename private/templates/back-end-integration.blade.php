@@ -40,5 +40,10 @@ Your page content ...
 &#64;include(&quot;common/footer&quot;)</code></pre>
 	<p>If you really don&#39;t like this solution and you don&#39;t plan on having view-specific assets, you can also move the parts into their own blades (in the root of <code class="language-none">templates</code>!), eg. <code class="language-none">top-inject.blade.php</code> and <code class="language-none">bottom-inject.blade.php</code> and import those back into the layout parts where you extracted them from. Still ugly, but at least it makes your other content Blades less messy.</p>
 	<p class="report--warning"><strong>Note:</strong> Assets will not be imported in Blades located in subfolders. The solution mentioned above (having inject blades) works, but, again, will not support page-specific assets. This <a href="https://github.com/flovan/headstart/issues/31">has been marked as an enhancement</a> on Github Issues.</p>
+
+
+    <hr id="other">
+    <h2>Other Integrations</h2>
+    <p>If you have succesfully integrated Headstart into any kind of other back-end system not mentioned on this page, I would be much obliged if you could share your process with me so it can be integrated here. Various ways of contacting me can be found on <a href="http://flovan.me">my website</a>.</p>
 </div>
 @stop

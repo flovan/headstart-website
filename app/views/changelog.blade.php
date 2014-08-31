@@ -5,7 +5,7 @@
 	<h1>Changelog</h1>
 </div>
 <div class="wrapper wrapper--content">
-	<p>Below you&#39;ll find the changes that each release brings.</p>
+	<p>Take a look at the changes that each release brings below.</p>
     <hr id="r123">
     <h2>1.2.3</h2>
     <ul>

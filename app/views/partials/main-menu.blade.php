@@ -24,7 +24,6 @@
         </li>
         <li><a @if($view === 'upgrading-guide')class="is-active" @endif href="{{URL::to('/')}}/upgrading-guide">Upgrading Guide</a></li>
         <li><a @if($view === 'changelog')class="is-active" @endif href="{{URL::to('/')}}/changelog">Changelog</a></li>
-        <li><a @if($view === 'roadmap')class="is-active" @endif href="{{URL::to('/')}}/roadmap">Roadmap</a></li>
         <li><a href="{{URL::to('/')}}/#contrib-support">Contributing &amp; Support</a></li>
         <li><a href="https://github.com/flovan/headstart/issues">Issues</a></li>
     </ul>
