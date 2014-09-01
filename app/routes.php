@@ -30,6 +30,8 @@ Route::get('{view}.html', function ($view) {
 			break;
 		case 'upgrading': return Redirect::to('upgrading-guide');
 			break;
+		default: return Redirect::to('/');
+			break;
 	}
 });
 
@@ -90,3 +92,8 @@ Route::get('upgrading-guide', function () {
 Route::get('changelog', function () {
 	return View::make('changelog')->with('view', 'changelog');
 });
+
+/*App::missing(function($exception)
+{
+    return Redirect::to('/');
+});*/

@@ -1078,9 +1078,13 @@ hr {
 	-webkit-transform: translateZ(0);
 	        transform: translateZ(0);
 	width: 92%;
-	overflow-y: scroll;
 	overflow-x: hidden;
 	-webkit-overflow-scrolling: touch;
+}
+
+.is-overflowing.sidebar,
+.is-overflowing.content-menu {
+	overflow-y: scroll;
 }
 
 .is-columned {
@@ -1586,14 +1590,6 @@ footer {
 }
 
 @media screen and (min-width: 62.5em) {
-
-.sidebar__wrapper,
-.content-menu__wrapper {
-	width: -webkit-calc(100% + 40px);
-	width: calc(100% + 40px);
-	padding-right: 70px;
-	padding-right: 4.375rem;
-}
 
 .content-menu {
 	max-width: 14.5898%;

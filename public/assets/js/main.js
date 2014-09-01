@@ -16,8 +16,10 @@ $(document).ready(function () {
 
 		$menuToggle = $('.menu-toggle'),
 		$sidebar = $('.sidebar'),
+		$sidebarWrapper = $('.sidebar__wrapper'),
 		$content = $('.content'),
 		$contentOverlay = $('.content-overlay'),
+		$contentMenuWrapper = $('.content-menu__wrapper'),
 		$ghStarButton = $('.github-star-button')
 	;
 
@@ -33,6 +35,7 @@ $(document).ready(function () {
 
 	// Add handlers
 
+	$window.on('resize', windowResizeHandler).trigger('resize');
 	$menuToggle.on('click', menuToggleClickHandler);
 	$contentOverlay.on('click', contentOverlaylickHandler);
 
@@ -40,15 +43,28 @@ $(document).ready(function () {
 	// FUNCTIONS --------------------------------------------------------------
 	//
 
+	function windowResizeHandler (e) {
+
+		_.each([$sidebarWrapper, $contentMenuWrapper], function (wrapper, key) {
+
+			if (wrapper.outerHeight() > window.innerHeight) {
+				wrapper.addClass('is-overflowing');
+			}
+			else {
+				wrapper.removeClass('is-overflowing');
+			}
+		});
+	}
+
 	function menuToggleClickHandler (e) {
-		console.log('clicked the toggle');
+
 		$sidebar.addClass('is-opened');
 		$body.addClass('is-covered');
 		return false;
 	}
 
 	function contentOverlaylickHandler (e) {
-		console.log('clicked the cover');
+
 		$sidebar.removeClass('is-opened');
 		$body.removeClass('is-covered');
 		return false;

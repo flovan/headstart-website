@@ -43,9 +43,12 @@ hr {
 	bottom: 0;
 	transform: translateZ(0);
 	width: 100% - 2*$min-page-padding;
-	overflow-y: scroll;
 	overflow-x: hidden;
 	-webkit-overflow-scrolling: touch;
+
+	&.is-overflowing {
+		overflow-y: scroll;
+	}
 }
 .is-columned {
 	column-count: 2;
@@ -96,13 +99,6 @@ hr {
 		@include goldencol('large');
 	}
 }
-	.sidebar__wrapper,
-	.content-menu__wrapper {
-		@include media-min(1000) {
-			width: calc(100% + 40px);
-			@include rem(padding-right, $spacing + 40px);
-		}
-	}
 		.sidebar__logo-wrapper {
 			position: relative;
 		}

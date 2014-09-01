@@ -10,3 +10,10 @@ export
 .env.php
 .DS_Store
 Thumbs.db
+
+# Exclude folder that are made by Headstart
+# to prevent each commit from including double
+# changes, or useless changes
+
+/app/views
+/public/assets 

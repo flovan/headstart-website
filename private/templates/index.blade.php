@@ -7,7 +7,7 @@
 </div>
 <div class="wrapper wrapper--content">
 	<p>
-		<a href="{{URL::to('/')}}/getting-started" class="getting-started-link"><span class="icon--rocket"></span> Get started</a>
+		<a href="{{URL::to('/')}}/installation" class="getting-started-link"><span class="icon--rocket"></span> Get started</a>
 		<span> or </span>
 		<a href="https://github.com/flovan/headstart/" class="check-github-link"><span class="icon--github"></span> View this project on Github</a>
 	</p>
