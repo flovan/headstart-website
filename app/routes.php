@@ -93,7 +93,7 @@ Route::get('changelog', function () {
 	return View::make('changelog')->with('view', 'changelog');
 });
 
-/*App::missing(function($exception)
+App::missing(function($exception)
 {
     return Redirect::to('/');
-});*/
+});

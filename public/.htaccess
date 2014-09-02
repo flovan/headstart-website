@@ -1,11 +1,3 @@
-# Set hosting to latest available PHP
-
-<FilesMatch "\.php$">
-
-AddHandler x-httpd-php53 .php
-
-</FilesMatch>
-
 # Laravel settings
 
 <IfModule mod_rewrite.c>
