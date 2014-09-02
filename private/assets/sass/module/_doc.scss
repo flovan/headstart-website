@@ -19,15 +19,7 @@ body {
     background-color: $white;
     color: $darkest-teal;
 	height: 100%;
-
-	&,
-	& input,
-	& textarea,
-	& button {
-		-webkit-font-smoothing: antialiased;
-		font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
+	@extend %is-antialiased;
 
 	@include media-max(879) {
 		&.is-covered {

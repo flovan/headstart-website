@@ -10,6 +10,7 @@
 	font-weight: bold;
 	text-decoration: none;
 	line-height: 1;
+	@extend %is-antialiased;
 	
 	&:disabled {
 		opacity: 0.5;
