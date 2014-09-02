@@ -1,3 +1,6 @@
+// Global var to contain the selectors
+$Column-Placeholder-Selectors: ();
+
 //  Column mixin --------------------------------------------------------------
 //
 //  Create a % based column
@@ -7,11 +10,9 @@
 //  @break:		Point where a column starts floating and stretching
 //	@context:	A context for @columns
 
-@mixin column ($columns, $end: false, $break: $default-column-breakpoint, $context: $total-columns) {
+@mixin column ($columns, $end: false, $break: $default-column-breakpoint, $context: $total-columns, $extend: true) {
 	
-	display: inline-block;
-	vertical-align: top;
-	width: 100%;
+	@include column-static($extend);
 
 	@include media-min ($break) {
 		$perc: (100 / $total-columns * $columns) * 1%;
@@ -28,6 +29,52 @@
 		width: $perc - ($default-gutter-width - ($default-gutter-width/($total-columns / $columns)));
 	}
 }
+
+// The static part of the column mixin
+//
+
+@mixin column-static ($extend: true) {
+	// Get the selector
+	$column-selector: map-get($Column-Placeholder-Selectors, 'column');
+	
+	@if $extend == true {
+		// If it doesn't exist yet, make it
+		// Use `!global` to overwrite the global var
+		@if $column-selector == null {
+			@debug 'No $column-selector found';
+			$column-selector: unique-id();
+			@debug $column-selector;
+			$columnPlaceholder-Selectors: map-merge($Column-Placeholder-Selectors, ('button': $column-selector)) !global;
+			
+			// Create the placeholder selector at the root
+			// Then include the mixin recursively
+			@at-root %#{$column-selector} {
+				@include column-static(false);
+			}
+		} @else {
+			@debug $column-selector;
+		}
+	
+		// Extend the custom selector to write the properties
+		@extend %#{$column-selector};
+	} @else {
+		display: inline-block;
+		vertical-align: top;
+		width: 100%;
+	}
+}
+
+	
+
+//  Golden Ration Column mixin --------------------------------------------------------------
+//
+//  Create a golden ratio based column
+//
+//	@size:		Assign the 'small' or 'large' part
+//	@isSub: 	Apply first-level nesting without actually
+//				nesting anything DOM-wise
+//  @isOffset:	Use value as an offset, rather than a width
+//	@prop:		What propery to use if isOffset is true
 
 @mixin goldencol ($size, $isSub: false, $isOffset: false, $prop: left) {
 
