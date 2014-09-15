@@ -11,6 +11,6 @@
 	"export_templates": "../app/views",
 	"export_misc": "../public",
 	"assemble_templates": false,
-	"template_asset_prefix": "{{URL::to('/')}}",
+	"template_asset_prefix": "{{URL::asset('/')}}",
 	"revisionCaching": false
 }

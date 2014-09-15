@@ -1,6 +1,3 @@
-// Global var to contain the selectors
-$Column-Placeholder-Selectors: ();
-
 //  Column mixin --------------------------------------------------------------
 //
 //  Create a % based column
@@ -10,61 +7,72 @@ $Column-Placeholder-Selectors: ();
 //  @break:		Point where a column starts floating and stretching
 //	@context:	A context for @columns
 
-@mixin column ($columns, $end: false, $break: $default-column-breakpoint, $context: $total-columns, $extend: true) {
-	
-	@include column-static($extend);
+$Placeholder-Selectors: ();
+
+@mixin column ($columns, $end: false, $break: $default-column-breakpoint, $context: $total-columns) {
+	@include column-static();
 
 	@include media-min ($break) {
 		$perc: (100 / $total-columns * $columns) * 1%;
 
 		@if $end == false {
-			float: left;
-			margin-right: $default-gutter-width;
+			@include column-left-static();
 		} @else {
-			float: right;
-			clear: right;
-			margin-right: 0;
+			@include column-right-static();
 		}
 
 		width: $perc - ($default-gutter-width - ($default-gutter-width/($total-columns / $columns)));
 	}
 }
 
-// The static part of the column mixin
+// Static column mixins -------------------------------------------------------
 //
+// These will be used to make the column mixin truly DRY.
 
 @mixin column-static ($extend: true) {
-	// Get the selector
-	$column-selector: map-get($Column-Placeholder-Selectors, 'column');
+	$column-selector: map-get($Placeholder-Selectors, 'column');
 	
 	@if $extend == true {
-		// If it doesn't exist yet, make it
-		// Use `!global` to overwrite the global var
-		@if $column-selector == null {
-			@debug 'No $column-selector found';
-			$column-selector: unique-id();
-			@debug $column-selector;
-			$columnPlaceholder-Selectors: map-merge($Column-Placeholder-Selectors, ('button': $column-selector)) !global;
-			
-			// Create the placeholder selector at the root
-			// Then include the mixin recursively
-			@at-root %#{$column-selector} {
-				@include column-static(false);
-			}
-		} @else {
-			@debug $column-selector;
+		@include dynamic-extend('column') {
+			@include column-static(false);
 		}
-	
-		// Extend the custom selector to write the properties
-		@extend %#{$column-selector};
-	} @else {
+	}
+	@else {
 		display: inline-block;
 		vertical-align: top;
 		width: 100%;
 	}
 }
 
+@mixin column-left-static ($extend: true) {
+	$column-selector: map-get($Placeholder-Selectors, 'column-left');
 	
+	@if $extend == true {
+		@include dynamic-extend('column-left') {
+			@include column-left-static(false);
+		}
+	}
+	@else {
+		float: left;
+		margin-right: $default-gutter-width;
+	}
+}
+
+@mixin column-right-static ($extend: true) {
+	$column-selector: map-get($Placeholder-Selectors, 'column-right');
+	
+	@if $extend == true {
+		@include dynamic-extend('column-right') {
+			@include column-right-static(false);
+		}
+	}
+	@else {
+		float: right;
+		clear: right;
+		margin-right: 0;
+	}
+}
+
 
 //  Golden Ration Column mixin --------------------------------------------------------------
 //
