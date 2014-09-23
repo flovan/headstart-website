@@ -12,5 +12,6 @@
 	"export_misc": "../public",
 	"assemble_templates": false,
 	"template_asset_prefix": "{{URL::asset('/')}}",
-	"revisionCaching": false
+	"revisionCaching": false,
+	"proxy": "localhost/headstart-website/public"
 }

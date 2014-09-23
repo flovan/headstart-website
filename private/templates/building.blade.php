@@ -107,6 +107,15 @@
     // by listing selectors here
     "uncssIgnore": [],
 
+    // You can set a custom port if want to or need to because
+    // the default port (3000) is already taken
+    "port": 1234,
+
+    // You can enable a proxy if you want browser-sync working
+    // through a different host (eg. when viewing your project
+    // through your MAMP/XAMP localhost)
+    "localhost": "localhost/my-laravel-project/public",
+
     [...]
 }</code></pre>
     <hr>
