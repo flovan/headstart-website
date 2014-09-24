@@ -84,7 +84,7 @@
     "assemble_templates": true,
 
     // Prefix injected script and link tags
-    // eg. "&#123;&#123;Url::to('/')&#125;&#125;" for Laravel
+    // eg. "&#123;&#123;Url::asset('/')&#125;&#125;" for Laravel
     "template_asset_prefix": "",
 
     // Turn on revisioning to get better caching

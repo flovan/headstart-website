@@ -18,7 +18,7 @@
 "export_templates": "../app/views",
 "export_misc": "../public",
 "assemble_templates": false,
-"template_asset_prefix": "&#123;&#123;URL::to('/')&#125;&#125;/",
+"template_asset_prefix": "&#123;&#123;URL::to('/')&#125;&#125;",
 ...
 }</code></pre>
 	<p>With these settings, Headstart will build the <code class="language-none">assets</code> folder and <code class="language-none">misc</code> folder contents to the <code class="language-none">public</code> folder. It will also move the views over to <code class="language-none">app/views</code> without compiling to let the Blade engine handle them. All assets will also be prefixed with some Blade syntax to give them absolute paths, rather than relative ones.

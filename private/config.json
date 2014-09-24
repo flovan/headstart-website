@@ -3,15 +3,13 @@
 	"editor": "Sublime Text",
 	"minifyHTML": false,
 	"combineMediaQueries": true,
-	"useUncss": false,
-	"uncssIgnore": [],
 	"hint": true,
-	"w3c": false,
+	"w3c": true,
 	"export_assets": "../public",
 	"export_templates": "../app/views",
 	"export_misc": "../public",
 	"assemble_templates": false,
 	"template_asset_prefix": "{{URL::asset('/')}}",
-	"revisionCaching": false,
+	"revisionCaching": true,
 	"proxy": "localhost/headstart-website/public"
 }
