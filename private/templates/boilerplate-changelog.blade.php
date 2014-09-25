@@ -9,7 +9,7 @@
 	<hr id="r120">
 	<h2>1.2.0</h2>
 	<ul>
-		<li>Removed <code class="language-none">$base-font-size</code> variable from <code class="language-none">_config_global.scss</code> if favour of just using <code class="language-css">100%</code>.</li>
+		<li>Removed <code class="language-none">$base-font-size</code> variable from <code class="language-none">_config_global.scss</code> in favour of just using <code class="language-css">100%</code>.</li>
 		<li>Fixed default links to IE scripts.</li>
 		<li>Removed source maps from Ender build to prevent browser console errors.</li>
 		<li>Moved anti-aliasing into a state, which is now also being used by <code class="language-markup">&lt;button&gt;</code> and form elements.</li>

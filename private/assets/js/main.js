@@ -19,8 +19,7 @@ $(document).ready(function () {
 		$sidebarWrapper = $('.sidebar__wrapper'),
 		$content = $('.content'),
 		$contentOverlay = $('.content-overlay'),
-		$contentMenuWrapper = $('.content-menu__wrapper'),
-		$ghStarButton = $('.github-star-button')
+		$contentMenuWrapper = $('.content-menu__wrapper')
 	;
 
 	// ACTIONS ----------------------------------------------------------------
@@ -28,10 +27,7 @@ $(document).ready(function () {
 
 	// Initialize social stuff
 
-	initTwitterButton(document, 'script', 'twitter-wjs');
-	initFacebookButton();
 	initAnalytics();
-	$ghStarButton.attr('src', 'http://ghbtns.com/github-btn.html?user=flovan&repo=headstart&type=watch&count=true');
 
 	// Add handlers
 
@@ -74,25 +70,6 @@ $(document).ready(function () {
 	// HELPERS ----------------------------------------------------------------
 	//
 
-	function initFacebookButton () {
-		var e = document.createElement('script'); e.async = true;
-		e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-		document.getElementById('fb-root').appendChild(e);
-	}
-
-	function initTwitterButton (d,s,id) {
-		var js,
-			fjs = d.getElementsByTagName(s)[0],
-			p = /^http:/.test(d.location) ? 'http' : 'https';
-
-		if (!d.getElementById(id)) {
-			js = d.createElement(s);
-			js.id = id;
-			js.src = p + '://platform.twitter.com/widgets.js';
-			fjs.parentNode.insertBefore(js,fjs);
-		}
-	}
-
 	function initAnalytics () {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -100,14 +77,5 @@ $(document).ready(function () {
 	}
 
 });
-
-window.fbAsyncInit = function() {
-	FB.init({appId: '912714955409005', status: true, cookie: true,
-	xfbml: true});
-};
-
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-19595931-9']);
-_gaq.push(['_trackPageview']);
 
 }(window, $));

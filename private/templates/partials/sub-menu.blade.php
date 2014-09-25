@@ -32,6 +32,7 @@
 				<li><a href="#development">De&shy;vel&shy;op&shy;ment</a></li>
 				<li><a href="#production">Pro&shy;duc&shy;tion</a></li>
 				<li><a href="#configuration">Con&shy;fig&shy;u&shy;ra&shy;tion</a></li>
+				<li><a href="#optional-configuration">Op&shy;tion&shy;al Con&shy;fig&shy;u&shy;ra&shy;tion</a></li>
 			</ul>
 			@endif
 			@if($view === 'extra-services')

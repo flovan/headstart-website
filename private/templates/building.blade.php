@@ -41,83 +41,85 @@
     <hr id="configuration">
     <h2>Configuring your build</h2>
     <p>The <code class="language-none">config.json</code> file that comes with the boilerplate enables you to customize the building engine on a per-project basis. Here is a commented version of that file (don&#39;t put comments in your own config file though).</p>
-    <pre class="language-javascript"><code>{
+    <pre class="language-javascript"><code>&#123;
     // Which browser to open when the `--open` flag is set
     // Depending on your OS, this could also be:
-    // "google-chrome" or "chrome" or "google chrome"
-    "browser": "Google Chrome",
+    // &quot;google-chrome&quot; or &quot;chrome&quot; or &quot;google chrome&quot;
+    &quot;browser&quot;: &quot;Google Chrome&quot;,
 
     // Which editor to open when the `--edit` flag is set
     // Depending on your OS and version, this could also be:
     // "Sublime Text 2" or ... (no further tests done)
-    "editor": "Sublime Text",
+    &quot;editor&quot;: &quot;Sublime Text&quot;,
 
     // Minify your templates
     // eg. remove comments, collapse whitespace, ...
-    "minifyHTML": false,
+    &quot;minifyHTML&quot;: false,
 
     // Combine media queries where possible
     // Gzipping takes care of repeating strings, so this isn&#39;t
     // really necessary
-    "combineMediaQueries": false,
+    &quot;combineMediaQueries&quot;: false,
 
     // Check your javascript syntax and output the results
     // Configured through `./.jshintrc`
     // All options here: http://www.jshint.com/docs/options/
-    "hint": true,
+    &quot;hint&quot;: true,
 
     // Validate your files through W3C and ouput the results
-    "w3c": false,
+    &quot;w3c&quot;: false,
 
     // Folder where the assets folder should be built to
-    "export_assets": "export",
+    &quot;export_assets&quot;: &quot;export&quot;,
 
     // Folder where the individual templates should be built to
-    "export_templates": "export",
+    &quot;export_templates&quot;: &quot;export&quot;,
 
     // Folder where the miscellaneous assets should be built to
     // Usually identical to "export_assets"
-    "export_misc": "export",
+    &quot;export_misc&quot;: &quot;export&quot;,
 
     // Assemple templates during build
     // Turn this off when eg. a back-end will do the assembly
-    "assemble_templates": true,
+    &quot;assemble_templates&quot;: true,
 
     // Prefix injected script and link tags
-    // eg. "&#123;&#123;Url::asset('/')&#125;&#125;" for Laravel
-    "template_asset_prefix": "",
+    // eg. &quot;&#123;&#123;Url::asset('/')&#125;&#125;&quot; for Laravel
+    &quot;template_asset_prefix&quot;: &quot;&quot;,
 
     // Turn on revisioning to get better caching
-    "revisionCaching": false
-}</code></pre>
+    &quot;revisionCaching&quot;: false
+&#125;</code></pre>
+    <hr id="optional-configuration">
+    <h2>Optional configuration</h2>
     <p>Some extra options that aren&#39;t included in the configuration file by default:</p>
-    <pre class="language-javascript"><code>{
+    <pre class="language-javascript"><code>&#123;
     [...],
 
     // Uncss compares your CSS with the template pages and strips
     // out unused bits. Use together with the next option.
     //
-    // Note: this feature doesn't play well with Sass &#64;extends,
+    // Note: this feature doesn&#39;t play well with Sass &#64;extends,
     // and has never produced good results for me. Therefore, it
     // will get deprecated by the next major release (v2.0).
-    "useUncss": false,
+    &quot;useUncss&quot;: false,
 
     // If you use javascript to dynamically add
     // classes, you can prevent Uncss from stripping their styles
     // by listing selectors here
-    "uncssIgnore": [],
+    &quot;uncssIgnore&quot;: [],
 
     // You can set a custom port if want to or need to because
     // the default port (3000) is already taken
-    "port": 1234,
+    &quot;port&quot;: 1234,
 
     // You can enable a proxy if you want browser-sync working
     // through a different host (eg. when viewing your project
     // through your MAMP/XAMP localhost)
-    "localhost": "localhost/my-laravel-project/public",
+    &quot;localhost&quot;: &quot;localhost/my-laravel-project/public&quot;,
 
     [...]
-}</code></pre>
+&#125;</code></pre>
     <hr>
     <p><a class="next-chapter-button" href="{{URL::to('/')}}/base-setup">Next step: A closer look at the boilerplate</a></p>
 </div>

@@ -14,7 +14,7 @@
 
 // Module imports -------------------------------------------------------------
 
-//@import 'module/container';
+@import 'module/container';
 @import 'module/font';
 @import 'module/icons';
 @import 'module/text';
@@ -502,6 +502,46 @@ footer {
 		}
 	}
 }
+
+.maintenance {
+	.wrapper {
+		@extend %container;
+		max-width: 600px;
+		text-align: center;
+	}
+}
+
+		.maintenance-logo {
+			position: relative;
+			@include rem(left, -30);
+			width: 252px;
+			height: 215px;
+			@include rem(margin, 0, auto, 25);
+
+			img {
+				position: absolute;
+			}
+			.eye {
+				left: 120px;
+				top: 39px;
+			}
+			.top-dash {
+				left: 17px;
+				top: 80px;
+			}
+			.middle-dash {
+				left: 0;
+				top: 112px;
+			}
+			.bottom-dash {
+				left: 44px;
+				top: 144px;
+			}
+			.outline {
+				left: 64px;
+				top: 0;
+			}
+		}
 
 // Print ----------------------------------------------------------------------
 //

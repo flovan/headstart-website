@@ -33,7 +33,7 @@
         <link rel="image_src" href="assets/images/icons/fb-600x400.jpg" />
 
         <!-- Stylesheets -->
-        
+
         @include('top-inject')
 
         <!--[if lt IE 9]><script src="{{URL::to('/')}}/assets/js/ie.head.min.js"></script><![endif]-->
@@ -44,24 +44,8 @@
             _gaq.push(['_trackPageview']);
         </script>
 	</head>  
-	<body id="main">
-        <div id="fb-root"></div>
-        
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar__wrapper wrapper">
-                <div class="sidebar__logo-wrapper">
-                    <a class="logo sidebar__logo" href="{{URL::to('/')}}"><span class="is-hidden">Headstart</span></a>
-                    <a href="{{URL::to('/')}}/changelog" class="sidebar__version">v1.2.3</a>
-                </div>
-                @include('partials.main-menu')
-            </div>
-        </aside>
-        @include('partials.sub-menu')
-        <section class="content" id="content">
-            <div class="content-overlay"></div>
-            @yield('content', array('view'=>$view))
-            @include('partials.footer')
-        </section>
+	<body>
+        @yield('content')
         
         @include('bottom-inject')
 

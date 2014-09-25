@@ -1,5 +1,12 @@
 <?php
 
+// Uncomment and visit the page to bring the site into maintenance mode
+// Artisan::call('down');
+
+// Uncomment and visit the page to bring the site back up
+// Artisan::call('up');
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -92,6 +99,8 @@ Route::get('upgrading-guide', function () {
 Route::get('changelog', function () {
 	return View::make('changelog')->with('view', 'changelog');
 });
+
+// Redirect any missing routes to the index
 
 App::missing(function($exception)
 {
