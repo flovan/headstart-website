@@ -4,7 +4,7 @@
 	"minifyHTML": false,
 	"combineMediaQueries": true,
 	"hint": true,
-	"w3c": true,
+	"w3c": false,
 	"export_assets": "../public",
 	"export_templates": "../app/views",
 	"export_misc": "../public",
