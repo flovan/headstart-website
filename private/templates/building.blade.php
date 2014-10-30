@@ -116,7 +116,22 @@
     // You can enable a proxy if you want browser-sync working
     // through a different host (eg. when viewing your project
     // through your MAMP/XAMP localhost)
-    &quot;localhost&quot;: &quot;localhost/my-laravel-project/public&quot;,
+    &quot;proxy&quot;: &quot;localhost/my-laravel-project/public&quot;,
+    
+    // Configure how your HTML will be minified
+    // Default settings show below
+    // All options here: https://github.com/kangax/html-minifier#options-quick-reference
+    &quot;htmlminOptions&quot; : {
+        &quot;removeComments&quot;:                true,
+        &quot;collapseWhitespace&quot;:            true,
+        &quot;collapseBooleanAttributes&quot;:     true,
+        &quot;removeAttributeQuotes&quot;:         true,
+        &quot;useShortDoctype&quot;:               true,
+        &quot;removeScriptTypeAttributes&quot;:    true,
+        &quot;removeStyleLinkTypeAttributes&quot;: true,
+        &quot;minifyJS&quot;:                      true,
+        &quot;minifyCSS&quot;:                     true
+    }
 
     [...]
 &#125;</code></pre>

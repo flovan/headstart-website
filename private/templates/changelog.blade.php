@@ -16,7 +16,7 @@
             <ul>
                 <li>A <code class="language-none">proxy</code> can now be set so you can have live changes through a different host (think MAMP of XAMP).</li>
                 <li>A <code class="language-none">port</code> can now be set if you already have something running on the default <code class="language-none">3000</code>.</li>
-                <li>The HTML minifier behaviour can now be finetuned to your preferences.</li>
+                <li>The HTML minifier behaviour can now be <a href="{{URL::to('/')}}/building#optional-configuration">finetuned to your preferences</a>.</li>
             </ul>
         </li>
         <li>Added a progress bar to the build process.</li>
