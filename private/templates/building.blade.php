@@ -12,13 +12,11 @@
     <p>This is great if you wanted to make the task runner build just once, but if you are developing and you want to <strong>build continuously with browser auto-refreshing enabled</strong>, you can run:</p>
     <pre class="language-none"><code>headstart build --serve</code></pre>
     <p>This will <strong>serve your development files</strong> on a static server and print out both a local and a network URL for you that you can copy-paste into your browser. Also, no more refreshing! It&#39;s all taken care of for you. Open the printed network url on multiple devices and try scrolling and clicking. <strong>All the connected clients are effortlessly synced, and all your changes will be applied automatically.</strong></p>
-    <p class="report--info"><strong>Note:</strong> If Headstart has been <a href="{{URL::to('/')}}/back-end-integration">integrated with a back-end</a> that takes care of the templating, auto-refreshing will no longer work.</p>
     <p>Taking it one step further, you could also have Headstart automatically open up a browser <em>and</em> a code editor for you:</p>
     <pre class="language-none"><code>headstart build --serve --open --edit</code></pre>
     <p>The <strong>shorthand version</strong> of the instruction above would look like this:</p>
     <pre class="language-none"><code>hs build --s --o --e</code></pre>
     <p>The browser and editor, and much more, can be configured from your <a href="#configuration">project config file</a>.</p>
-    <p class="report--info"><strong>Tip:</strong> you can combine the included <a href="{{URL::to('/')}}/extra-services">extra services</a> with any build process, as long as the &quot;--serve&quot; flag is set.</p>
 
 
     <hr id="production">
@@ -35,8 +33,7 @@
         <li>Minify CSS.</li>
         <li>Minify template HTML.</li>
     </ul>
-    <p class="report--info"><strong>Tip 1:</strong> the <a href="extra-services.html">extra services</a> can be combined with the production build process, as long as the <code class="language-none">--serve</code> flag is set.</p>
-    <p class="report--info"><strong>Tip 2:</strong> the production build can also be used with the <code class="language-none">--serve</code> flag set.</p>
+    <p class="report--info"><strong>Tip:</strong> The production build can also be used with the <code class="language-none">--serve</code> flag.</p>
 
     <hr id="configuration">
     <h2>Configuring your build</h2>
@@ -113,7 +110,7 @@
     // the default port (3000) is already taken
     &quot;port&quot;: 1234,
 
-    // You can enable a proxy if you want browser-sync working
+    // You can enable a proxy if you want browser-sync to work
     // through a different host (eg. when viewing your project
     // through your MAMP/XAMP localhost)
     &quot;proxy&quot;: &quot;localhost/my-laravel-project/public&quot;,

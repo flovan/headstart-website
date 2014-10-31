@@ -3,7 +3,9 @@
 // Border-box rules!
 html {
 	box-sizing: border-box;
+    font-size: (strip($base-font-size) / 16) * 100 * 1%;
 }
+
 *,
 *:after,
 *:before {
@@ -14,7 +16,6 @@ html {
 html,
 body {
     font-family: $font-stack;
-    font-size: 100%;
     line-height: $base-line-height;
     background-color: $white;
     color: $darkest-teal;
@@ -37,6 +38,10 @@ body {
 			}
 		}
 	}
+}
+
+body {
+	font-size: 100%;
 }
 
 // MS viewport fix

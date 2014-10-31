@@ -11,10 +11,10 @@
     <ul>
         <li>Removed revisioning of non-default files such as fonts, videos, etc. because there is no automated way (yet) of updating references elsewhere.</li>
         <li>Switched tunneling to <a href="http://localtunnel.me">Localtunnel</a> through <a href="http://browsersync.io">Browsersync</a>.</li>
-        <li>A custom tunnel can now be set through the flag, eg. <code class="language-none">hs build --s --t=test</code> will try reserving <code class="language-none">http://test.localtunnel.me</code>.</li>
+        <li>A custom tunnel can now be set through the `--tunnel` flag.</li>
         <li>Added more optional configuration settings:
             <ul>
-                <li>A <code class="language-none">proxy</code> can now be set so you can have live changes through a different host (think MAMP of XAMP).</li>
+                <li>A <code class="language-none">proxy</code> can now be set to enable live changes with a different host (think MAMP of XAMP).</li>
                 <li>A <code class="language-none">port</code> can now be set if you already have something running on the default <code class="language-none">3000</code>.</li>
                 <li>The HTML minifier behaviour can now be <a href="{{URL::to('/')}}/building#optional-configuration">finetuned to your preferences</a>.</li>
             </ul>
