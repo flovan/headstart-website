@@ -5,12 +5,12 @@
 	<h1>Templating</h1>
 </div>
 <div class="wrapper wrapper--content language-markup">
-    <p class="content__introduction">Headstart combines a solid HTML foundation, based on the <a href="http://html5boilerplate.com/" title="Visit the HTML5 Boilerplate website">HTML5 Boilerplate</a>, with light templating support through <a href="http://handlebarsjs.com" title="Visit the Handlebars website">Handlebars</a>, making the task of managing menu structures, sidebars or footers across multiple pages a lot les intensive.</p>
+    <p class="content__introduction">Headstart combines a solid HTML foundation, based on the <a href="http://html5boilerplate.com/" title="Visit the HTML5 Boilerplate website">HTML5 Boilerplate</a>, with light templating support through <a href="http://handlebarsjs.com" title="Visit the Handlebars website">Handlebars</a>, making the task of managing menu structures, sidebars or footers across multiple pages a lot less intensive.</p>
 
     <hr id="layout-partials">
     <h2>Layout and Partials</h2>
     <p>Using layouts is completely optional, but by default you are provided with <code class="language-none">header.html</code> and <code class="language-none">footer.html</code> layout parts to lighten up your main content files.</p>
-    <p>Partials can be used for extracting any piece of your HTMLto make it reusable. For example, a footer with a link might look like <code class="language-none">templates/partials/page_footer.html</code>:</p>
+    <p>Partials can be used for extracting any piece of your HTMLto make it reusable. For example, a footer with a link might be placed in a file like <code class="language-none">templates/partials/page_footer.html</code>:</p>
     <pre><code>&lt;footer&gt;
     &lt;a href=&quot;thebestpage.html&quot;&gt;This is a great link to click on&lt;/a&gt;
 &lt;/footer&gt;</code></pre>
@@ -32,6 +32,7 @@
     <pre><code>&#123;&#123;#equal templateName 'your-page.html'&#125;&#125;
 &lt;!-- Some HTML here --&gt;
 &#123;&#123;/equal&#125;&#125;</code></pre>
+    <p>This makes it easy to have eg. underlined menu items, different <code class="language-markup">&lt;title&gt;&lt;/title&gt;</code>, etc.</p>
     <hr>
     <p><a class="next-chapter-button" href="{{URL::to('/')}}/asset-conventions">Next step: Asset Conventions</a></p>
 </div>

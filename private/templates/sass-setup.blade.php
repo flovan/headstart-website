@@ -5,7 +5,7 @@
 	<h1>Sass Setup</h1>
 </div>
 <div class="wrapper wrapper--content language-scss">
-    <p>Headstart uses <a href="http://sass-lang.com/">Sass</a> to compile stylesheets, and <strong>doesn&#39;t force you to use predefined styles or class names</strong>. Only a few mixins and functions are included by default, and with them you can make any kind of design come alive in your own way, and with your own styles. Whether you use them or not is entirely up to you. Remember that you can <a href="{{URL::to('/')}}/new-project#customize">customize the boilerplate</a> to get rid of everything you don&#39;t like.</p>
+    <p>Headstart uses <a href="http://sass-lang.com/">Sass</a> to compile stylesheets, and <strong>doesn&#39;t force you to use predefined styles or class names</strong>. Only a few mixins and functions are included by default, and with them you can make any kind of design come alive in your own way, and with your own styles. Whether you use them or not is entirely up to you. Remember that you can <a href="{{URL::to('/')}}/new-project#customize">customize the boilerplate</a> to get rid of (almost) everything you don&#39;t like.</p>
 
 
 
@@ -35,6 +35,7 @@
     <h3>_config_global.scss</h3>
     <p>The global config file imports all mixins and functions to make them available for usage, and contains the following top-level variables:</p>
     <ul>
+        <li><code>$base-font-size</code> &#126; Defaults to <code>16px</code>, the default of most browsers.</li>
         <li><code>$base-line-height</code> &#126; Defaults to <code>1.5</code>, a good starting point for readability.</li>
         <li><code>$total-columns</code> &#126; Defaults to <code>12</code>, which divides easily for 2-, 3- and 4-column layouts.</li>
         <li><code>$default-gutter-width</code> &#126; Defaults to <code>5%</code> and adds fluid spacing in between columns.</li>
@@ -55,8 +56,7 @@
         <li><code>tint($color, $percent)</code> &#126; Will lighten a color with a percentage of white.</li>
         <li><code>darken($color, $percent)</code> &#126; Will darken a color with a percentage of black.</li>
     </ul>
-    <p class="report--info"><strong>Note 1:</strong> <code>em()</code> should be used with care (due to its inherative nature), and works best for font sizes (use pixels for borders and defined dimensions, rem for all the rest).</p>
-    <p class="report--info"><strong>Note 2:</strong> It is advised to use the <code>rem()</code> mixin, rather than the function above. Unless you don&#39;t care about pixel fallbacks. More on that further down the page.</p>
+    <p class="report--info"><strong>Note:</strong> <code>em()</code> should be used with care (due to its inherative nature), and works best for font sizes (use pixels for borders and defined dimensions, rem for all the rest). Therefore it is advised to use the <code>rem()</code> mixin, rather than the function, unless you don&#39;t care about pixel fallbacks. More on that further down the page.</p>
     <h3>_state.scss</h3>
     <p>A collection of silent classes that make it easy to keep your stylesheets <a href="http://csswizardry.com/2013/07/writing-dryer-vanilla-css/">DRY</a> by extending from them:</p>
     <ul>
@@ -92,7 +92,7 @@
 
     <hr id="mixin">
     <h2>Mixins</h2>
-    <p>The default mixins provide core functionalites such as the grid-system, media queries, etc. The Gzipping&mdash;enabled by the <code class="language-none">.htaccess</code> file&mdash;will cache and strip out strings with multiple occurences, so file size is never an issue.</p>
+    <p>The default mixins provide core functionalities such as the grid-system, media queries, etc. The Gzipping&mdash;enabled by the <code class="language-none">.htaccess</code> file&mdash;will cache and strip out strings with multiple occurences, so file size is never an issue.</p>
     <h3>_all.scss</h3>
     <p>Imports all the other mixins. It is imported itself into <code class="language-none">_config_global.scss</code>.</p>
     <h3>_baseline.scss</h3>
@@ -123,7 +123,7 @@ article {
        and taking in the remaining 8 columns */
     &#64;include column(8, true);
 }</code></pre>
-    <p>A column starts being a column when the available width is at least the defined <code>$break</code>, which defaults to <code>$default-column-breakpoint</code> or <code>650px</code> (as defined in the <a href="#base">base files)</a>.</p>
+    <p>A column starts being a column when the available width is at least the defined <code>$break</code>, which defaults to <code>$default-column-breakpoint</code> or <code>650px</code> (as defined in the <a href="#base">base files</a>).</p>
     <div class="grid-example">
         <div class="row">
             <div class="col-12">12 columns</div>
@@ -315,7 +315,7 @@ or extend a regular class from this placeholder */
     <hr id="root">
     <h2>Root files</h2>
     <h3>Main styles</h3>
-    <p>The <code>main.scss</code> file gets included every page. The styles of, for example, a <code class="language-html">&lt;header&gt;</code>, <code class="language-html">&lt;menu&gt;</code> or <code class="language-html">&lt;footer&gt;</code> are best defined here. If you plan on using modules, this is also the best place to import them.</p>
+    <p>The <code>main.scss</code> file gets included in every page. The styles of, for example, a <code class="language-html">&lt;header&gt;</code>, <code class="language-html">&lt;menu&gt;</code> or <code class="language-html">&lt;footer&gt;</code> are best defined here. If you plan on using modules, this is also the best place to import them.</p>
     <h3>View specific styles</h3>
     <p>When working on a large scale project, somes styles will be limited to individual pages. This is when the view-specific files come in handy, as they will lighten up the main stylesheet and thus speed up the individual pages of your website.</p>
     <p>The default boilerplate contains an example file for the index page, <code class="language-none">_view-index.sass</code>. To use it, just remove the leading underscore.</p>

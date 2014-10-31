@@ -5,7 +5,7 @@
 	<h1>Asset Conventions</h1>
 </div>
 <div class="wrapper wrapper--content">
-    <p>Stylesheets and scripts are injected automatically while building, and only get optimized in <code>--production</code> mode. Working with development libraries instead of minified and production-ready code not only enables you to read through the code, but it also makes it easier to debug possible errors.</p>
+    <p><strong>Stylesheets and scripts are injected automatically while building</strong>, and only get optimized in <code>--production</code> mode. Working with development libraries instead of minified and production-ready code not only enables you to read through the code, but it also makes it easier to debug possible errors.</p>
 
     <hr id="view-specific">
     <h2>View-specific assets</h2>
@@ -14,7 +14,7 @@
 
     <hr id="exclude">
     <h2>Excluding files</h2>
-    <p>Not the most useful feature development-wise, but you can exclude files by prefixing their name with an <strong>underscore</strong>, eg. <code class="language-none">_jquery-1.11.0.js</code>. A use-case might be that it would allow you to commit a file that isn&#39;t quite ready yet to a repository that you are working on with someone else. This way you can be sure it won&#39;t get in the way when the other persons builds the project on his machine.</p>
+    <p>Not the most useful feature development-wise, but you can exclude files by prefixing their name with an <strong>underscore</strong>, eg. <code class="language-none">_jquery-1.11.0.js</code>. This comes in handy when you want to commit a file that isn&#39;t quite ready yet, to a repository that you are working on with someone else. This way you can be sure it won&#39;t get in the way when the other persons builds the project on his machine. It also enables you to easily switch libraries in or out without the need to quit and restart the Headstart process.</p>
 
 
     <hr id="dependencies">

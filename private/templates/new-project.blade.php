@@ -6,9 +6,9 @@
 </div>
 <div class="wrapper wrapper--content" id="introduction">
     <h2>Introduction</h2>
-    <p>Let&#39;s assume you just sat through <a href="{{URL::to('/')}}/installation">the installation process</a>, and now you want to initialise a new project for you to work on. Use the command line again to <strong>chage the directory to your project folder</strong>.</p>
+    <p>Let&#39;s assume you just sat through <a href="{{URL::to('/')}}/installation">the installation process</a>, and now you want to initialise a new project for you to work on. Use the command line again to <strong>change the directory to your project folder</strong>.</p>
     <pre class="language-none"><code>cd some/where/on/you/computer/my-project</code></pre>
-    <p><strong>If you don&#39;t feel comforteable traversing your filesystem like this</strong>, you can achieve the same result by (on a Mac) dragging any folder onto the Command Line icon, or (on a Windows machine) right clicking any folder while holding the Shift key and choosing &quot;Open command window from here&quot;.</p>
+    <p><strong>If you don&#39;t feel comfortable traversing your filesystem like this</strong>, you can achieve the same result by (on a Mac) dragging any folder onto the Command Line icon, or (on a Windows machine) right clicking any folder while holding the Shift key and choosing &quot;Open command window from here&quot;.</p>
 
 
     <hr id="initialising">
@@ -21,9 +21,10 @@
 
     <hr id="customize">
     <h2>Customising the boilerplate files</h2>
-    <p>If you want to make changes to <a href="{{URL::to('/')}}/base-setup">the default boilerplate</a>, you can <a href="https://github.com/flovan/headstart-boilerplate">fork the Github repo</a> and use your own repository to initialise your projects. Make sure to replace &quot;gituser/repo&quot; with your username and repo.</p>
+    <p>If you want to make changes to <a href="{{URL::to('/')}}/base-setup">the default boilerplate</a>, you can <a href="https://github.com/flovan/headstart-boilerplate">fork the Github repo</a> and use your own repository to initialise your projects:</p>
     <pre class="language-none"><code>headstart init --base gituser/repo</code></pre>
-    <div class="report--warning">
+    <p>Make sure to replace &quot;gituser/repo&quot; with your username and repo.</p>
+    <div class="report--info">
         <p><strong>Headstart enforces a few naming and folder conventions to work properly, but (almost) every file is delete key friendly content-wise.</strong> Here&#39;s what you should keep in mind before you start trashing about:</p>
         <ul>
             <li>Folder structures and names are needed to do the grunt work for you. Renaming or removing folders will likely break some things / everything.</li>

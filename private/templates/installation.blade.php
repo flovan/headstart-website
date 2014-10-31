@@ -12,7 +12,7 @@
     <pre class="language-none"><code>npm install -g headstart</code></pre>
     <p>If you get a <strong>Permission denied</strong> or <strong>Error: EACCES</strong> error, you should run the previous command again in <strong>sudo</strong>:</p>
     <pre class="language-bash"><code>sudo npm install -g headstart</code></pre>
-    <p>There is <a href="http://blog.hood.ie/2014/02/why-you-shouldnt-use-sudo-with-npm/">some</a> <a href="http://stackoverflow.com/questions/16724259/npm-command-sudo-or-not">discussion</a> about whether or not usage of sudo is a <em>good thing</em>, but it&#39; the easiest way to get around it. If you are working on a shared machine, it might be good to look into and alternative solution.</p>
+    <p>There is <a href="http://blog.hood.ie/2014/02/why-you-shouldnt-use-sudo-with-npm/">some</a> <a href="http://stackoverflow.com/questions/16724259/npm-command-sudo-or-not">discussion</a> about whether or not usage of sudo is a <em>good thing</em>, but it&#39; the easiest way to get around it. If you are working on a shared machine, it might be good to look into an alternative solution.</p>
     <p>When NPM finishes downloading and installing Headstart and all of its dependencies (grab a coffee!), run the following command to <strong>get a quick overview</strong> of all the available commands:</p>
     <pre class="language-none"><code>headstart</code></pre>
     <hr>
@@ -52,7 +52,7 @@
     <p>If any version of Git is printed out, you are good to go. If you see <strong>command not found</strong> appear, you can <a href="http://git-scm.com" target="_blank" title="Read the Ruby installation guide">download the installer through the Git website</a>.</p>
 
     <h3 id="xcode-clt">Command Line Tools</h3>
-    <p>Not as much a requirement, but included here just in case. If you work with a Mac, it is possible that you&#39;ll be asked to install the Command Line tools through Xcode. Don&#39; worry though, there is a way to install them without the getting your hands on the full application:</p>
+    <p>Not as much a requirement, but included here just in case. If you work with a Mac, it is possible that you&#39;ll be asked to install the Command Line tools through Xcode. Don&#39; worry though, there is a way to install them without getting your hands on the full application:</p>
     <pre class="language-none"><code>xcode-select --install</code></pre>
     <p>This will open up a Software Update pop-up that will do the searching and installing for you. Just hit install and let it do its job.</p>
 

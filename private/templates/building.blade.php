@@ -21,7 +21,7 @@
 
     <hr id="production">
     <h2>Production</h2>
-    <p>When you&#39;re done developing, it&#39;s time to introduce your project to the public. This is usually when you would start by making your optimizations, such as concatenating, minifying, revisioning, etc. Headstart will do all of those things for you, requiring only the use of the production flag:.</p>
+    <p>When you&#39;re done developing, it&#39;s time to introduce your project to the public. This is usually when you would start optimizing (eg. concatenating, minifying, revisioning, etc.). Headstart will do all of those things for you, requiring only the use of the production flag:.</p>
     <pre class="language-none"><code>headstart build --production</code></pre>
     <p>Using that flag makes the build engine do the following things (taking <a href="#configuration">the configuration file</a> into account):</p>
     <ul>
@@ -133,6 +133,6 @@
     [...]
 &#125;</code></pre>
     <hr>
-    <p><a class="next-chapter-button" href="{{URL::to('/')}}/base-setup">Next step: A closer look at the boilerplate</a></p>
+    <p><a class="next-chapter-button" href="{{URL::to('/')}}/extra-services">Next step: Extra Services</a></p>
 </div>
 @stop
