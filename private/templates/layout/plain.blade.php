@@ -48,6 +48,42 @@
         @yield('content')
         
         @include('bottom-inject')
+        <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
+        <script>
+            var
+                $logo = $('.maintenance-logo'),
+                $parts = $logo.children(),
+                boundary = {
+                    width: $logo.width(),
+                    height: $logo.height()
+                }
+            ;
+
+            _.each($parts, function (el, key, list) {
+                
+                el = $(el);
+                if (!el.is('.outline')) {
+                    moveToRandomPos(el);
+                }
+            });
+
+            function moveToRandomPos(el, w, h) {
+
+                w = w || el.width();
+                h = h || el.height();
+
+                var to = setTimeout(function () {
+
+                    el.velocity({
+                        left: Math.random()*(boundary.width - w) + w,
+                        top: Math.random()*(boundary.height - h) + h,
+                        rotateZ: Math.random()*360
+                    }, 450, [500, 20], function () {
+                        moveToRandomPos(el, w, h);
+                    });
+                }, Math.random()*4250 + 750);
+            }
+        </script>
 
         <!--[if lt IE 9]><script src="{{URL::to('/')}}/assets/js/ie.body.min.js"></script><![endif]-->
         <script>
