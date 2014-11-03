@@ -1,0 +1,132 @@
+// Animations -----------------------------------------------------------------
+//
+// Copied and edited of animate.css
+// https://daneden.github.io/animate.css/
+
+%animated {
+	animation-duration: .25s;
+    transition-timing-function: cubic-bezier(.34,.7,.22,1);
+	animation-fill-mode: both;
+
+	.is-exiting & {
+		animation-direction: alternate-reverse;
+	}
+}
+%fadeInLeft {
+	animation-name: fadeInLeft;
+}
+%fadeOutLeft {
+	animation-name: fadeOutLeft;
+}
+%fadeInRight {
+	animation-name: fadeInRight;
+}
+%fadeOutRight {
+	animation-name: fadeOutRight;
+}
+%fadeInUp {
+	animation-name: fadeInUp;
+}
+%fadeOutUp {
+	animation-name: fadeOutUp;
+}
+%fadeInDown {
+	animation-name: fadeInDown;
+}
+%fadeOutDown {
+	animation-name: fadeOutDown;
+}
+
+//
+
+@keyframes fadeInLeft {
+	0% {
+		opacity: 0;
+		transform: translate3d(-100%, 0, 0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes fadeOutLeft {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		transform: translate3d(-100%, 0, 0);
+	}
+}
+
+@keyframes fadeInRight {
+	0% {
+		opacity: 0;
+		transform: translate3d(100%, 0, 0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes fadeOutRight {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		transform: translate3d(100%, 0, 0);
+	}
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translate3d(0, 100%, 0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes fadeOutUp {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+	opacity: 0;
+		transform: translate3d(0, -100%, 0);
+	}
+}
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		transform: translate3d(0, -100%, 0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes fadeOutDown {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		transform: translate3d(0, 100%, 0);
+	}
+}

@@ -1,3 +1,20 @@
 .sass-cache
 export
-assets/js/libs/_jquery-1.11.1.js
+/bootstrap/compiled.php
+/vendor
+# temporarily included composer files to work
+# on this remotely (dunno if needed though)
+#composer.phar
+#composer.lock
+.env.*.php
+.env.php
+.DS_Store
+Thumbs.db
+
+# Exclude folder that are made by Headstart
+# to prevent each commit from including double
+# changes, or useless changes
+
+/app/views
+/public/assets
+/public/app.manifest

@@ -1,0 +1,550 @@
+// General imports ------------------------------------------------------------
+//
+// These imports don't generate CSS, but make defined variables, functions,
+// and mixins available for further usage
+
+@import 'base/config_global';
+@import 'base/config_site';
+@import 'base/state';
+
+// Normalize and document imports ---------------------------------------------
+
+@import 'module/normalize';
+@import 'module/doc';
+
+// Module imports -------------------------------------------------------------
+
+@import 'module/container';
+@import 'module/font';
+@import 'module/icons';
+@import 'module/text';
+@import 'module/reporting';
+//@import 'module/form';
+@import 'module/button';
+//@import 'module/animate';
+
+// Vendor imports -------------------------------------------------------------
+
+@import 'vendor/prism';
+
+// Common Styles --------------------------------------------------------------
+
+.is-hidden {
+	@extend %is-hidden;
+}
+hr {
+	border: none;
+	border-top: 2px solid $light-blue;
+	@include rem(margin, 0, 0, $spacing);
+}
+%fixed-col {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	transform: translateZ(0);
+	width: 100% - 2*$min-page-padding;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+
+	&.is-overflowing {
+		overflow-y: scroll;
+	}
+}
+.is-columned {
+	column-count: 2;
+	column-gap: $default-gutter-width;
+}
+.wrapper {
+	@include rem(padding, $spacing);
+
+	&.wrapper--intro {
+		background-color: $teal;
+		color: $white;
+		
+		h1 {
+			line-height: 1;
+		}
+		p {
+			font-size: em(20);
+
+			@include media-min(960) {
+				font-size: em(25);
+			}
+		}
+		a {
+			color: $white;
+		}
+	}
+}
+.sidebar {
+	@extend %fixed-col;
+	background-color: $darker-teal;
+	z-index: 9;
+	transition: transform .2s $easeOutExpo;
+	
+	@include media-min(880) {
+		@include goldencol('large', true);
+	}
+	@include media-max(879) {
+		transform: translateX(-100%);
+
+		&.is-opened {
+			transform: none;
+		}
+	}
+	@include media-min-max(551, 879) {
+		@include goldencol('small');
+	}
+	@include media-max(550) {
+		@include goldencol('large');
+	}
+}
+		.sidebar__logo-wrapper {
+			position: relative;
+		}
+			.sidebar__logo,
+			.sidebar__version {
+				vertical-align: top;
+			}
+			.sidebar__logo {
+				display: inline-block;
+				width: 38px;
+				height: 33px;
+				@include rem(margin-right, $spacing/2);
+				@include rem(margin-bottom, $spacing);
+				background: url(../images/headstart-logo-graphic.png) no-repeat left top;
+				text-decoration: none;
+
+				@include highres() {
+					background-image: url(../images/headstart-logo-graphic@2x.png);
+					background-size: 38px 33px;
+				}
+			}
+			.sidebar__version {
+				font-size: em(12);
+				line-height: 1;
+				text-decoration: none;
+				@extend %is-bold;
+
+				&, &:visited {
+					color: $dark-teal;
+				}
+				&:hover {
+					color: $white;
+				}
+			}
+		.sidebar__menu {
+			&, & ul {
+				margin: 0;
+				padding: 0;
+			}
+			li {
+				list-style-type: none;
+				padding: 0;
+
+				&:before {
+					display: none;
+				}
+			}
+			a {
+				display: inline-block;
+				text-decoration: none;
+				line-height: 1;
+				
+				&, &:visited {
+					color: $white;
+				}
+				&.is-active {
+					color: $teal;
+				}
+				&:hover, &.is-active {
+					text-decoration: underline;
+				}
+
+				@include media-max(879) {
+					display: block;
+				}
+			}
+			& > ul > li {
+				& > a {
+					@extend %is-bold;
+					@include rem(padding, $spacing/3, 0);
+				}
+			}
+			ul ul {
+				@include rem(margin-left, $spacing/2);
+				@include rem(margin-bottom, $spacing/3);
+
+				a {
+					@include rem(padding, $spacing/6, 0);
+					font-size: em(15);
+				}
+			}
+		}
+.content-menu {
+	background: $light-blue;
+	@extend %fixed-col;
+
+	@include media-min(1000) {
+		@include goldencol('small', true);
+		right: 0;
+		overflow-x: hidden;
+	}
+	@include media-max(999) {
+		position: static;
+		width: auto;
+		
+		.twitter-share-button,
+		.fb-share-button,
+		.github-star-button {
+			vertical-align: top;
+			margin: 0;
+		}
+		.twitter-share-button,
+		.fb-share-button {
+			@include rem(margin-right, $spacing/2);
+		}
+		.twitter-share-button {
+			width: 90px !important;
+		}
+		.fb-share-button {
+			position: relative;
+			@include rem(top, -4);
+		}
+	}
+	@include media-min-max(880, 999) {
+		@include goldencol('large', true, true, margin-left);
+		&.is-empty {
+			display: none;
+		}
+	}
+	@include media-min-max(501, 879) {
+		text-align: right;
+	}
+	@include media-max(500) {
+		//@include rem(padding, $spacing - 8, $spacing);
+	}
+
+	hr {
+		border-top-color: $light-green;
+	}
+	li {
+		word-break: break-all;
+		word-break: break-word;
+		hyphens: auto;
+	}
+}
+	.menu-toggle {
+		@extend %button--dark-teal-stroke;
+
+		@include media-min(880) {
+			display: none;
+		}
+		@include media-min(501) {
+			position: absolute;
+			@include rem(top, 22);
+			@include rem(left, $spacing);
+		}
+	}
+	.content-menu-item-wrapper {
+		text-align: left;
+		@include media-max(879) {
+			@include rem(margin-top, 2*$spacing);
+		}
+		@include media-max(500) {
+			@include rem(margin-top, $spacing);
+		}
+		@include media-min(880) {
+			hr {
+				display: none;
+			}
+		}
+
+		ul {
+			margin: 0;
+		}
+	}
+	.is-empty .content-menu-item-wrapper {
+		@include rem(margin-top, $spacing);
+	}
+	.is-index .content-menu-item-wrapper {
+		display: none;
+	}
+.content {
+	min-height: 100%;
+	width: 100% - 2*$min-page-padding;
+	
+	@include media-min(1500) {
+		.wrapper--intro {
+			font-size: 110%;
+		}
+		.wrapper--content {
+			font-size: 130%;
+		}
+	}
+	@include media-min(1000) {
+		@include goldencol('large', false, true, width);
+	}
+	@include media-max(999) {
+		width: auto;
+	}
+	@include media-min(880) {
+		@include goldencol('large', true, true, margin-left);
+		@include rem(padding-bottom, 80);
+	}
+}
+	.content .wrapper--content {
+		background: $white;
+	}
+
+footer {
+	background-color: $dark-teal;
+	font-size: 14px;
+	@include media-min(880) {
+		position: fixed;
+		top: auto;
+		bottom: 0;
+		right: 0;
+		z-index: -1;
+		@include goldencol('large', true, true);
+	}
+
+	@include media-max(620) {
+		text-align: center;
+	}
+
+	span {
+		display: inline-block;
+	}
+
+	&, & a {
+		color: $white;
+	}
+}
+
+#instantclick {
+	display: none;
+}
+
+// Styles ---------------------------------------------------------------------
+.getting-started-link,
+.check-github-link {
+	@include media-max(500) {
+		display: block;
+		text-align: center;
+	}
+}
+.getting-started-link {
+	@extend %button--dark-teal;
+
+	& + span {
+		display: inline-block;
+		@include rem(margin, 0, $spacing/3);
+	}
+
+	@include media-max(500) {
+		@include rem(margin-bottom, $spacing/3);
+
+		& + span {
+			display: block;
+			text-align: center;
+			@include rem(margin, 0, 0, $spacing/3);
+		}
+	}
+}
+.check-github-link {
+	@extend %button--dark-teal-stroke;
+}
+.feature-list {
+	@include media-max(540) {
+		column-count: 1;
+	}
+}
+.open-source-wrapper {
+	@include media-max(534) {
+		text-align: center;
+		margin-bottom: 0;
+
+		.open-source-link {
+			@include rem(margin-bottom, $spacing);
+		}
+	}
+}
+	.open-source-link {
+		display: inline-block;
+		vertical-align: middle;
+		min-width: 80px;
+		
+		&:before {
+			content: '';
+			display: block;
+			background: url(../images/headstart-opensource-logos.png) no-repeat;
+			margin: 0 auto;
+
+			@include highres() {
+				background-image: url(../images/headstart-opensource-logos@2x.png);
+				background-size: 261px 61px;
+			}
+		}
+		&:not(:last-child) {
+			@include rem(margin-right, $spacing/3);
+		}
+
+		&.nodejs:before {
+			width: 93px;
+			height: 25px;
+			background-position: -50px 0;
+		}
+		&.liftoff:before {
+			width: 85px;
+			height: 29px;
+			background-position: -175px 0;
+		}
+		&.gulp:before {
+			width: 25px;
+			height: 59px;
+			background-position: -145px 0;
+		}
+		&.sass:before {
+			width: 48px;
+			height: 36px;
+			background-position: 0px 0px;
+		}
+		&.handlebars:before {
+			width: 85px;
+			height: 35px;
+			background-position: -50px -26px;
+		}
+	}
+.twitter-share-button,
+.fb-share-button,
+.github-star-button {
+	@include media-max(500) {
+		// Blasted facebook button!
+		// Making this so hard!
+		display: none !important;
+	}
+	@include media-min(1000) {
+		display: block;
+	}
+}
+.twitter-share-button {
+	@include rem(margin-bottom, $spacing/2.2);
+}
+.fb-share-button {
+	@include rem(margin-bottom, $spacing/1.5);
+}
+.next-chapter-button {
+	@extend %button--dark-teal-stroke;
+}
+.grid-example {
+	margin-bottom: em(16);
+	
+	.row {
+		@extend%is-cf;
+		
+		&:not(:last-child) {
+			@include rem(margin-bottom, 5);
+		}
+		& > * {
+			text-align: center;
+			@include rem(padding, 5, 0);
+			background: $light-blue;
+
+			@include media-max($default-column-breakpoint - 1) {
+				&:not(:last-child) {
+					@include rem(margin-bottom, 5);
+				}
+			}
+		}
+	}
+	.col-12 {
+		@include column(12);
+	}
+	.col-6 {
+		&:first-child {
+			@include column(6);
+		}
+		&:last-child {
+			@include column(6, true);
+		}
+	}
+	.col-4 {
+		&:not(:last-child) {
+			@include column(4);
+		}
+		&:last-child {
+			@include column(4, true);
+		}
+	}
+	.col-3 {
+		&:not(:last-child) {
+			@include column(3);
+		}
+		&:last-child {
+			@include column(3, true);
+		}
+	}
+	.col-2 {
+		&:not(:last-child) {
+			@include column(2);
+		}
+		&:last-child {
+			@include column(2, true);
+		}
+	}
+	.col-1 {
+		&:not(:last-child) {
+			@include column(1);
+		}
+		&:last-child {
+			@include column(1, true);
+		}
+	}
+}
+
+.maintenance {
+	.wrapper {
+		@extend %container;
+		max-width: 600px;
+		text-align: center;
+	}
+}
+
+		.maintenance-logo {
+			position: relative;
+			@include rem(left, -30);
+			width: 252px;
+			height: 215px;
+			@include rem(margin, 0, auto, 25);
+
+			img {
+				position: absolute;
+			}
+			.eye {
+				left: 120px;
+				top: 39px;
+			}
+			.top-dash {
+				left: 17px;
+				top: 80px;
+			}
+			.middle-dash {
+				left: 0;
+				top: 112px;
+			}
+			.bottom-dash {
+				left: 44px;
+				top: 144px;
+			}
+			.outline {
+				left: 64px;
+				top: 0;
+			}
+		}
+
+// Print ----------------------------------------------------------------------
+//
+// Inline to avoid the request
+
+@import 'module/print';

@@ -1,0 +1,100 @@
+// Selection color ------------------------------------------------------------
+
+::-moz-selection {
+	background: $teal;
+	color: white;
+	text-shadow: none;
+}
+
+::selection {
+	background: $teal;
+	color: white;
+	text-shadow: none;
+}
+
+// Headings -------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	// Push down following content here
+	@include rem(margin, 0, 0, 30);
+	color: $dark-teal;
+
+	&:last-of-type:last-child {
+		margin-bottom: 0;
+	}
+
+	// Optional: Push in headings for a better hand-held reading experience
+	// @include media-max($default-column-breakpoint) { padding-left: em(10); padding-right: em(10); }
+}
+
+// Paragraphs -----------------------------------------------------------------
+
+p {
+	// Push down following content here
+	@include rem(margin, 0, 0, strip($spacing));
+	
+	&:last-of-type:last-child {
+		margin-bottom: 0;
+	}
+	
+	// Optional: Push in headings for a better hand-held reading experience
+	// @include media-max($default-column-breakpoint) { padding-left: em(10); padding-right: em(10); }
+}
+
+// Lists ----------------------------------------------------------------------
+
+ul
+{
+	@include rem(margin, 0, 0, strip($spacing));
+	padding: 0;
+	
+	&:last-child { margin: 0; }
+	
+	// Optional: Push in headings for a better hand-held reading experience
+	// @include media-max($default-column-breakpoint) { padding-left: em(10); padding-right: em(10); }
+}
+li
+{
+	list-style-type: none;
+	padding-left: em(25);
+	position: relative;
+
+	&:before
+	{
+		content: '';
+		display: inline-block;
+		width: em(10);
+		height: em(5);
+		border-radius: em(3);
+		margin-right: rem(20);
+		margin-left: 0;
+		background: $dark-teal;
+		position: absolute;
+		@include rem(left, 1);
+		top: em(11);
+	}
+	
+	// nested lists
+	ul { margin: 0; }
+	li:before
+	{
+		background: none;
+		border: 1px solid $dark-teal;
+	}
+}
+
+// Links ----------------------------------------------------------------------
+
+a
+{
+	color: $teal;
+	display: inline-block;
+
+	&:hover { color: tint($teal, 10%); }
+	&:active { color: shade($teal, 10%); text-decoration: none; }
+}
