@@ -6,6 +6,11 @@
 </div>
 <div class="wrapper wrapper--content">
 	<p>Take a look at the changes that each release brings below.</p>
+    <hr id="r131">
+    <h2>1.3.1</h2>
+    <ul>
+        <li>Fixed a bug that prevented the browser from reloading when changes were made.</li>
+    </ul>
     <hr id="r130">
     <h2>1.3.0</h2>
     <ul>
