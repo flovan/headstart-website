@@ -80,8 +80,8 @@
     <p>If you plan on using libraries, put them in here, and import them in the <code class="language-none">_config_global.scss</code>.</p>
     <p>A few examples:</p>
     <ul>
-        <li><a href="http://bourbon.io">Bourbon</a> &#126; Library files over <a href="https://github.com/thoughtbot/bourbon/tree/master/dist">here</a>.</li>
-        <li><a href="http://compass-style.org">Compass</a> &#126; Library files over <a href="https://github.com/chriseppstein/compass/tree/stable/frameworks/compass/stylesheets">here</a>.</li>
+        <li><a href="http://bourbon.io">Bourbon</a> &#126; Library files over <a href="https://github.com/thoughtbot/bourbon/tree/master/app/assets/stylesheets">here</a>.</li>
+        <li><a href="http://compass-style.org">Compass</a> &#126; Library files over <a href="https://github.com/Compass/compass/tree/stable/core/stylesheets/compass">here</a>.</li>
         <li><a href="http://davidtheclark.github.io/scut/">SCUT</a> &#126; Library files over <a href="https://github.com/davidtheclark/scut/tree/master/dist">here</a>.</li>
         <li><a href="http://susy.oddbird.net">Susy</a> &#126; Library files over <a href="https://github.com/ericam/susy/tree/master/sass">here</a>.</li>
         <li><a href="http://bootflat.github.io">Bootflat</a> &#126; Library files over <a href="https://github.com/bootflat/bootflat.github.io/tree/master/bootflat/scss">here</a>.</li>
