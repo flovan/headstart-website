@@ -56,7 +56,8 @@
         <li><code>tint($color, $percent)</code> &#126; Will lighten a color with a percentage of white.</li>
         <li><code>darken($color, $percent)</code> &#126; Will darken a color with a percentage of black.</li>
     </ul>
-    <p class="report--info"><strong>Note:</strong> <code>em()</code> should be used with care (due to its inherative nature), and works best for font sizes (use pixels for borders and defined dimensions, rem for all the rest). Therefore it is advised to use the <code>rem()</code> mixin, rather than the function, unless you don&#39;t care about pixel fallbacks. More on that further down the page.</p>
+    <p class="report--info"><strong>Note 1:</strong> <code>em()</code> should be used with care (due to its inherative nature), and works best for font sizes (use pixels for borders and defined dimensions, rem for all the rest).</p>
+    <p class="report--info"><strong>Note 2:</strong> <code>rem()</code> outputs only rem units, limiting browser support to IE9+. If you need to or want to support older versions, it is advised to use the <code>rem()</code> mixin, rather than the function. More on that further down the page.</p>
     <h3>_state.scss</h3>
     <p>A collection of silent classes that make it easy to keep your stylesheets <a href="http://csswizardry.com/2013/07/writing-dryer-vanilla-css/">DRY</a> by extending from them:</p>
     <ul>

@@ -51,7 +51,7 @@
             <div class="sidebar__wrapper wrapper">
                 <div class="sidebar__logo-wrapper">
                     <a class="logo sidebar__logo" href="{{URL::to('/')}}"><span class="is-hidden">Headstart</span></a>
-                    <a href="{{URL::to('/')}}/changelog" class="sidebar__version">v1.2.3</a>
+                    <a href="{{URL::to('/')}}/changelog" class="sidebar__version">v1.3.2</a>
                 </div>
                 @include('partials.main-menu')
             </div>
