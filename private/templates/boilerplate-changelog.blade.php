@@ -6,6 +6,11 @@
 </div>
 <div class="wrapper wrapper--content">
 	<p>Take a look at the changes that each boilerplate release brings below. Releases are hardcoded into Headstart releases to ensure backwards-compatibility.</p>
+	<hr id="r121">
+	<h2>1.2.1</h2>
+	<ul>
+		<li>Made the <code class="language-sass">column()</code> mixin <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself#DRY_vs_WET_solutions">WET</a> again to fix an issue with the custom breakpoint parameter.</li>
+	</ul>
 	<hr id="r120">
 	<h2>1.2.0</h2>
 	<ul>

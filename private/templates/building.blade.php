@@ -114,6 +114,9 @@
     // through a different host (eg. when viewing your project
     // through your MAMP/XAMP localhost)
     &quot;proxy&quot;: &quot;localhost/my-laravel-project/public&quot;,
+
+    // Use a different name for the assets folder
+    &quot;assetsFolder&quot;: &quot;assets&quot;,
     
     // Configure how your HTML will be minified
     // Default settings show below
