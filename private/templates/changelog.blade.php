@@ -6,6 +6,12 @@
 </div>
 <div class="wrapper wrapper--content">
 	<p>Take a look at the changes that each release brings below.</p>
+    <hr id="r132">
+    <h2>1.3.2</h2>
+    <ul>
+        <li>Reintroduced console output on file changes to show that <em>things are working</em>.</li>
+        <li>Added an optional configuration setting that enables <a href="{{URL::to('/')}}/building#optional-configuration">using a different name for the assets folder</a>.</li>
+    </ul>
     <hr id="r131">
     <h2>1.3.1</h2>
     <ul>
