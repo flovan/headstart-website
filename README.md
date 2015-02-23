@@ -1,5 +1,7 @@
 # [Headstart Website](http://headstart.io)
 
+> **Currently empty ... WIP**
+
 This repo contains the entire [Headstart](http://headstart.io) website.
 Uses Laravel as a back-end and has a front-end that is, of course, based on the default boilerplate.
 
